@@ -1,0 +1,10 @@
+D:\Vivicia\My Documents\NWU\Modules\Year 2\SEMESTER 2\CMPG 223\Project\Visual Studio\Book_Exchange_System\bin\Debug\Book_Exchange_System.exe.config
+D:\Vivicia\My Documents\NWU\Modules\Year 2\SEMESTER 2\CMPG 223\Project\Visual Studio\Book_Exchange_System\bin\Debug\Book_Exchange_System.exe
+D:\Vivicia\My Documents\NWU\Modules\Year 2\SEMESTER 2\CMPG 223\Project\Visual Studio\Book_Exchange_System\bin\Debug\Book_Exchange_System.pdb
+D:\Vivicia\My Documents\NWU\Modules\Year 2\SEMESTER 2\CMPG 223\Project\Visual Studio\Book_Exchange_System\obj\Debug\Book_Exchange_System.csproj.AssemblyReference.cache
+D:\Vivicia\My Documents\NWU\Modules\Year 2\SEMESTER 2\CMPG 223\Project\Visual Studio\Book_Exchange_System\obj\Debug\Book_Exchange_System.Form1.resources
+D:\Vivicia\My Documents\NWU\Modules\Year 2\SEMESTER 2\CMPG 223\Project\Visual Studio\Book_Exchange_System\obj\Debug\Book_Exchange_System.Properties.Resources.resources
+D:\Vivicia\My Documents\NWU\Modules\Year 2\SEMESTER 2\CMPG 223\Project\Visual Studio\Book_Exchange_System\obj\Debug\Book_Exchange_System.csproj.GenerateResource.cache
+D:\Vivicia\My Documents\NWU\Modules\Year 2\SEMESTER 2\CMPG 223\Project\Visual Studio\Book_Exchange_System\obj\Debug\Book_Exchange_System.csproj.CoreCompileInputs.cache
+D:\Vivicia\My Documents\NWU\Modules\Year 2\SEMESTER 2\CMPG 223\Project\Visual Studio\Book_Exchange_System\obj\Debug\Book_Exchange_System.exe
+D:\Vivicia\My Documents\NWU\Modules\Year 2\SEMESTER 2\CMPG 223\Project\Visual Studio\Book_Exchange_System\obj\Debug\Book_Exchange_System.pdb
