@@ -8,3 +8,17 @@ D:\Vivicia\My Documents\NWU\Modules\Year 2\SEMESTER 2\CMPG 223\Project\Visual St
 D:\Vivicia\My Documents\NWU\Modules\Year 2\SEMESTER 2\CMPG 223\Project\Visual Studio\Book_Exchange_System\obj\Debug\Book_Exchange_System.csproj.CoreCompileInputs.cache
 D:\Vivicia\My Documents\NWU\Modules\Year 2\SEMESTER 2\CMPG 223\Project\Visual Studio\Book_Exchange_System\obj\Debug\Book_Exchange_System.exe
 D:\Vivicia\My Documents\NWU\Modules\Year 2\SEMESTER 2\CMPG 223\Project\Visual Studio\Book_Exchange_System\obj\Debug\Book_Exchange_System.pdb
+C:\Users\Lawrence\OneDrive\Desktop\CMPG223-Diagrams\Book_Exchange_System\bin\Debug\Book_Exchange_System.exe.config
+C:\Users\Lawrence\OneDrive\Desktop\CMPG223-Diagrams\Book_Exchange_System\bin\Debug\Book_Exchange_System.exe
+C:\Users\Lawrence\OneDrive\Desktop\CMPG223-Diagrams\Book_Exchange_System\bin\Debug\Book_Exchange_System.pdb
+C:\Users\Lawrence\OneDrive\Desktop\CMPG223-Diagrams\Book_Exchange_System\obj\Debug\Book_Exchange_System.csproj.AssemblyReference.cache
+C:\Users\Lawrence\OneDrive\Desktop\CMPG223-Diagrams\Book_Exchange_System\obj\Debug\Book_Exchange_System.Books.resources
+C:\Users\Lawrence\OneDrive\Desktop\CMPG223-Diagrams\Book_Exchange_System\obj\Debug\Book_Exchange_System.Applicants.resources
+C:\Users\Lawrence\OneDrive\Desktop\CMPG223-Diagrams\Book_Exchange_System\obj\Debug\Book_Exchange_System.Login.resources
+C:\Users\Lawrence\OneDrive\Desktop\CMPG223-Diagrams\Book_Exchange_System\obj\Debug\Book_Exchange_System.Properties.Resources.resources
+C:\Users\Lawrence\OneDrive\Desktop\CMPG223-Diagrams\Book_Exchange_System\obj\Debug\Book_Exchange_System.csproj.GenerateResource.cache
+C:\Users\Lawrence\OneDrive\Desktop\CMPG223-Diagrams\Book_Exchange_System\obj\Debug\Book_Exchange_System.csproj.CoreCompileInputs.cache
+C:\Users\Lawrence\OneDrive\Desktop\CMPG223-Diagrams\Book_Exchange_System\obj\Debug\Book_Exchange_System.exe
+C:\Users\Lawrence\OneDrive\Desktop\CMPG223-Diagrams\Book_Exchange_System\obj\Debug\Book_Exchange_System.pdb
+C:\Users\Lawrence\OneDrive\Desktop\CMPG223-Diagrams\Book_Exchange_System\obj\Debug\Book_Exchange_System.Donors.resources
+C:\Users\Lawrence\OneDrive\Desktop\CMPG223-Diagrams\Book_Exchange_System\obj\Debug\Book_Exchange_System.Report.resources
