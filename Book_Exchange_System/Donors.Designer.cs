@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Donors));
             this.ButtonGraphic = new System.Windows.Forms.Panel();
+            this.btnDonateBooks = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button10 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -71,14 +72,16 @@
             this.lblDelAppID = new System.Windows.Forms.Label();
             this.btnDeleteDonor = new System.Windows.Forms.Button();
             this.Search = new System.Windows.Forms.Panel();
-            this.txtSearchDonor = new System.Windows.Forms.TextBox();
             this.btnSearchDonor = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.txtSearchDonor = new System.Windows.Forms.TextBox();
             this.btnReloadDonors = new System.Windows.Forms.Button();
             this.dgvDonors = new System.Windows.Forms.DataGridView();
-            this.btnDonateBooks = new System.Windows.Forms.Button();
             this.DonateBooks = new System.Windows.Forms.Panel();
             this.gbDonate = new System.Windows.Forms.GroupBox();
+            this.lblDonated = new System.Windows.Forms.Label();
+            this.dgvDonate = new System.Windows.Forms.DataGridView();
+            this.btnDonate = new System.Windows.Forms.Button();
             this.txtAName = new System.Windows.Forms.TextBox();
             this.txtASurname = new System.Windows.Forms.TextBox();
             this.txtEdition = new System.Windows.Forms.TextBox();
@@ -92,9 +95,6 @@
             this.lblCondition = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.btnDonate = new System.Windows.Forms.Button();
-            this.dgvDonate = new System.Windows.Forms.DataGridView();
-            this.lblDonated = new System.Windows.Forms.Label();
             this.ButtonGraphic.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.TopGraphic.SuspendLayout();
@@ -110,8 +110,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvDonors)).BeginInit();
             this.DonateBooks.SuspendLayout();
             this.gbDonate.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudCondition)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDonate)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCondition)).BeginInit();
             this.SuspendLayout();
             // 
             // ButtonGraphic
@@ -132,6 +132,19 @@
             this.ButtonGraphic.Name = "ButtonGraphic";
             this.ButtonGraphic.Size = new System.Drawing.Size(253, 818);
             this.ButtonGraphic.TabIndex = 2;
+            // 
+            // btnDonateBooks
+            // 
+            this.btnDonateBooks.BackColor = System.Drawing.Color.Teal;
+            this.btnDonateBooks.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDonateBooks.ForeColor = System.Drawing.Color.White;
+            this.btnDonateBooks.Location = new System.Drawing.Point(13, 472);
+            this.btnDonateBooks.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDonateBooks.Name = "btnDonateBooks";
+            this.btnDonateBooks.Size = new System.Drawing.Size(208, 74);
+            this.btnDonateBooks.TabIndex = 32;
+            this.btnDonateBooks.Text = "Donate Books";
+            this.btnDonateBooks.UseVisualStyleBackColor = false;
             // 
             // pictureBox1
             // 
@@ -586,14 +599,6 @@
             this.Search.Size = new System.Drawing.Size(497, 601);
             this.Search.TabIndex = 8;
             // 
-            // txtSearchDonor
-            // 
-            this.txtSearchDonor.Location = new System.Drawing.Point(11, 7);
-            this.txtSearchDonor.Margin = new System.Windows.Forms.Padding(4);
-            this.txtSearchDonor.Name = "txtSearchDonor";
-            this.txtSearchDonor.Size = new System.Drawing.Size(249, 22);
-            this.txtSearchDonor.TabIndex = 27;
-            // 
             // btnSearchDonor
             // 
             this.btnSearchDonor.BackColor = System.Drawing.Color.Teal;
@@ -614,6 +619,14 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(322, 47);
             this.panel3.TabIndex = 34;
+            // 
+            // txtSearchDonor
+            // 
+            this.txtSearchDonor.Location = new System.Drawing.Point(11, 7);
+            this.txtSearchDonor.Margin = new System.Windows.Forms.Padding(4);
+            this.txtSearchDonor.Name = "txtSearchDonor";
+            this.txtSearchDonor.Size = new System.Drawing.Size(249, 22);
+            this.txtSearchDonor.TabIndex = 27;
             // 
             // btnReloadDonors
             // 
@@ -636,19 +649,6 @@
             this.dgvDonors.RowTemplate.Height = 24;
             this.dgvDonors.Size = new System.Drawing.Size(462, 398);
             this.dgvDonors.TabIndex = 32;
-            // 
-            // btnDonateBooks
-            // 
-            this.btnDonateBooks.BackColor = System.Drawing.Color.Teal;
-            this.btnDonateBooks.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDonateBooks.ForeColor = System.Drawing.Color.White;
-            this.btnDonateBooks.Location = new System.Drawing.Point(13, 472);
-            this.btnDonateBooks.Margin = new System.Windows.Forms.Padding(4);
-            this.btnDonateBooks.Name = "btnDonateBooks";
-            this.btnDonateBooks.Size = new System.Drawing.Size(208, 74);
-            this.btnDonateBooks.TabIndex = 32;
-            this.btnDonateBooks.Text = "Donate Books";
-            this.btnDonateBooks.UseVisualStyleBackColor = false;
             // 
             // DonateBooks
             // 
@@ -693,6 +693,40 @@
             this.gbDonate.TabIndex = 0;
             this.gbDonate.TabStop = false;
             this.gbDonate.Text = "Donate Books";
+            // 
+            // lblDonated
+            // 
+            this.lblDonated.AutoSize = true;
+            this.lblDonated.BackColor = System.Drawing.SystemColors.Control;
+            this.lblDonated.ForeColor = System.Drawing.Color.Black;
+            this.lblDonated.Location = new System.Drawing.Point(493, 32);
+            this.lblDonated.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblDonated.Name = "lblDonated";
+            this.lblDonated.Size = new System.Drawing.Size(152, 25);
+            this.lblDonated.TabIndex = 22;
+            this.lblDonated.Text = "Books Donated:";
+            // 
+            // dgvDonate
+            // 
+            this.dgvDonate.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDonate.Location = new System.Drawing.Point(498, 63);
+            this.dgvDonate.Name = "dgvDonate";
+            this.dgvDonate.RowHeadersWidth = 51;
+            this.dgvDonate.RowTemplate.Height = 24;
+            this.dgvDonate.Size = new System.Drawing.Size(655, 285);
+            this.dgvDonate.TabIndex = 21;
+            // 
+            // btnDonate
+            // 
+            this.btnDonate.BackColor = System.Drawing.Color.Teal;
+            this.btnDonate.ForeColor = System.Drawing.Color.White;
+            this.btnDonate.Location = new System.Drawing.Point(228, 463);
+            this.btnDonate.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDonate.Name = "btnDonate";
+            this.btnDonate.Size = new System.Drawing.Size(267, 54);
+            this.btnDonate.TabIndex = 20;
+            this.btnDonate.Text = "Donate Books";
+            this.btnDonate.UseVisualStyleBackColor = false;
             // 
             // txtAName
             // 
@@ -841,40 +875,6 @@
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = false;
             // 
-            // btnDonate
-            // 
-            this.btnDonate.BackColor = System.Drawing.Color.Teal;
-            this.btnDonate.ForeColor = System.Drawing.Color.White;
-            this.btnDonate.Location = new System.Drawing.Point(228, 463);
-            this.btnDonate.Margin = new System.Windows.Forms.Padding(4);
-            this.btnDonate.Name = "btnDonate";
-            this.btnDonate.Size = new System.Drawing.Size(267, 54);
-            this.btnDonate.TabIndex = 20;
-            this.btnDonate.Text = "Donate Books";
-            this.btnDonate.UseVisualStyleBackColor = false;
-            // 
-            // dgvDonate
-            // 
-            this.dgvDonate.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDonate.Location = new System.Drawing.Point(498, 63);
-            this.dgvDonate.Name = "dgvDonate";
-            this.dgvDonate.RowHeadersWidth = 51;
-            this.dgvDonate.RowTemplate.Height = 24;
-            this.dgvDonate.Size = new System.Drawing.Size(655, 285);
-            this.dgvDonate.TabIndex = 21;
-            // 
-            // lblDonated
-            // 
-            this.lblDonated.AutoSize = true;
-            this.lblDonated.BackColor = System.Drawing.SystemColors.Control;
-            this.lblDonated.ForeColor = System.Drawing.Color.Black;
-            this.lblDonated.Location = new System.Drawing.Point(493, 32);
-            this.lblDonated.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblDonated.Name = "lblDonated";
-            this.lblDonated.Size = new System.Drawing.Size(152, 25);
-            this.lblDonated.TabIndex = 22;
-            this.lblDonated.Text = "Books Donated:";
-            // 
             // Donors
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -892,6 +892,7 @@
             this.DoubleBuffered = true;
             this.Name = "Donors";
             this.Text = "Donor";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.ButtonGraphic.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.TopGraphic.ResumeLayout(false);
@@ -914,8 +915,8 @@
             this.DonateBooks.ResumeLayout(false);
             this.gbDonate.ResumeLayout(false);
             this.gbDonate.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudCondition)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDonate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCondition)).EndInit();
             this.ResumeLayout(false);
 
         }
