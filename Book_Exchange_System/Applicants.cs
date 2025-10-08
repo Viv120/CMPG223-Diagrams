@@ -35,6 +35,7 @@ namespace Book_Exchange_System
         {
             try
             {
+                conn.Open();
                 string query = "SELECT * FROM applicant";
                 cmd = new MySqlCommand(query, conn);
 
@@ -54,12 +55,33 @@ namespace Book_Exchange_System
             }
         }
 
+        private void RefreshApplicantID()
+        {
+            cmbAppID.Items.Clear();
+            cmbDeleteApp.Items.Clear();
+
+            conn.Open();
+            string query = "SELECT Applicant_ID FROM applicant";
+            cmd = new MySqlCommand(query, conn);
+
+            using(reader = cmd.ExecuteReader())
+            {
+                while(reader.Read())
+                {
+                    int id = reader.GetInt32("Applicant_ID");
+                    cmbAppID.Items.Add(id);
+                    cmbDeleteApp.Items.Add(id);
+                }
+            }
+
+            conn.Close();
+        }
+
         private void ShowPanels(Panel panel)
         {
             AddApplicants.Visible = false;
             UpdateApplicants.Visible = false;
             DeleteApplicants.Visible = false;
-            RequestBooks.Visible = false;
             Search.Visible = false;
 
             panel.Visible = true;
@@ -131,10 +153,6 @@ namespace Book_Exchange_System
             ShowPanels(AddApplicants);
         }
 
-        private void btnReceive_Click(object sender, EventArgs e)
-        {
-            ShowPanels(RequestBooks);
-        }
 
         private void cmbAppID_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -248,11 +266,6 @@ namespace Book_Exchange_System
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnReloadApplicants_Click(object sender, EventArgs e)
         {
             LoadApplicants();
@@ -271,7 +284,6 @@ namespace Book_Exchange_System
             string surname = txtASurname.Text;
             string studentNum = txtStudents.Text;
             string email = txtEmail.Text;
-            string password = txtAppPass.Text;
 
             int campusID = 0;
             if (rdoP.Checked)
@@ -293,7 +305,6 @@ namespace Book_Exchange_System
             txtASurname.BackColor = SystemColors.Window;
             txtStudents.BackColor = SystemColors.Window;
             txtEmail.BackColor = SystemColors.Window;
-            txtAppPass.BackColor = SystemColors.Window;
             rdoP.BackColor = SystemColors.Control;
             rdoM.BackColor = SystemColors.Control;
             rdoV.BackColor = SystemColors.Control;
@@ -325,19 +336,7 @@ namespace Book_Exchange_System
             if (string.IsNullOrWhiteSpace(email) || !email.Contains("@"))
             {
                 txtEmail.BackColor = Color.LightPink;
-                errorProvider1.SetError(txtEmail, "Please enter a email!");
-                valid = false;
-            }
-            if (!email.Contains("@"))
-            {
-                txtEmail.BackColor = Color.LightPink;
                 errorProvider1.SetError(txtEmail, "Please enter a valid email containing @!");
-                valid = false;
-            }
-            if (!Regex.IsMatch(txtAppPass.Text, @"^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$"))
-            {
-                txtAppPass.BackColor = Color.LightPink;
-                errorProvider1.SetError(txtAppPass, "Password must be 8+ characters with uppercase, number and special character!");
                 valid = false;
             }
             if (campusID == 0)
@@ -374,16 +373,6 @@ namespace Book_Exchange_System
                 cmd.Parameters.AddWithValue("@CampusID", campusID);
                 cmd.ExecuteNonQuery();
 
-                long newApplicantID = cmd.LastInsertedId;
-
-                string queryLogin = @"INSERT INTO applicant_login (Applicant_ID, Email, Password) VALUES (@ApplicantID, @Email, @Password)";
-
-                cmd = new MySqlCommand(queryLogin, conn);
-                cmd.Parameters.AddWithValue("@ApplicantID", newApplicantID);
-                cmd.Parameters.AddWithValue("@Email", email);
-                cmd.Parameters.AddWithValue("@Password", password);
-                cmd.ExecuteNonQuery();
-
                 MessageBox.Show("Applicant added successfully!");
                 LoadApplicants();
 
@@ -391,7 +380,6 @@ namespace Book_Exchange_System
                 txtASurname.Clear();
                 txtStudents.Clear();
                 txtEmail.Clear();
-                txtAppPass.Clear();
                 rdoP.Checked = false;
                 rdoM.Checked = false;
                 rdoV.Checked = false;
@@ -455,6 +443,74 @@ namespace Book_Exchange_System
             {
                 MessageBox.Show("Error updating applicant: " + ex.Message);
             }
+        }
+
+        private void btnSearchApplicant_Click(object sender, EventArgs e)
+        {
+            string searchItem = txtSearchApp.Text;
+            int campusID = 0;
+
+            if(rdoFilterP.Checked)
+            {
+                campusID = 1;
+            }
+            else if (rdoFilterM.Checked)
+            {
+                campusID = 2;
+            }
+            else if (rdoFilterV.Checked)
+            {
+                campusID = 3;
+            }
+
+            try
+            {
+                conn.Open();
+
+                string query = @"SELECT * FROM applicant WHERE (First_Name LIKE @search OR Last_Name LIKE @search)";
+
+                if (campusID != 0)
+                {
+                    query += " AND Campus_ID = @campusID";
+                }
+
+                cmd = new MySqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@search", "%" + searchItem + "%");
+
+                if(campusID != 0)
+                {
+                    cmd.Parameters.AddWithValue("@campusID", campusID);
+                }
+
+                da = new MySqlDataAdapter(cmd);
+                dt = new DataTable();
+                da.Fill(dt);
+                dgvApplicants.DataSource = dt;
+
+                conn.Close();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Error searching applicants: " + ex.Message);
+            }
+        }
+
+        private void btnClearFilters_Click(object sender, EventArgs e)
+        {
+            txtSearchApp.Clear();
+
+            rdoFilterP.Checked = false;
+            rdoFilterM.Checked = false;
+            rdoFilterV.Checked = false;
+
+            LoadApplicants();
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            Logins loginForm = new Logins();
+            loginForm.Show();
+            this.Close();
         }
     }
 }
