@@ -31,6 +31,7 @@ namespace Book_Exchange_System
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Applicants));
             this.ButtonGraphics = new System.Windows.Forms.Panel();
+            this.btnReceive = new System.Windows.Forms.Button();
             this.btnDeleteBooks = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -51,8 +52,13 @@ namespace Book_Exchange_System
             this.lblNewSurname = new System.Windows.Forms.Label();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.DeleteApplicants = new System.Windows.Forms.Panel();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.cbDeleteApp = new System.Windows.Forms.ComboBox();
+            this.lblDelAppID = new System.Windows.Forms.Label();
+            this.btnDelete = new System.Windows.Forms.Button();
             this.AddApplicants = new System.Windows.Forms.Panel();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.btnAddApplicant = new System.Windows.Forms.Button();
             this.txtAppPass = new System.Windows.Forms.TextBox();
             this.lblAppPass = new System.Windows.Forms.Label();
             this.lblStudentNo = new System.Windows.Forms.Label();
@@ -63,45 +69,39 @@ namespace Book_Exchange_System
             this.lblAuthorF = new System.Windows.Forms.Label();
             this.lblAuthorL = new System.Windows.Forms.Label();
             this.lblEmail = new System.Windows.Forms.Label();
-            this.btnReceive = new System.Windows.Forms.Button();
             this.RequestBooks = new System.Windows.Forms.Panel();
             this.gbReceive = new System.Windows.Forms.GroupBox();
+            this.btnRequest = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.chkSelect = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Search = new System.Windows.Forms.Panel();
             this.btnSearchApplicant = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
             this.txtSearchApp = new System.Windows.Forms.TextBox();
             this.btnReloadApplicants = new System.Windows.Forms.Button();
             this.dgvApplicants = new System.Windows.Forms.DataGridView();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.lblDelAppID = new System.Windows.Forms.Label();
-            this.cbDeleteApp = new System.Windows.Forms.ComboBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.TopGraphic = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnAddApplicant = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.chkSelect = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.btnRequest = new System.Windows.Forms.Button();
             this.ButtonGraphics.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.UpdateApplicants.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.DeleteApplicants.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.AddApplicants.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.RequestBooks.SuspendLayout();
             this.gbReceive.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.Search.SuspendLayout();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvApplicants)).BeginInit();
-            this.groupBox3.SuspendLayout();
             this.TopGraphic.SuspendLayout();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // ButtonGraphics
@@ -122,6 +122,19 @@ namespace Book_Exchange_System
             this.ButtonGraphics.Name = "ButtonGraphics";
             this.ButtonGraphics.Size = new System.Drawing.Size(253, 818);
             this.ButtonGraphics.TabIndex = 2;
+            // 
+            // btnReceive
+            // 
+            this.btnReceive.BackColor = System.Drawing.Color.Teal;
+            this.btnReceive.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReceive.ForeColor = System.Drawing.Color.White;
+            this.btnReceive.Location = new System.Drawing.Point(16, 464);
+            this.btnReceive.Margin = new System.Windows.Forms.Padding(4);
+            this.btnReceive.Name = "btnReceive";
+            this.btnReceive.Size = new System.Drawing.Size(208, 74);
+            this.btnReceive.TabIndex = 6;
+            this.btnReceive.Text = "Receive Books";
+            this.btnReceive.UseVisualStyleBackColor = false;
             // 
             // btnDeleteBooks
             // 
@@ -182,6 +195,7 @@ namespace Book_Exchange_System
             this.btnUpdateApplicants.TabIndex = 1;
             this.btnUpdateApplicants.Text = "Update Applicants";
             this.btnUpdateApplicants.UseVisualStyleBackColor = false;
+            this.btnUpdateApplicants.Click += new System.EventHandler(this.btnUpdateApplicants_Click);
             // 
             // btnAddApplicants
             // 
@@ -195,6 +209,7 @@ namespace Book_Exchange_System
             this.btnAddApplicants.TabIndex = 0;
             this.btnAddApplicants.Text = "Add Applicants";
             this.btnAddApplicants.UseVisualStyleBackColor = false;
+            this.btnAddApplicants.Click += new System.EventHandler(this.btnAddApplicants_Click);
             // 
             // UpdateApplicants
             // 
@@ -362,6 +377,56 @@ namespace Book_Exchange_System
             this.DeleteApplicants.Size = new System.Drawing.Size(666, 600);
             this.DeleteApplicants.TabIndex = 22;
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.cbDeleteApp);
+            this.groupBox3.Controls.Add(this.lblDelAppID);
+            this.groupBox3.Controls.Add(this.btnDelete);
+            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.ForeColor = System.Drawing.Color.Black;
+            this.groupBox3.Location = new System.Drawing.Point(0, 0);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox3.Size = new System.Drawing.Size(666, 600);
+            this.groupBox3.TabIndex = 0;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Delete Applicants";
+            // 
+            // cbDeleteApp
+            // 
+            this.cbDeleteApp.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.cbDeleteApp.FormattingEnabled = true;
+            this.cbDeleteApp.Location = new System.Drawing.Point(13, 136);
+            this.cbDeleteApp.Margin = new System.Windows.Forms.Padding(4);
+            this.cbDeleteApp.Name = "cbDeleteApp";
+            this.cbDeleteApp.Size = new System.Drawing.Size(213, 33);
+            this.cbDeleteApp.TabIndex = 19;
+            // 
+            // lblDelAppID
+            // 
+            this.lblDelAppID.AutoSize = true;
+            this.lblDelAppID.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblDelAppID.Location = new System.Drawing.Point(8, 95);
+            this.lblDelAppID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblDelAppID.Name = "lblDelAppID";
+            this.lblDelAppID.Size = new System.Drawing.Size(123, 25);
+            this.lblDelAppID.TabIndex = 6;
+            this.lblDelAppID.Text = "Applicant ID:";
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.BackColor = System.Drawing.Color.Teal;
+            this.btnDelete.ForeColor = System.Drawing.Color.White;
+            this.btnDelete.Location = new System.Drawing.Point(13, 293);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(173, 54);
+            this.btnDelete.TabIndex = 1;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = false;
+            // 
             // AddApplicants
             // 
             this.AddApplicants.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("AddApplicants.BackgroundImage")));
@@ -391,6 +456,17 @@ namespace Book_Exchange_System
             this.groupBox4.TabIndex = 0;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Add Applicants";
+            // 
+            // btnAddApplicant
+            // 
+            this.btnAddApplicant.BackColor = System.Drawing.Color.Teal;
+            this.btnAddApplicant.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnAddApplicant.Location = new System.Drawing.Point(345, 532);
+            this.btnAddApplicant.Name = "btnAddApplicant";
+            this.btnAddApplicant.Size = new System.Drawing.Size(313, 53);
+            this.btnAddApplicant.TabIndex = 41;
+            this.btnAddApplicant.Text = "Add";
+            this.btnAddApplicant.UseVisualStyleBackColor = false;
             // 
             // txtAppPass
             // 
@@ -490,19 +566,6 @@ namespace Book_Exchange_System
             this.lblEmail.TabIndex = 31;
             this.lblEmail.Text = "Email:";
             // 
-            // btnReceive
-            // 
-            this.btnReceive.BackColor = System.Drawing.Color.Teal;
-            this.btnReceive.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReceive.ForeColor = System.Drawing.Color.White;
-            this.btnReceive.Location = new System.Drawing.Point(16, 464);
-            this.btnReceive.Margin = new System.Windows.Forms.Padding(4);
-            this.btnReceive.Name = "btnReceive";
-            this.btnReceive.Size = new System.Drawing.Size(208, 74);
-            this.btnReceive.TabIndex = 6;
-            this.btnReceive.Text = "Receive Books";
-            this.btnReceive.UseVisualStyleBackColor = false;
-            // 
             // RequestBooks
             // 
             this.RequestBooks.Controls.Add(this.gbReceive);
@@ -524,6 +587,78 @@ namespace Book_Exchange_System
             this.gbReceive.TabIndex = 0;
             this.gbReceive.TabStop = false;
             this.gbReceive.Text = "Request to Receive Books";
+            // 
+            // btnRequest
+            // 
+            this.btnRequest.BackColor = System.Drawing.Color.Teal;
+            this.btnRequest.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRequest.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.btnRequest.Location = new System.Drawing.Point(73, 502);
+            this.btnRequest.Name = "btnRequest";
+            this.btnRequest.Size = new System.Drawing.Size(278, 55);
+            this.btnRequest.TabIndex = 40;
+            this.btnRequest.Text = "Request Selected Books";
+            this.btnRequest.UseVisualStyleBackColor = false;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Teal;
+            this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button1.Location = new System.Drawing.Point(415, 52);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(123, 47);
+            this.button1.TabIndex = 39;
+            this.button1.Text = "Search";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // panel1
+            // 
+            this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Location = new System.Drawing.Point(71, 52);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(322, 47);
+            this.panel1.TabIndex = 38;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(11, 7);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(249, 22);
+            this.textBox1.TabIndex = 27;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.Teal;
+            this.button2.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.button2.Location = new System.Drawing.Point(985, 192);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(157, 55);
+            this.button2.TabIndex = 37;
+            this.button2.Text = "Reload table";
+            this.button2.UseVisualStyleBackColor = false;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.chkSelect});
+            this.dataGridView1.Location = new System.Drawing.Point(73, 119);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 49;
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(887, 126);
+            this.dataGridView1.TabIndex = 36;
+            // 
+            // chkSelect
+            // 
+            this.chkSelect.HeaderText = "Select";
+            this.chkSelect.MinimumWidth = 6;
+            this.chkSelect.Name = "chkSelect";
+            this.chkSelect.Width = 125;
             // 
             // Search
             // 
@@ -588,56 +723,6 @@ namespace Book_Exchange_System
             this.dgvApplicants.Size = new System.Drawing.Size(462, 398);
             this.dgvApplicants.TabIndex = 32;
             // 
-            // btnDelete
-            // 
-            this.btnDelete.BackColor = System.Drawing.Color.Teal;
-            this.btnDelete.ForeColor = System.Drawing.Color.White;
-            this.btnDelete.Location = new System.Drawing.Point(13, 293);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(4);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(173, 54);
-            this.btnDelete.TabIndex = 1;
-            this.btnDelete.Text = "Delete";
-            this.btnDelete.UseVisualStyleBackColor = false;
-            // 
-            // lblDelAppID
-            // 
-            this.lblDelAppID.AutoSize = true;
-            this.lblDelAppID.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblDelAppID.Location = new System.Drawing.Point(8, 95);
-            this.lblDelAppID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblDelAppID.Name = "lblDelAppID";
-            this.lblDelAppID.Size = new System.Drawing.Size(123, 25);
-            this.lblDelAppID.TabIndex = 6;
-            this.lblDelAppID.Text = "Applicant ID:";
-            // 
-            // cbDeleteApp
-            // 
-            this.cbDeleteApp.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.cbDeleteApp.FormattingEnabled = true;
-            this.cbDeleteApp.Location = new System.Drawing.Point(13, 136);
-            this.cbDeleteApp.Margin = new System.Windows.Forms.Padding(4);
-            this.cbDeleteApp.Name = "cbDeleteApp";
-            this.cbDeleteApp.Size = new System.Drawing.Size(213, 33);
-            this.cbDeleteApp.TabIndex = 19;
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.cbDeleteApp);
-            this.groupBox3.Controls.Add(this.lblDelAppID);
-            this.groupBox3.Controls.Add(this.btnDelete);
-            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.ForeColor = System.Drawing.Color.Black;
-            this.groupBox3.Location = new System.Drawing.Point(0, 0);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox3.Size = new System.Drawing.Size(666, 600);
-            this.groupBox3.TabIndex = 0;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Delete Applicants";
-            // 
             // TopGraphic
             // 
             this.TopGraphic.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("TopGraphic.BackgroundImage")));
@@ -660,97 +745,14 @@ namespace Book_Exchange_System
             this.label2.TabIndex = 0;
             this.label2.Text = "Applicants";
             // 
-            // btnAddApplicant
-            // 
-            this.btnAddApplicant.BackColor = System.Drawing.Color.Teal;
-            this.btnAddApplicant.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnAddApplicant.Location = new System.Drawing.Point(345, 532);
-            this.btnAddApplicant.Name = "btnAddApplicant";
-            this.btnAddApplicant.Size = new System.Drawing.Size(313, 53);
-            this.btnAddApplicant.TabIndex = 41;
-            this.btnAddApplicant.Text = "Add";
-            this.btnAddApplicant.UseVisualStyleBackColor = false;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(11, 7);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(249, 22);
-            this.textBox1.TabIndex = 27;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.Teal;
-            this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button1.Location = new System.Drawing.Point(415, 52);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(123, 47);
-            this.button1.TabIndex = 39;
-            this.button1.Text = "Search";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // panel1
-            // 
-            this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
-            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Location = new System.Drawing.Point(71, 52);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(322, 47);
-            this.panel1.TabIndex = 38;
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.Teal;
-            this.button2.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.button2.Location = new System.Drawing.Point(985, 192);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(157, 55);
-            this.button2.TabIndex = 37;
-            this.button2.Text = "Reload table";
-            this.button2.UseVisualStyleBackColor = false;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.chkSelect});
-            this.dataGridView1.Location = new System.Drawing.Point(73, 119);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 49;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(887, 126);
-            this.dataGridView1.TabIndex = 36;
-            // 
-            // chkSelect
-            // 
-            this.chkSelect.HeaderText = "Select";
-            this.chkSelect.MinimumWidth = 6;
-            this.chkSelect.Name = "chkSelect";
-            this.chkSelect.Width = 125;
-            // 
-            // btnRequest
-            // 
-            this.btnRequest.BackColor = System.Drawing.Color.Teal;
-            this.btnRequest.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRequest.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.btnRequest.Location = new System.Drawing.Point(73, 502);
-            this.btnRequest.Name = "btnRequest";
-            this.btnRequest.Size = new System.Drawing.Size(278, 55);
-            this.btnRequest.TabIndex = 40;
-            this.btnRequest.Text = "Request Selected Books";
-            this.btnRequest.UseVisualStyleBackColor = false;
-            // 
             // Applicants
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1413, 818);
+            this.Controls.Add(this.AddApplicants);
             this.Controls.Add(this.RequestBooks);
             this.Controls.Add(this.UpdateApplicants);
-            this.Controls.Add(this.AddApplicants);
             this.Controls.Add(this.DeleteApplicants);
             this.Controls.Add(this.TopGraphic);
             this.Controls.Add(this.Search);
@@ -764,22 +766,22 @@ namespace Book_Exchange_System
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.DeleteApplicants.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.AddApplicants.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.RequestBooks.ResumeLayout(false);
             this.gbReceive.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.Search.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvApplicants)).EndInit();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             this.TopGraphic.ResumeLayout(false);
             this.TopGraphic.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }

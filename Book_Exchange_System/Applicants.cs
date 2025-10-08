@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
+using System.Text.RegularExpressions;
 
 namespace Book_Exchange_System
 {
@@ -22,6 +24,14 @@ namespace Book_Exchange_System
 
         }
 
-        
+        private void btnAddApplicants_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnUpdateApplicants_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
