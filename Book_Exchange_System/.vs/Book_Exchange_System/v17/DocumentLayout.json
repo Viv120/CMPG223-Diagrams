@@ -1,0 +1,69 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\maran\\Documents\\lucky\\CMPG223-Diagrams\\Book_Exchange_System\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{48D9D4F9-519D-4AE2-B504-10C539B9AF20}|Final-UI_VisualStudio.csproj|c:\\users\\maran\\documents\\lucky\\cmpg223-diagrams\\book_exchange_system\\admin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48D9D4F9-519D-4AE2-B504-10C539B9AF20}|Final-UI_VisualStudio.csproj|solutionrelative:admin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48D9D4F9-519D-4AE2-B504-10C539B9AF20}|Final-UI_VisualStudio.csproj|c:\\users\\maran\\documents\\lucky\\cmpg223-diagrams\\book_exchange_system\\admin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{48D9D4F9-519D-4AE2-B504-10C539B9AF20}|Final-UI_VisualStudio.csproj|solutionrelative:admin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48D9D4F9-519D-4AE2-B504-10C539B9AF20}|Final-UI_VisualStudio.csproj|C:\\Users\\maran\\Documents\\lucky\\CMPG223-Diagrams\\Book_Exchange_System\\logins.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48D9D4F9-519D-4AE2-B504-10C539B9AF20}|Final-UI_VisualStudio.csproj|solutionrelative:logins.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Admin.cs",
+              "DocumentMoniker": "C:\\Users\\maran\\Documents\\lucky\\CMPG223-Diagrams\\Book_Exchange_System\\Admin.cs",
+              "RelativeDocumentMoniker": "Admin.cs",
+              "ToolTip": "C:\\Users\\maran\\Documents\\lucky\\CMPG223-Diagrams\\Book_Exchange_System\\Admin.cs",
+              "RelativeToolTip": "Admin.cs",
+              "ViewState": "AgIAAGYBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-08T15:15:10.756Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Logins.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\maran\\Documents\\lucky\\CMPG223-Diagrams\\Book_Exchange_System\\Logins.Designer.cs",
+              "RelativeDocumentMoniker": "Logins.Designer.cs",
+              "ToolTip": "C:\\Users\\maran\\Documents\\lucky\\CMPG223-Diagrams\\Book_Exchange_System\\Logins.Designer.cs",
+              "RelativeToolTip": "Logins.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-08T11:48:45.708Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Admin.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\maran\\Documents\\lucky\\CMPG223-Diagrams\\Book_Exchange_System\\Admin.cs",
+              "RelativeDocumentMoniker": "Admin.cs",
+              "ToolTip": "C:\\Users\\maran\\Documents\\lucky\\CMPG223-Diagrams\\Book_Exchange_System\\Admin.cs [Design]",
+              "RelativeToolTip": "Admin.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-06T20:56:56.784Z",
+              "EditorCaption": " [Design]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
