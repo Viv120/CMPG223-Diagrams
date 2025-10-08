@@ -29,6 +29,7 @@ namespace Book_Exchange_System
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Applicants));
             this.ButtonGraphics = new System.Windows.Forms.Panel();
             this.btnReceive = new System.Windows.Forms.Button();
@@ -40,11 +41,13 @@ namespace Book_Exchange_System
             this.btnAddApplicants = new System.Windows.Forms.Button();
             this.UpdateApplicants = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtNewName = new System.Windows.Forms.TextBox();
+            this.lblNewName = new System.Windows.Forms.Label();
             this.rdoMahikeng = new System.Windows.Forms.RadioButton();
             this.rdoVaal = new System.Windows.Forms.RadioButton();
             this.rdoPotch = new System.Windows.Forms.RadioButton();
             this.lblCampus = new System.Windows.Forms.Label();
-            this.cbAppID = new System.Windows.Forms.ComboBox();
+            this.cmbAppID = new System.Windows.Forms.ComboBox();
             this.lblApplicantID = new System.Windows.Forms.Label();
             this.txtNewEmail = new System.Windows.Forms.TextBox();
             this.txtNewSurname = new System.Windows.Forms.TextBox();
@@ -53,7 +56,7 @@ namespace Book_Exchange_System
             this.btnUpdate = new System.Windows.Forms.Button();
             this.DeleteApplicants = new System.Windows.Forms.Panel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.cbDeleteApp = new System.Windows.Forms.ComboBox();
+            this.cmbDeleteApp = new System.Windows.Forms.ComboBox();
             this.lblDelAppID = new System.Windows.Forms.Label();
             this.btnDelete = new System.Windows.Forms.Button();
             this.AddApplicants = new System.Windows.Forms.Panel();
@@ -86,6 +89,11 @@ namespace Book_Exchange_System
             this.dgvApplicants = new System.Windows.Forms.DataGridView();
             this.TopGraphic = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
+            this.rdoM = new System.Windows.Forms.RadioButton();
+            this.rdoV = new System.Windows.Forms.RadioButton();
+            this.rdoP = new System.Windows.Forms.RadioButton();
+            this.label1 = new System.Windows.Forms.Label();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.ButtonGraphics.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.UpdateApplicants.SuspendLayout();
@@ -102,6 +110,7 @@ namespace Book_Exchange_System
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvApplicants)).BeginInit();
             this.TopGraphic.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // ButtonGraphics
@@ -135,6 +144,7 @@ namespace Book_Exchange_System
             this.btnReceive.TabIndex = 6;
             this.btnReceive.Text = "Receive Books";
             this.btnReceive.UseVisualStyleBackColor = false;
+            this.btnReceive.Click += new System.EventHandler(this.btnReceive_Click);
             // 
             // btnDeleteBooks
             // 
@@ -182,6 +192,7 @@ namespace Book_Exchange_System
             this.btnDeleteApplicants.TabIndex = 2;
             this.btnDeleteApplicants.Text = "Delete Applicants";
             this.btnDeleteApplicants.UseVisualStyleBackColor = false;
+            this.btnDeleteApplicants.Click += new System.EventHandler(this.btnDeleteApplicants_Click);
             // 
             // btnUpdateApplicants
             // 
@@ -224,11 +235,13 @@ namespace Book_Exchange_System
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupBox2.Controls.Add(this.txtNewName);
+            this.groupBox2.Controls.Add(this.lblNewName);
             this.groupBox2.Controls.Add(this.rdoMahikeng);
             this.groupBox2.Controls.Add(this.rdoVaal);
             this.groupBox2.Controls.Add(this.rdoPotch);
             this.groupBox2.Controls.Add(this.lblCampus);
-            this.groupBox2.Controls.Add(this.cbAppID);
+            this.groupBox2.Controls.Add(this.cmbAppID);
             this.groupBox2.Controls.Add(this.lblApplicantID);
             this.groupBox2.Controls.Add(this.txtNewEmail);
             this.groupBox2.Controls.Add(this.txtNewSurname);
@@ -245,31 +258,52 @@ namespace Book_Exchange_System
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Update Applicant";
+            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
+            // 
+            // txtNewName
+            // 
+            this.txtNewName.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.txtNewName.Location = new System.Drawing.Point(8, 237);
+            this.txtNewName.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNewName.Name = "txtNewName";
+            this.txtNewName.Size = new System.Drawing.Size(301, 30);
+            this.txtNewName.TabIndex = 27;
+            // 
+            // lblNewName
+            // 
+            this.lblNewName.AutoSize = true;
+            this.lblNewName.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblNewName.Location = new System.Drawing.Point(8, 192);
+            this.lblNewName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblNewName.Name = "lblNewName";
+            this.lblNewName.Size = new System.Drawing.Size(70, 25);
+            this.lblNewName.TabIndex = 26;
+            this.lblNewName.Text = "Name:";
             // 
             // rdoMahikeng
             // 
             this.rdoMahikeng.AutoSize = true;
             this.rdoMahikeng.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdoMahikeng.Location = new System.Drawing.Point(13, 501);
+            this.rdoMahikeng.Location = new System.Drawing.Point(13, 469);
             this.rdoMahikeng.Margin = new System.Windows.Forms.Padding(4);
             this.rdoMahikeng.Name = "rdoMahikeng";
             this.rdoMahikeng.Size = new System.Drawing.Size(187, 24);
             this.rdoMahikeng.TabIndex = 25;
             this.rdoMahikeng.TabStop = true;
-            this.rdoMahikeng.Text = "3: Mahikeng Campus";
+            this.rdoMahikeng.Text = "2: Mahikeng Campus";
             this.rdoMahikeng.UseVisualStyleBackColor = true;
             // 
             // rdoVaal
             // 
             this.rdoVaal.AutoSize = true;
             this.rdoVaal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdoVaal.Location = new System.Drawing.Point(13, 469);
+            this.rdoVaal.Location = new System.Drawing.Point(13, 501);
             this.rdoVaal.Margin = new System.Windows.Forms.Padding(4);
             this.rdoVaal.Name = "rdoVaal";
             this.rdoVaal.Size = new System.Drawing.Size(149, 24);
             this.rdoVaal.TabIndex = 24;
             this.rdoVaal.TabStop = true;
-            this.rdoVaal.Text = "2: Vaal Campus";
+            this.rdoVaal.Text = "3: Vaal Campus";
             this.rdoVaal.UseVisualStyleBackColor = true;
             // 
             // rdoPotch
@@ -295,15 +329,16 @@ namespace Book_Exchange_System
             this.lblCampus.TabIndex = 22;
             this.lblCampus.Text = "Move to different campus:";
             // 
-            // cbAppID
+            // cmbAppID
             // 
-            this.cbAppID.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.cbAppID.FormattingEnabled = true;
-            this.cbAppID.Location = new System.Drawing.Point(6, 132);
-            this.cbAppID.Margin = new System.Windows.Forms.Padding(4);
-            this.cbAppID.Name = "cbAppID";
-            this.cbAppID.Size = new System.Drawing.Size(160, 33);
-            this.cbAppID.TabIndex = 21;
+            this.cmbAppID.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.cmbAppID.FormattingEnabled = true;
+            this.cmbAppID.Location = new System.Drawing.Point(6, 132);
+            this.cmbAppID.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbAppID.Name = "cmbAppID";
+            this.cmbAppID.Size = new System.Drawing.Size(160, 33);
+            this.cmbAppID.TabIndex = 21;
+            this.cmbAppID.SelectedIndexChanged += new System.EventHandler(this.cmbAppID_SelectedIndexChanged);
             // 
             // lblApplicantID
             // 
@@ -328,7 +363,7 @@ namespace Book_Exchange_System
             // txtNewSurname
             // 
             this.txtNewSurname.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.txtNewSurname.Location = new System.Drawing.Point(8, 234);
+            this.txtNewSurname.Location = new System.Drawing.Point(328, 237);
             this.txtNewSurname.Margin = new System.Windows.Forms.Padding(4);
             this.txtNewSurname.Name = "txtNewSurname";
             this.txtNewSurname.Size = new System.Drawing.Size(301, 30);
@@ -349,7 +384,7 @@ namespace Book_Exchange_System
             // 
             this.lblNewSurname.AutoSize = true;
             this.lblNewSurname.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblNewSurname.Location = new System.Drawing.Point(8, 189);
+            this.lblNewSurname.Location = new System.Drawing.Point(328, 192);
             this.lblNewSurname.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNewSurname.Name = "lblNewSurname";
             this.lblNewSurname.Size = new System.Drawing.Size(98, 25);
@@ -367,6 +402,7 @@ namespace Book_Exchange_System
             this.btnUpdate.TabIndex = 1;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = false;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // DeleteApplicants
             // 
@@ -379,7 +415,7 @@ namespace Book_Exchange_System
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.cbDeleteApp);
+            this.groupBox3.Controls.Add(this.cmbDeleteApp);
             this.groupBox3.Controls.Add(this.lblDelAppID);
             this.groupBox3.Controls.Add(this.btnDelete);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -394,15 +430,15 @@ namespace Book_Exchange_System
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Delete Applicants";
             // 
-            // cbDeleteApp
+            // cmbDeleteApp
             // 
-            this.cbDeleteApp.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.cbDeleteApp.FormattingEnabled = true;
-            this.cbDeleteApp.Location = new System.Drawing.Point(13, 136);
-            this.cbDeleteApp.Margin = new System.Windows.Forms.Padding(4);
-            this.cbDeleteApp.Name = "cbDeleteApp";
-            this.cbDeleteApp.Size = new System.Drawing.Size(213, 33);
-            this.cbDeleteApp.TabIndex = 19;
+            this.cmbDeleteApp.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.cmbDeleteApp.FormattingEnabled = true;
+            this.cmbDeleteApp.Location = new System.Drawing.Point(13, 136);
+            this.cmbDeleteApp.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbDeleteApp.Name = "cmbDeleteApp";
+            this.cmbDeleteApp.Size = new System.Drawing.Size(213, 33);
+            this.cmbDeleteApp.TabIndex = 19;
             // 
             // lblDelAppID
             // 
@@ -426,6 +462,7 @@ namespace Book_Exchange_System
             this.btnDelete.TabIndex = 1;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // AddApplicants
             // 
@@ -438,6 +475,10 @@ namespace Book_Exchange_System
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.label1);
+            this.groupBox4.Controls.Add(this.rdoP);
+            this.groupBox4.Controls.Add(this.rdoV);
+            this.groupBox4.Controls.Add(this.rdoM);
             this.groupBox4.Controls.Add(this.btnAddApplicant);
             this.groupBox4.Controls.Add(this.txtAppPass);
             this.groupBox4.Controls.Add(this.lblAppPass);
@@ -467,10 +508,11 @@ namespace Book_Exchange_System
             this.btnAddApplicant.TabIndex = 41;
             this.btnAddApplicant.Text = "Add";
             this.btnAddApplicant.UseVisualStyleBackColor = false;
+            this.btnAddApplicant.Click += new System.EventHandler(this.btnAddApplicant_Click);
             // 
             // txtAppPass
             // 
-            this.txtAppPass.Location = new System.Drawing.Point(345, 347);
+            this.txtAppPass.Location = new System.Drawing.Point(7, 448);
             this.txtAppPass.Margin = new System.Windows.Forms.Padding(4);
             this.txtAppPass.Name = "txtAppPass";
             this.txtAppPass.PasswordChar = '*';
@@ -481,7 +523,7 @@ namespace Book_Exchange_System
             // 
             this.lblAppPass.AutoSize = true;
             this.lblAppPass.ForeColor = System.Drawing.Color.Black;
-            this.lblAppPass.Location = new System.Drawing.Point(340, 315);
+            this.lblAppPass.Location = new System.Drawing.Point(6, 415);
             this.lblAppPass.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblAppPass.Name = "lblAppPass";
             this.lblAppPass.Size = new System.Drawing.Size(126, 29);
@@ -639,6 +681,7 @@ namespace Book_Exchange_System
             this.button2.TabIndex = 37;
             this.button2.Text = "Reload table";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // dataGridView1
             // 
@@ -711,6 +754,7 @@ namespace Book_Exchange_System
             this.btnReloadApplicants.TabIndex = 33;
             this.btnReloadApplicants.Text = "Reload table";
             this.btnReloadApplicants.UseVisualStyleBackColor = false;
+            this.btnReloadApplicants.Click += new System.EventHandler(this.btnReloadApplicants_Click);
             // 
             // dgvApplicants
             // 
@@ -745,21 +789,76 @@ namespace Book_Exchange_System
             this.label2.TabIndex = 0;
             this.label2.Text = "Applicants";
             // 
+            // rdoM
+            // 
+            this.rdoM.AutoSize = true;
+            this.rdoM.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdoM.Location = new System.Drawing.Point(373, 324);
+            this.rdoM.Margin = new System.Windows.Forms.Padding(4);
+            this.rdoM.Name = "rdoM";
+            this.rdoM.Size = new System.Drawing.Size(187, 24);
+            this.rdoM.TabIndex = 42;
+            this.rdoM.TabStop = true;
+            this.rdoM.Text = "2: Mahikeng Campus";
+            this.rdoM.UseVisualStyleBackColor = true;
+            // 
+            // rdoV
+            // 
+            this.rdoV.AutoSize = true;
+            this.rdoV.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdoV.Location = new System.Drawing.Point(373, 356);
+            this.rdoV.Margin = new System.Windows.Forms.Padding(4);
+            this.rdoV.Name = "rdoV";
+            this.rdoV.Size = new System.Drawing.Size(149, 24);
+            this.rdoV.TabIndex = 43;
+            this.rdoV.TabStop = true;
+            this.rdoV.Text = "3: Vaal Campus";
+            this.rdoV.UseVisualStyleBackColor = true;
+            // 
+            // rdoP
+            // 
+            this.rdoP.AutoSize = true;
+            this.rdoP.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdoP.Location = new System.Drawing.Point(373, 285);
+            this.rdoP.Margin = new System.Windows.Forms.Padding(4);
+            this.rdoP.Name = "rdoP";
+            this.rdoP.Size = new System.Drawing.Size(225, 24);
+            this.rdoP.TabIndex = 44;
+            this.rdoP.TabStop = true;
+            this.rdoP.Text = "1: Potchefstroom Campus";
+            this.rdoP.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(368, 233);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(196, 29);
+            this.label1.TabIndex = 45;
+            this.label1.Text = "Select a campus:";
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // Applicants
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1413, 818);
-            this.Controls.Add(this.AddApplicants);
-            this.Controls.Add(this.RequestBooks);
-            this.Controls.Add(this.UpdateApplicants);
             this.Controls.Add(this.DeleteApplicants);
-            this.Controls.Add(this.TopGraphic);
+            this.Controls.Add(this.AddApplicants);
             this.Controls.Add(this.Search);
+            this.Controls.Add(this.UpdateApplicants);
+            this.Controls.Add(this.RequestBooks);
+            this.Controls.Add(this.TopGraphic);
             this.Controls.Add(this.ButtonGraphics);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Applicants";
             this.Text = "Applicants";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.Applicants_Load);
             this.ButtonGraphics.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.UpdateApplicants.ResumeLayout(false);
@@ -782,6 +881,7 @@ namespace Book_Exchange_System
             ((System.ComponentModel.ISupportInitialize)(this.dgvApplicants)).EndInit();
             this.TopGraphic.ResumeLayout(false);
             this.TopGraphic.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -797,7 +897,7 @@ namespace Book_Exchange_System
         private System.Windows.Forms.RadioButton rdoVaal;
         private System.Windows.Forms.RadioButton rdoPotch;
         private System.Windows.Forms.Label lblCampus;
-        private System.Windows.Forms.ComboBox cbAppID;
+        private System.Windows.Forms.ComboBox cmbAppID;
         private System.Windows.Forms.Label lblApplicantID;
         private System.Windows.Forms.TextBox txtNewEmail;
         private System.Windows.Forms.TextBox txtNewSurname;
@@ -824,7 +924,7 @@ namespace Book_Exchange_System
         private System.Windows.Forms.Panel RequestBooks;
         private System.Windows.Forms.GroupBox gbReceive;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.ComboBox cbDeleteApp;
+        private System.Windows.Forms.ComboBox cmbDeleteApp;
         private System.Windows.Forms.Label lblDelAppID;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Panel Search;
@@ -843,5 +943,12 @@ namespace Book_Exchange_System
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewCheckBoxColumn chkSelect;
         private System.Windows.Forms.Button btnRequest;
+        private System.Windows.Forms.TextBox txtNewName;
+        private System.Windows.Forms.Label lblNewName;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.RadioButton rdoP;
+        private System.Windows.Forms.RadioButton rdoV;
+        private System.Windows.Forms.RadioButton rdoM;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }
