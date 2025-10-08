@@ -111,6 +111,12 @@
     <Compile Include="Applicants.Designer.cs">
       <DependentUpon>Applicants.cs</DependentUpon>
     </Compile>
+    <Compile Include="DonateBooks.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DonateBooks.Designer.cs">
+      <DependentUpon>DonateBooks.cs</DependentUpon>
+    </Compile>
     <Compile Include="Donors.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -156,6 +162,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Applicants.resx">
       <DependentUpon>Applicants.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DonateBooks.resx">
+      <DependentUpon>DonateBooks.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Donors.resx">
       <DependentUpon>Donors.cs</DependentUpon>

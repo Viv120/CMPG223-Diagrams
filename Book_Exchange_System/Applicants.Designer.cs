@@ -160,7 +160,7 @@ namespace Book_Exchange_System
             this.btnDeleteApplicants.BackColor = System.Drawing.Color.Teal;
             this.btnDeleteApplicants.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeleteApplicants.ForeColor = System.Drawing.Color.White;
-            this.btnDeleteApplicants.Location = new System.Drawing.Point(16, 356);
+            this.btnDeleteApplicants.Location = new System.Drawing.Point(16, 519);
             this.btnDeleteApplicants.Margin = new System.Windows.Forms.Padding(4);
             this.btnDeleteApplicants.Name = "btnDeleteApplicants";
             this.btnDeleteApplicants.Size = new System.Drawing.Size(208, 74);
@@ -174,7 +174,7 @@ namespace Book_Exchange_System
             this.btnUpdateApplicants.BackColor = System.Drawing.Color.Teal;
             this.btnUpdateApplicants.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdateApplicants.ForeColor = System.Drawing.Color.White;
-            this.btnUpdateApplicants.Location = new System.Drawing.Point(16, 249);
+            this.btnUpdateApplicants.Location = new System.Drawing.Point(16, 383);
             this.btnUpdateApplicants.Margin = new System.Windows.Forms.Padding(4);
             this.btnUpdateApplicants.Name = "btnUpdateApplicants";
             this.btnUpdateApplicants.Size = new System.Drawing.Size(208, 74);
@@ -188,7 +188,7 @@ namespace Book_Exchange_System
             this.btnAddApplicants.BackColor = System.Drawing.Color.Teal;
             this.btnAddApplicants.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddApplicants.ForeColor = System.Drawing.Color.White;
-            this.btnAddApplicants.Location = new System.Drawing.Point(16, 146);
+            this.btnAddApplicants.Location = new System.Drawing.Point(16, 240);
             this.btnAddApplicants.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddApplicants.Name = "btnAddApplicants";
             this.btnAddApplicants.Size = new System.Drawing.Size(208, 74);
@@ -772,8 +772,8 @@ namespace Book_Exchange_System
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1902, 993);
-            this.Controls.Add(this.AddApplicants);
             this.Controls.Add(this.UpdateApplicants);
+            this.Controls.Add(this.AddApplicants);
             this.Controls.Add(this.DeleteApplicants);
             this.Controls.Add(this.Search);
             this.Controls.Add(this.TopGraphic);
