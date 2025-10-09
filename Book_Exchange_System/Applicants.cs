@@ -35,19 +35,20 @@ namespace Book_Exchange_System
         {
             try
             {
-                conn.Open();
-                string query = "SELECT * FROM applicant";
-                cmd = new MySqlCommand(query, conn);
+                using (MySqlConnection conn = new MySqlConnection("Server=localhost;Database=book_exchange_db;Uid=root;Pwd=Viv20050209!"))
+                {
+                    conn.Open();
+                    string query = "SELECT * FROM applicant";
+                    cmd = new MySqlCommand(query, conn);
 
-                da = new MySqlDataAdapter(cmd);
-                dt = new DataTable();
+                    da = new MySqlDataAdapter(cmd);
+                    dt = new DataTable();
 
-                da.Fill(dt);
+                    da.Fill(dt);
 
-                dgvApplicants.DataSource = dt;
-                dgvApplicants.Refresh();
-
-                conn.Close();
+                    dgvApplicants.DataSource = dt;
+                    dgvApplicants.Refresh();
+                }
             }
             catch (Exception ex)
             {
@@ -57,24 +58,32 @@ namespace Book_Exchange_System
 
         private void RefreshApplicantID()
         {
-            cmbAppID.Items.Clear();
-            cmbDeleteApp.Items.Clear();
-
-            conn.Open();
-            string query = "SELECT Applicant_ID FROM applicant";
-            cmd = new MySqlCommand(query, conn);
-
-            using(reader = cmd.ExecuteReader())
+            try
             {
-                while(reader.Read())
+                using (MySqlConnection conn = new MySqlConnection("Server=localhost;Database=book_exchange_db;Uid=root;Pwd=Viv20050209!"))
                 {
-                    int id = reader.GetInt32("Applicant_ID");
-                    cmbAppID.Items.Add(id);
-                    cmbDeleteApp.Items.Add(id);
+                    cmbAppID.Items.Clear();
+                    cmbDeleteApp.Items.Clear();
+
+                    conn.Open();
+                    string query = "SELECT Applicant_ID FROM applicant";
+                    cmd = new MySqlCommand(query, conn);
+
+                    using (reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            int id = reader.GetInt32("Applicant_ID");
+                            cmbAppID.Items.Add(id);
+                            cmbDeleteApp.Items.Add(id);
+                        }
+                    }
                 }
             }
-
-            conn.Close();
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading IDs: " + ex.Message);
+            }
         }
 
         private void ShowPanels(Panel panel)
@@ -82,7 +91,6 @@ namespace Book_Exchange_System
             AddApplicants.Visible = false;
             UpdateApplicants.Visible = false;
             DeleteApplicants.Visible = false;
-            Search.Visible = false;
 
             panel.Visible = true;
             panel.BringToFront();
@@ -90,26 +98,27 @@ namespace Book_Exchange_System
        
         private void btnUpdateApplicants_Click(object sender, EventArgs e)
         {
-            ShowPanels(UpdateApplicants);
-
             try
             {
-                conn.Open();
-
-                string query = "SELECT Applicant_ID FROM applicant";
-
-                cmd = new MySqlCommand(query, conn);
-
-                using (reader = cmd.ExecuteReader())
+                using (MySqlConnection conn = new MySqlConnection("Server=localhost;Database=book_exchange_db;Uid=root;Pwd=Viv20050209!"))
                 {
-                    while (reader.Read())
+                    ShowPanels(UpdateApplicants);
+
+                    conn.Open();
+
+                    string query = "SELECT Applicant_ID FROM applicant";
+
+                    cmd = new MySqlCommand(query, conn);
+
+                    using (reader = cmd.ExecuteReader())
                     {
-                        int App_ID = reader.GetInt32("Applicant_ID");
-                        cmbAppID.Items.Add(App_ID);
+                        while (reader.Read())
+                        {
+                            int App_ID = reader.GetInt32("Applicant_ID");
+                            cmbAppID.Items.Add(App_ID);
+                        }
                     }
                 }
-
-                conn.Close();
             }
             catch (Exception ex)
             {
@@ -120,26 +129,27 @@ namespace Book_Exchange_System
 
         private void btnDeleteApplicants_Click(object sender, EventArgs e)
         {
-            ShowPanels(DeleteApplicants);
-
             try
             {
-                conn.Open();
-
-                string query = "SELECT Applicant_ID FROM applicant";
-
-                cmd = new MySqlCommand(query, conn);
-
-                using (reader = cmd.ExecuteReader())
+                using (MySqlConnection conn = new MySqlConnection("Server=localhost;Database=book_exchange_db;Uid=root;Pwd=Viv20050209!"))
                 {
-                    while (reader.Read())
+                    ShowPanels(DeleteApplicants);
+
+                    conn.Open();
+
+                    string query = "SELECT Applicant_ID FROM applicant";
+
+                    cmd = new MySqlCommand(query, conn);
+
+                    using (reader = cmd.ExecuteReader())
                     {
-                        int App_ID = reader.GetInt32("Applicant_ID");
-                        cmbDeleteApp.Items.Add(App_ID);
+                        while (reader.Read())
+                        {
+                            int App_ID = reader.GetInt32("Applicant_ID");
+                            cmbDeleteApp.Items.Add(App_ID);
+                        }
                     }
                 }
-
-                conn.Close();
             }
             catch (Exception ex)
             {
@@ -165,39 +175,40 @@ namespace Book_Exchange_System
 
             try
             {
-                conn.Open();
-
-                string query = "SELECT * FROM applicant WHERE Applicant_ID = @ID";
-
-                cmd = new MySqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@ID", selectedID);
-
-                using (reader = cmd.ExecuteReader())
+                using (MySqlConnection conn = new MySqlConnection("Server=localhost;Database=book_exchange_db;Uid=root;Pwd=Viv20050209!"))
                 {
-                    if (reader.Read())
+                    conn.Open();
+
+                    string query = "SELECT * FROM applicant WHERE Applicant_ID = @ID";
+
+                    cmd = new MySqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@ID", selectedID);
+
+                    using (reader = cmd.ExecuteReader())
                     {
-                        txtNewName.Text = reader["First_Name"].ToString();
-                        txtNewSurname.Text = reader["Last_Name"].ToString();
-                        txtNewEmail.Text = reader["Email"].ToString();
+                        if (reader.Read())
+                        {
+                            txtNewName.Text = reader["First_Name"].ToString();
+                            txtNewSurname.Text = reader["Last_Name"].ToString();
+                            txtNewEmail.Text = reader["Email"].ToString();
 
-                        int campusID = Convert.ToInt32(reader["Campus_ID"]);
+                            int campusID = Convert.ToInt32(reader["Campus_ID"]);
 
-                        if (campusID == 1)
-                        {
-                            rdoPotch.Checked = true;
-                        }
-                        else if (campusID == 2)
-                        {
-                            rdoMahikeng.Checked = true;
-                        }
-                        else if (campusID == 3)
-                        {
-                            rdoVaal.Checked = true;
+                            if (campusID == 1)
+                            {
+                                rdoPotch.Checked = true;
+                            }
+                            else if (campusID == 2)
+                            {
+                                rdoMahikeng.Checked = true;
+                            }
+                            else if (campusID == 3)
+                            {
+                                rdoVaal.Checked = true;
+                            }
                         }
                     }
                 }
-
-                conn.Close();
             }
             catch (Exception ex)
             {
@@ -235,30 +246,32 @@ namespace Book_Exchange_System
 
             try
             {
-                conn.Open();
+                using (MySqlConnection conn = new MySqlConnection("Server=localhost;Database=book_exchange_db;Uid=root;Pwd=Viv20050209!"))
+                {
+                    conn.Open();
 
-                string updateQuery = @"UPDATE applicant SET First_Name = @FirstName, Last_Name = @LastName, Email = @Email, Campus_ID = @Campus_ID WHERE Applicant_ID = @ID";
+                    string updateQuery = @"UPDATE applicant SET First_Name = @FirstName, Last_Name = @LastName, Email = @Email, Campus_ID = @Campus_ID WHERE Applicant_ID = @ID";
 
-                cmd = new MySqlCommand(updateQuery, conn);
-                cmd.Parameters.AddWithValue("@FirstName", Name);
-                cmd.Parameters.AddWithValue("@LastName", Surname);
-                cmd.Parameters.AddWithValue("@Email", Email);
-                cmd.Parameters.AddWithValue("@Campus_ID", campusID);
-                cmd.Parameters.AddWithValue("@ID", selectedID);
+                    cmd = new MySqlCommand(updateQuery, conn);
+                    cmd.Parameters.AddWithValue("@FirstName", Name);
+                    cmd.Parameters.AddWithValue("@LastName", Surname);
+                    cmd.Parameters.AddWithValue("@Email", Email);
+                    cmd.Parameters.AddWithValue("@Campus_ID", campusID);
+                    cmd.Parameters.AddWithValue("@ID", selectedID);
 
-                cmd.ExecuteNonQuery();
+                    cmd.ExecuteNonQuery();
 
-                MessageBox.Show("Applicant updated successfully!");
-                LoadApplicants();
-                conn.Close();
+                    MessageBox.Show("Applicant updated successfully!");
+                    LoadApplicants();
 
-                txtNewName.Clear();
-                txtNewSurname.Clear();
-                txtNewEmail.Clear();
-                cmbAppID.SelectedIndex = -1;
-                rdoPotch.Checked = false;
-                rdoMahikeng.Checked = false;
-                rdoVaal.Checked = false;
+                    txtNewName.Clear();
+                    txtNewSurname.Clear();
+                    txtNewEmail.Clear();
+                    cmbAppID.SelectedIndex = -1;
+                    rdoPotch.Checked = false;
+                    rdoMahikeng.Checked = false;
+                    rdoVaal.Checked = false;
+                }
             }
             catch (Exception ex)
             {
@@ -269,11 +282,6 @@ namespace Book_Exchange_System
         private void btnReloadApplicants_Click(object sender, EventArgs e)
         {
             LoadApplicants();
-        }
-
-        private void groupBox2_Enter(object sender, EventArgs e)
-        {
-
         }
 
         private void btnAddApplicant_Click(object sender, EventArgs e)
@@ -361,19 +369,22 @@ namespace Book_Exchange_System
 
             try
             {
-                conn.Open();
+                using (MySqlConnection conn = new MySqlConnection("Server=localhost;Database=book_exchange_db;Uid=root;Pwd=Viv20050209!"))
+                {
+                    conn.Open();
 
-                string queryApplicant = @"INSERT INTO applicant (First_Name, Last_Name, Student_Num, Email, Campus_ID) VALUES (@FirstName, @LastName, @StudentNum, @Email, @CampusID)";
+                    string queryApplicant = @"INSERT INTO applicant (First_Name, Last_Name, Student_Num, Email, Campus_ID) VALUES (@FirstName, @LastName, @StudentNum, @Email, @CampusID)";
 
-                cmd = new MySqlCommand(queryApplicant, conn);
-                cmd.Parameters.AddWithValue("@FirstName", name);
-                cmd.Parameters.AddWithValue("@LastName", surname);
-                cmd.Parameters.AddWithValue("@StudentNum", studentNum);
-                cmd.Parameters.AddWithValue("@Email", email);
-                cmd.Parameters.AddWithValue("@CampusID", campusID);
-                cmd.ExecuteNonQuery();
+                    cmd = new MySqlCommand(queryApplicant, conn);
+                    cmd.Parameters.AddWithValue("@FirstName", name);
+                    cmd.Parameters.AddWithValue("@LastName", surname);
+                    cmd.Parameters.AddWithValue("@StudentNum", studentNum);
+                    cmd.Parameters.AddWithValue("@Email", email);
+                    cmd.Parameters.AddWithValue("@CampusID", campusID);
+                    cmd.ExecuteNonQuery();
 
-                MessageBox.Show("Applicant added successfully!");
+                    MessageBox.Show("Applicant added successfully!");
+                }
                 LoadApplicants();
 
                 txtAName.Clear();
@@ -384,7 +395,15 @@ namespace Book_Exchange_System
                 rdoM.Checked = false;
                 rdoV.Checked = false;
 
-                conn.Close();
+
+                errorProvider1.Clear();
+                txtAName.BackColor = SystemColors.Window;
+                txtASurname.BackColor = SystemColors.Window;
+                txtStudents.BackColor = SystemColors.Window;
+                txtEmail.BackColor = SystemColors.Window;
+                rdoP.BackColor = SystemColors.Control;
+                rdoM.BackColor = SystemColors.Control;
+                rdoV.BackColor = SystemColors.Control;
             }
             catch (Exception ex)
             {
@@ -412,32 +431,35 @@ namespace Book_Exchange_System
 
             try
             {
-                conn.Open();
+                using (MySqlConnection conn = new MySqlConnection("Server=localhost;Database=book_exchange_db;Uid=root;Pwd=Viv20050209!"))
+                {
+                    conn.Open();
 
-                string deleteLoginQuery = @"DELETE FROM applicant_login WHERE Applicant_ID = @ApplicantID";
+                    string deleteLoginQuery = @"DELETE FROM applicant_login WHERE Applicant_ID = @ApplicantID";
 
-                cmd = new MySqlCommand(deleteLoginQuery, conn);
-                cmd.Parameters.AddWithValue("@ApplicantID", applicantID);
-                cmd.ExecuteNonQuery();
+                    cmd = new MySqlCommand(deleteLoginQuery, conn);
+                    cmd.Parameters.AddWithValue("@ApplicantID", applicantID);
+                    cmd.ExecuteNonQuery();
 
-                string deleteApplicantQuery = @"DELETE FROM applicant WHERE Applicant_ID = @ApplicantID";
+                    string deleteApplicantQuery = @"DELETE FROM applicant WHERE Applicant_ID = @ApplicantID";
 
-                cmd = new MySqlCommand(deleteApplicantQuery, conn);
-                cmd.Parameters.AddWithValue("@ApplicantID", applicantID);
-                cmd.ExecuteNonQuery();
+                    cmd = new MySqlCommand(deleteApplicantQuery, conn);
+                    cmd.Parameters.AddWithValue("@ApplicantID", applicantID);
+                    cmd.ExecuteNonQuery();
 
-                MessageBox.Show("Applicant deleted successfully!");
-                LoadApplicants();
-                cmbDeleteApp.SelectedIndex = -1;
-                conn.Close();
+                    MessageBox.Show("Applicant deleted successfully!");
+                    LoadApplicants();
+                    cmbDeleteApp.SelectedIndex = -1;
 
-                txtNewName.Clear();
-                txtNewSurname.Clear();
-                txtNewEmail.Clear();
-                cmbAppID.SelectedIndex = -1;
-                rdoPotch.Checked = false;
-                rdoMahikeng.Checked = false;
-                rdoVaal.Checked = false;
+                    txtNewName.Clear();
+                    txtNewSurname.Clear();
+                    txtNewEmail.Clear();
+                    cmbAppID.SelectedIndex = -1;
+                    rdoPotch.Checked = false;
+                    rdoMahikeng.Checked = false;
+                    rdoVaal.Checked = false;
+                }
+                RefreshApplicantID();
             }
             catch (Exception ex)
             {
@@ -465,29 +487,30 @@ namespace Book_Exchange_System
 
             try
             {
-                conn.Open();
-
-                string query = @"SELECT * FROM applicant WHERE (First_Name LIKE @search OR Last_Name LIKE @search)";
-
-                if (campusID != 0)
+                using (MySqlConnection conn = new MySqlConnection("Server=localhost;Database=book_exchange_db;Uid=root;Pwd=Viv20050209!"))
                 {
-                    query += " AND Campus_ID = @campusID";
+                    conn.Open();
+
+                    string query = @"SELECT * FROM applicant WHERE (First_Name LIKE @search OR Last_Name LIKE @search)";
+
+                    if (campusID != 0)
+                    {
+                        query += " AND Campus_ID = @campusID";
+                    }
+
+                    cmd = new MySqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@search", "%" + searchItem + "%");
+
+                    if (campusID != 0)
+                    {
+                        cmd.Parameters.AddWithValue("@campusID", campusID);
+                    }
+
+                    da = new MySqlDataAdapter(cmd);
+                    dt = new DataTable();
+                    da.Fill(dt);
+                    dgvApplicants.DataSource = dt;
                 }
-
-                cmd = new MySqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@search", "%" + searchItem + "%");
-
-                if(campusID != 0)
-                {
-                    cmd.Parameters.AddWithValue("@campusID", campusID);
-                }
-
-                da = new MySqlDataAdapter(cmd);
-                dt = new DataTable();
-                da.Fill(dt);
-                dgvApplicants.DataSource = dt;
-
-                conn.Close();
             }
             catch(Exception ex)
             {
@@ -508,8 +531,8 @@ namespace Book_Exchange_System
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            Logins loginForm = new Logins();
-            loginForm.Show();
+            Admin admin = new Admin();
+            admin.Show();
             this.Close();
         }
     }

@@ -40,6 +40,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.AddDonors = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.rdoInd = new System.Windows.Forms.RadioButton();
+            this.rdoOrg = new System.Windows.Forms.RadioButton();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.rdoP = new System.Windows.Forms.RadioButton();
+            this.rdoV = new System.Windows.Forms.RadioButton();
+            this.rdoM = new System.Windows.Forms.RadioButton();
             this.lblName = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
@@ -74,13 +81,7 @@
             this.txtSearchDonor = new System.Windows.Forms.TextBox();
             this.btnReloadDonors = new System.Windows.Forms.Button();
             this.dgvDonors = new System.Windows.Forms.DataGridView();
-            this.label2 = new System.Windows.Forms.Label();
-            this.rdoP = new System.Windows.Forms.RadioButton();
-            this.rdoV = new System.Windows.Forms.RadioButton();
-            this.rdoM = new System.Windows.Forms.RadioButton();
-            this.label3 = new System.Windows.Forms.Label();
-            this.rdoInd = new System.Windows.Forms.RadioButton();
-            this.rdoOrg = new System.Windows.Forms.RadioButton();
+            this.btnClearFilters = new System.Windows.Forms.Button();
             this.ButtonGraphic.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.TopGraphic.SuspendLayout();
@@ -114,8 +115,6 @@
             this.ButtonGraphic.Size = new System.Drawing.Size(253, 993);
             this.ButtonGraphic.TabIndex = 2;
             // 
-      
-            // 
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
@@ -138,6 +137,7 @@
             this.button10.TabIndex = 9;
             this.button10.Text = "Back";
             this.button10.UseVisualStyleBackColor = false;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
             // panel1
             // 
@@ -194,7 +194,7 @@
             this.TopGraphic.Controls.Add(this.label1);
             this.TopGraphic.Location = new System.Drawing.Point(251, 0);
             this.TopGraphic.Name = "TopGraphic";
-            this.TopGraphic.Size = new System.Drawing.Size(1183, 218);
+            this.TopGraphic.Size = new System.Drawing.Size(1651, 218);
             this.TopGraphic.TabIndex = 3;
             // 
             // label1
@@ -203,7 +203,7 @@
             this.label1.BackColor = System.Drawing.Color.Teal;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 36.31305F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label1.Location = new System.Drawing.Point(488, 83);
+            this.label1.Location = new System.Drawing.Point(735, 73);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(227, 70);
             this.label1.TabIndex = 0;
@@ -212,9 +212,9 @@
             // AddDonors
             // 
             this.AddDonors.Controls.Add(this.groupBox1);
-            this.AddDonors.Location = new System.Drawing.Point(254, 218);
+            this.AddDonors.Location = new System.Drawing.Point(253, 220);
             this.AddDonors.Name = "AddDonors";
-            this.AddDonors.Size = new System.Drawing.Size(666, 597);
+            this.AddDonors.Size = new System.Drawing.Size(747, 773);
             this.AddDonors.TabIndex = 5;
             // 
             // groupBox1
@@ -234,12 +234,98 @@
             this.groupBox1.Controls.Add(this.lblSP_Number);
             this.groupBox1.Controls.Add(this.btnAddDonor);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.77391F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(10, 4);
+            this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(666, 600);
+            this.groupBox1.Size = new System.Drawing.Size(747, 773);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Add Donors";
+            // 
+            // rdoInd
+            // 
+            this.rdoInd.AutoSize = true;
+            this.rdoInd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdoInd.Location = new System.Drawing.Point(63, 435);
+            this.rdoInd.Margin = new System.Windows.Forms.Padding(4);
+            this.rdoInd.Name = "rdoInd";
+            this.rdoInd.Size = new System.Drawing.Size(118, 24);
+            this.rdoInd.TabIndex = 52;
+            this.rdoInd.TabStop = true;
+            this.rdoInd.Text = "1: Individual";
+            this.rdoInd.UseVisualStyleBackColor = true;
+            // 
+            // rdoOrg
+            // 
+            this.rdoOrg.AutoSize = true;
+            this.rdoOrg.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdoOrg.Location = new System.Drawing.Point(63, 474);
+            this.rdoOrg.Margin = new System.Windows.Forms.Padding(4);
+            this.rdoOrg.Name = "rdoOrg";
+            this.rdoOrg.Size = new System.Drawing.Size(144, 24);
+            this.rdoOrg.TabIndex = 51;
+            this.rdoOrg.TabStop = true;
+            this.rdoOrg.Text = "2: Organization";
+            this.rdoOrg.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(62, 402);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(172, 29);
+            this.label3.TabIndex = 50;
+            this.label3.Text = "Type of Donor:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(405, 218);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(196, 29);
+            this.label2.TabIndex = 49;
+            this.label2.Text = "Select a campus:";
+            // 
+            // rdoP
+            // 
+            this.rdoP.AutoSize = true;
+            this.rdoP.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdoP.Location = new System.Drawing.Point(410, 253);
+            this.rdoP.Margin = new System.Windows.Forms.Padding(4);
+            this.rdoP.Name = "rdoP";
+            this.rdoP.Size = new System.Drawing.Size(225, 24);
+            this.rdoP.TabIndex = 48;
+            this.rdoP.TabStop = true;
+            this.rdoP.Text = "1: Potchefstroom Campus";
+            this.rdoP.UseVisualStyleBackColor = true;
+            // 
+            // rdoV
+            // 
+            this.rdoV.AutoSize = true;
+            this.rdoV.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdoV.Location = new System.Drawing.Point(410, 324);
+            this.rdoV.Margin = new System.Windows.Forms.Padding(4);
+            this.rdoV.Name = "rdoV";
+            this.rdoV.Size = new System.Drawing.Size(149, 24);
+            this.rdoV.TabIndex = 47;
+            this.rdoV.TabStop = true;
+            this.rdoV.Text = "3: Vaal Campus";
+            this.rdoV.UseVisualStyleBackColor = true;
+            // 
+            // rdoM
+            // 
+            this.rdoM.AutoSize = true;
+            this.rdoM.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdoM.Location = new System.Drawing.Point(410, 290);
+            this.rdoM.Margin = new System.Windows.Forms.Padding(4);
+            this.rdoM.Name = "rdoM";
+            this.rdoM.Size = new System.Drawing.Size(187, 24);
+            this.rdoM.TabIndex = 46;
+            this.rdoM.TabStop = true;
+            this.rdoM.Text = "2: Mahikeng Campus";
+            this.rdoM.UseVisualStyleBackColor = true;
             // 
             // lblName
             // 
@@ -309,7 +395,7 @@
             // UpdateDonor
             // 
             this.UpdateDonor.Controls.Add(this.groupBox2);
-            this.UpdateDonor.Location = new System.Drawing.Point(254, 218);
+            this.UpdateDonor.Location = new System.Drawing.Point(253, 220);
             this.UpdateDonor.Name = "UpdateDonor";
             this.UpdateDonor.Size = new System.Drawing.Size(747, 773);
             this.UpdateDonor.TabIndex = 6;
@@ -327,7 +413,7 @@
             this.groupBox2.Controls.Add(this.lblNewSP_Number);
             this.groupBox2.Controls.Add(this.btnUpdateDonor);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.77391F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(10, 4);
+            this.groupBox2.Location = new System.Drawing.Point(0, 0);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(747, 773);
             this.groupBox2.TabIndex = 0;
@@ -494,9 +580,9 @@
             // DeleteDonor
             // 
             this.DeleteDonor.Controls.Add(this.groupBox3);
-            this.DeleteDonor.Location = new System.Drawing.Point(254, 218);
+            this.DeleteDonor.Location = new System.Drawing.Point(253, 220);
             this.DeleteDonor.Name = "DeleteDonor";
-            this.DeleteDonor.Size = new System.Drawing.Size(666, 597);
+            this.DeleteDonor.Size = new System.Drawing.Size(747, 773);
             this.DeleteDonor.TabIndex = 7;
             // 
             // groupBox3
@@ -505,9 +591,9 @@
             this.groupBox3.Controls.Add(this.lblDelAppID);
             this.groupBox3.Controls.Add(this.btnDeleteDonor);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.77391F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(13, 8);
+            this.groupBox3.Location = new System.Drawing.Point(0, 0);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(666, 600);
+            this.groupBox3.Size = new System.Drawing.Size(747, 773);
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Delete Donors";
@@ -545,6 +631,7 @@
             // Search
             // 
             this.Search.BackColor = System.Drawing.SystemColors.Control;
+            this.Search.Controls.Add(this.btnClearFilters);
             this.Search.Controls.Add(this.btnSearchDonor);
             this.Search.Controls.Add(this.panel3);
             this.Search.Controls.Add(this.btnReloadDonors);
@@ -557,10 +644,11 @@
             // btnSearchDonor
             // 
             this.btnSearchDonor.BackColor = System.Drawing.Color.Teal;
+            this.btnSearchDonor.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearchDonor.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnSearchDonor.Location = new System.Drawing.Point(362, 31);
+            this.btnSearchDonor.Location = new System.Drawing.Point(448, 31);
             this.btnSearchDonor.Name = "btnSearchDonor";
-            this.btnSearchDonor.Size = new System.Drawing.Size(123, 47);
+            this.btnSearchDonor.Size = new System.Drawing.Size(313, 53);
             this.btnSearchDonor.TabIndex = 35;
             this.btnSearchDonor.Text = "Search";
             this.btnSearchDonor.UseVisualStyleBackColor = false;
@@ -572,7 +660,7 @@
             this.panel3.Controls.Add(this.txtSearchDonor);
             this.panel3.Location = new System.Drawing.Point(18, 31);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(322, 47);
+            this.panel3.Size = new System.Drawing.Size(406, 47);
             this.panel3.TabIndex = 34;
             // 
             // txtSearchDonor
@@ -580,16 +668,17 @@
             this.txtSearchDonor.Location = new System.Drawing.Point(11, 7);
             this.txtSearchDonor.Margin = new System.Windows.Forms.Padding(4);
             this.txtSearchDonor.Name = "txtSearchDonor";
-            this.txtSearchDonor.Size = new System.Drawing.Size(249, 22);
+            this.txtSearchDonor.Size = new System.Drawing.Size(322, 22);
             this.txtSearchDonor.TabIndex = 27;
             // 
             // btnReloadDonors
             // 
             this.btnReloadDonors.BackColor = System.Drawing.Color.Teal;
+            this.btnReloadDonors.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReloadDonors.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.btnReloadDonors.Location = new System.Drawing.Point(17, 508);
+            this.btnReloadDonors.Location = new System.Drawing.Point(16, 569);
             this.btnReloadDonors.Name = "btnReloadDonors";
-            this.btnReloadDonors.Size = new System.Drawing.Size(157, 55);
+            this.btnReloadDonors.Size = new System.Drawing.Size(313, 53);
             this.btnReloadDonors.TabIndex = 33;
             this.btnReloadDonors.Text = "Reload table";
             this.btnReloadDonors.UseVisualStyleBackColor = false;
@@ -598,98 +687,24 @@
             // 
             this.dgvDonors.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvDonors.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDonors.Location = new System.Drawing.Point(17, 104);
+            this.dgvDonors.Location = new System.Drawing.Point(16, 194);
             this.dgvDonors.Name = "dgvDonors";
             this.dgvDonors.RowHeadersWidth = 49;
             this.dgvDonors.RowTemplate.Height = 24;
-            this.dgvDonors.Size = new System.Drawing.Size(462, 398);
+            this.dgvDonors.Size = new System.Drawing.Size(858, 304);
             this.dgvDonors.TabIndex = 32;
             // 
-            // label2
+            // btnClearFilters
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(405, 218);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(196, 29);
-            this.label2.TabIndex = 49;
-            this.label2.Text = "Select a campus:";
-            // 
-            // rdoP
-            // 
-            this.rdoP.AutoSize = true;
-            this.rdoP.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdoP.Location = new System.Drawing.Point(410, 253);
-            this.rdoP.Margin = new System.Windows.Forms.Padding(4);
-            this.rdoP.Name = "rdoP";
-            this.rdoP.Size = new System.Drawing.Size(225, 24);
-            this.rdoP.TabIndex = 48;
-            this.rdoP.TabStop = true;
-            this.rdoP.Text = "1: Potchefstroom Campus";
-            this.rdoP.UseVisualStyleBackColor = true;
-            // 
-            // rdoV
-            // 
-            this.rdoV.AutoSize = true;
-            this.rdoV.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdoV.Location = new System.Drawing.Point(410, 324);
-            this.rdoV.Margin = new System.Windows.Forms.Padding(4);
-            this.rdoV.Name = "rdoV";
-            this.rdoV.Size = new System.Drawing.Size(149, 24);
-            this.rdoV.TabIndex = 47;
-            this.rdoV.TabStop = true;
-            this.rdoV.Text = "3: Vaal Campus";
-            this.rdoV.UseVisualStyleBackColor = true;
-            // 
-            // rdoM
-            // 
-            this.rdoM.AutoSize = true;
-            this.rdoM.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdoM.Location = new System.Drawing.Point(410, 290);
-            this.rdoM.Margin = new System.Windows.Forms.Padding(4);
-            this.rdoM.Name = "rdoM";
-            this.rdoM.Size = new System.Drawing.Size(187, 24);
-            this.rdoM.TabIndex = 46;
-            this.rdoM.TabStop = true;
-            this.rdoM.Text = "2: Mahikeng Campus";
-            this.rdoM.UseVisualStyleBackColor = true;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(62, 402);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(172, 29);
-            this.label3.TabIndex = 50;
-            this.label3.Text = "Type of Donor:";
-            // 
-            // rdoInd
-            // 
-            this.rdoInd.AutoSize = true;
-            this.rdoInd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdoInd.Location = new System.Drawing.Point(63, 435);
-            this.rdoInd.Margin = new System.Windows.Forms.Padding(4);
-            this.rdoInd.Name = "rdoInd";
-            this.rdoInd.Size = new System.Drawing.Size(118, 24);
-            this.rdoInd.TabIndex = 52;
-            this.rdoInd.TabStop = true;
-            this.rdoInd.Text = "1: Individual";
-            this.rdoInd.UseVisualStyleBackColor = true;
-            // 
-            // rdoOrg
-            // 
-            this.rdoOrg.AutoSize = true;
-            this.rdoOrg.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdoOrg.Location = new System.Drawing.Point(63, 474);
-            this.rdoOrg.Margin = new System.Windows.Forms.Padding(4);
-            this.rdoOrg.Name = "rdoOrg";
-            this.rdoOrg.Size = new System.Drawing.Size(144, 24);
-            this.rdoOrg.TabIndex = 51;
-            this.rdoOrg.TabStop = true;
-            this.rdoOrg.Text = "2: Organization";
-            this.rdoOrg.UseVisualStyleBackColor = true;
+            this.btnClearFilters.BackColor = System.Drawing.Color.Teal;
+            this.btnClearFilters.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClearFilters.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnClearFilters.Location = new System.Drawing.Point(448, 118);
+            this.btnClearFilters.Name = "btnClearFilters";
+            this.btnClearFilters.Size = new System.Drawing.Size(313, 53);
+            this.btnClearFilters.TabIndex = 41;
+            this.btnClearFilters.Text = "Clear filter";
+            this.btnClearFilters.UseVisualStyleBackColor = false;
             // 
             // Donors
             // 
@@ -784,5 +799,6 @@
         private System.Windows.Forms.RadioButton rdoP;
         private System.Windows.Forms.RadioButton rdoV;
         private System.Windows.Forms.RadioButton rdoM;
+        private System.Windows.Forms.Button btnClearFilters;
     }
 }

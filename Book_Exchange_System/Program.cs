@@ -16,7 +16,8 @@ namespace Book_Exchange_System
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Applicants());
+            Application.Run(new Logins());
+            //Application.Run(new Books());
         }
     }
 }
