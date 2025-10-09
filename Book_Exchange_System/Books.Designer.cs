@@ -81,11 +81,16 @@ namespace Book_Exchange_System
             this.TopGraphic = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.Search = new System.Windows.Forms.Panel();
-            this.btnSearchApplicant = new System.Windows.Forms.Button();
+            this.btnSearchBook = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
             this.txtSearchApp = new System.Windows.Forms.TextBox();
             this.btnReloadApplicants = new System.Windows.Forms.Button();
             this.dgvBooks = new System.Windows.Forms.DataGridView();
+            this.btnClearFilters = new System.Windows.Forms.Button();
+            this.rdoFilterM = new System.Windows.Forms.RadioButton();
+            this.rdoFilterV = new System.Windows.Forms.RadioButton();
+            this.rdoFilterP = new System.Windows.Forms.RadioButton();
+            this.lblFilter = new System.Windows.Forms.Label();
             this.LeftGraphic.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.UpdateBook.SuspendLayout();
@@ -117,7 +122,7 @@ namespace Book_Exchange_System
             this.LeftGraphic.Location = new System.Drawing.Point(0, 0);
             this.LeftGraphic.Margin = new System.Windows.Forms.Padding(4);
             this.LeftGraphic.Name = "LeftGraphic";
-            this.LeftGraphic.Size = new System.Drawing.Size(253, 843);
+            this.LeftGraphic.Size = new System.Drawing.Size(253, 993);
             this.LeftGraphic.TabIndex = 0;
             // 
             // button7
@@ -190,7 +195,7 @@ namespace Book_Exchange_System
             this.UpdateBook.Location = new System.Drawing.Point(253, 220);
             this.UpdateBook.Margin = new System.Windows.Forms.Padding(4);
             this.UpdateBook.Name = "UpdateBook";
-            this.UpdateBook.Size = new System.Drawing.Size(666, 600);
+            this.UpdateBook.Size = new System.Drawing.Size(747, 773);
             this.UpdateBook.TabIndex = 20;
             // 
             // groupBox2
@@ -219,7 +224,7 @@ namespace Book_Exchange_System
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox2.Size = new System.Drawing.Size(666, 600);
+            this.groupBox2.Size = new System.Drawing.Size(747, 773);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Update Books";
@@ -465,7 +470,7 @@ namespace Book_Exchange_System
             this.AddBooks.Location = new System.Drawing.Point(253, 220);
             this.AddBooks.Margin = new System.Windows.Forms.Padding(4);
             this.AddBooks.Name = "AddBooks";
-            this.AddBooks.Size = new System.Drawing.Size(666, 600);
+            this.AddBooks.Size = new System.Drawing.Size(747, 773);
             this.AddBooks.TabIndex = 0;
             // 
             // groupBox1
@@ -493,7 +498,7 @@ namespace Book_Exchange_System
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(666, 600);
+            this.groupBox1.Size = new System.Drawing.Size(747, 773);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Add Books";
@@ -651,7 +656,7 @@ namespace Book_Exchange_System
             this.Deletebooks.Controls.Add(this.groupBox3);
             this.Deletebooks.Location = new System.Drawing.Point(253, 220);
             this.Deletebooks.Name = "Deletebooks";
-            this.Deletebooks.Size = new System.Drawing.Size(666, 600);
+            this.Deletebooks.Size = new System.Drawing.Size(747, 773);
             this.Deletebooks.TabIndex = 21;
             // 
             // groupBox3
@@ -662,7 +667,7 @@ namespace Book_Exchange_System
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.77391F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.Location = new System.Drawing.Point(9, 4);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(666, 600);
+            this.groupBox3.Size = new System.Drawing.Size(747, 773);
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Delete Books";
@@ -704,7 +709,7 @@ namespace Book_Exchange_System
             this.TopGraphic.Controls.Add(this.label1);
             this.TopGraphic.Location = new System.Drawing.Point(251, 0);
             this.TopGraphic.Name = "TopGraphic";
-            this.TopGraphic.Size = new System.Drawing.Size(1183, 218);
+            this.TopGraphic.Size = new System.Drawing.Size(1658, 218);
             this.TopGraphic.TabIndex = 31;
             // 
             // label1
@@ -713,7 +718,7 @@ namespace Book_Exchange_System
             this.label1.BackColor = System.Drawing.Color.Teal;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 36.31305F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label1.Location = new System.Drawing.Point(488, 83);
+            this.label1.Location = new System.Drawing.Point(759, 72);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(201, 70);
             this.label1.TabIndex = 0;
@@ -722,25 +727,31 @@ namespace Book_Exchange_System
             // Search
             // 
             this.Search.BackColor = System.Drawing.SystemColors.Control;
-            this.Search.Controls.Add(this.btnSearchApplicant);
+            this.Search.Controls.Add(this.rdoFilterM);
+            this.Search.Controls.Add(this.rdoFilterV);
+            this.Search.Controls.Add(this.rdoFilterP);
+            this.Search.Controls.Add(this.lblFilter);
+            this.Search.Controls.Add(this.btnClearFilters);
+            this.Search.Controls.Add(this.btnSearchBook);
             this.Search.Controls.Add(this.panel6);
             this.Search.Controls.Add(this.btnReloadApplicants);
             this.Search.Controls.Add(this.dgvBooks);
-            this.Search.Location = new System.Drawing.Point(916, 218);
+            this.Search.Location = new System.Drawing.Point(998, 218);
             this.Search.Name = "Search";
-            this.Search.Size = new System.Drawing.Size(497, 601);
+            this.Search.Size = new System.Drawing.Size(904, 773);
             this.Search.TabIndex = 32;
             // 
-            // btnSearchApplicant
+            // btnSearchBook
             // 
-            this.btnSearchApplicant.BackColor = System.Drawing.Color.Teal;
-            this.btnSearchApplicant.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnSearchApplicant.Location = new System.Drawing.Point(362, 31);
-            this.btnSearchApplicant.Name = "btnSearchApplicant";
-            this.btnSearchApplicant.Size = new System.Drawing.Size(123, 47);
-            this.btnSearchApplicant.TabIndex = 35;
-            this.btnSearchApplicant.Text = "Search";
-            this.btnSearchApplicant.UseVisualStyleBackColor = false;
+            this.btnSearchBook.BackColor = System.Drawing.Color.Teal;
+            this.btnSearchBook.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearchBook.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnSearchBook.Location = new System.Drawing.Point(448, 31);
+            this.btnSearchBook.Name = "btnSearchBook";
+            this.btnSearchBook.Size = new System.Drawing.Size(313, 53);
+            this.btnSearchBook.TabIndex = 35;
+            this.btnSearchBook.Text = "Search";
+            this.btnSearchBook.UseVisualStyleBackColor = false;
             // 
             // panel6
             // 
@@ -749,7 +760,7 @@ namespace Book_Exchange_System
             this.panel6.Controls.Add(this.txtSearchApp);
             this.panel6.Location = new System.Drawing.Point(18, 31);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(322, 47);
+            this.panel6.Size = new System.Drawing.Size(406, 47);
             this.panel6.TabIndex = 34;
             // 
             // txtSearchApp
@@ -757,16 +768,17 @@ namespace Book_Exchange_System
             this.txtSearchApp.Location = new System.Drawing.Point(11, 7);
             this.txtSearchApp.Margin = new System.Windows.Forms.Padding(4);
             this.txtSearchApp.Name = "txtSearchApp";
-            this.txtSearchApp.Size = new System.Drawing.Size(249, 22);
+            this.txtSearchApp.Size = new System.Drawing.Size(322, 22);
             this.txtSearchApp.TabIndex = 27;
             // 
             // btnReloadApplicants
             // 
             this.btnReloadApplicants.BackColor = System.Drawing.Color.Teal;
+            this.btnReloadApplicants.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReloadApplicants.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.btnReloadApplicants.Location = new System.Drawing.Point(17, 508);
+            this.btnReloadApplicants.Location = new System.Drawing.Point(16, 569);
             this.btnReloadApplicants.Name = "btnReloadApplicants";
-            this.btnReloadApplicants.Size = new System.Drawing.Size(157, 55);
+            this.btnReloadApplicants.Size = new System.Drawing.Size(313, 53);
             this.btnReloadApplicants.TabIndex = 33;
             this.btnReloadApplicants.Text = "Reload table";
             this.btnReloadApplicants.UseVisualStyleBackColor = false;
@@ -775,18 +787,73 @@ namespace Book_Exchange_System
             // 
             this.dgvBooks.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvBooks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvBooks.Location = new System.Drawing.Point(17, 104);
+            this.dgvBooks.Location = new System.Drawing.Point(16, 194);
             this.dgvBooks.Name = "dgvBooks";
             this.dgvBooks.RowHeadersWidth = 49;
             this.dgvBooks.RowTemplate.Height = 24;
-            this.dgvBooks.Size = new System.Drawing.Size(462, 398);
+            this.dgvBooks.Size = new System.Drawing.Size(858, 304);
             this.dgvBooks.TabIndex = 32;
+            // 
+            // btnClearFilters
+            // 
+            this.btnClearFilters.BackColor = System.Drawing.Color.Teal;
+            this.btnClearFilters.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClearFilters.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnClearFilters.Location = new System.Drawing.Point(448, 118);
+            this.btnClearFilters.Name = "btnClearFilters";
+            this.btnClearFilters.Size = new System.Drawing.Size(313, 53);
+            this.btnClearFilters.TabIndex = 41;
+            this.btnClearFilters.Text = "Clear filter";
+            this.btnClearFilters.UseVisualStyleBackColor = false;
+            // 
+            // rdoFilterM
+            // 
+            this.rdoFilterM.AutoSize = true;
+            this.rdoFilterM.Location = new System.Drawing.Point(138, 141);
+            this.rdoFilterM.Name = "rdoFilterM";
+            this.rdoFilterM.Size = new System.Drawing.Size(90, 21);
+            this.rdoFilterM.TabIndex = 45;
+            this.rdoFilterM.TabStop = true;
+            this.rdoFilterM.Text = "Mahikeng";
+            this.rdoFilterM.UseVisualStyleBackColor = true;
+            // 
+            // rdoFilterV
+            // 
+            this.rdoFilterV.AutoSize = true;
+            this.rdoFilterV.Location = new System.Drawing.Point(260, 141);
+            this.rdoFilterV.Name = "rdoFilterV";
+            this.rdoFilterV.Size = new System.Drawing.Size(57, 21);
+            this.rdoFilterV.TabIndex = 44;
+            this.rdoFilterV.TabStop = true;
+            this.rdoFilterV.Text = "Vaal";
+            this.rdoFilterV.UseVisualStyleBackColor = true;
+            // 
+            // rdoFilterP
+            // 
+            this.rdoFilterP.AutoSize = true;
+            this.rdoFilterP.Location = new System.Drawing.Point(24, 141);
+            this.rdoFilterP.Name = "rdoFilterP";
+            this.rdoFilterP.Size = new System.Drawing.Size(65, 21);
+            this.rdoFilterP.TabIndex = 43;
+            this.rdoFilterP.TabStop = true;
+            this.rdoFilterP.Text = "Potch";
+            this.rdoFilterP.UseVisualStyleBackColor = true;
+            // 
+            // lblFilter
+            // 
+            this.lblFilter.AutoSize = true;
+            this.lblFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFilter.Location = new System.Drawing.Point(25, 118);
+            this.lblFilter.Name = "lblFilter";
+            this.lblFilter.Size = new System.Drawing.Size(155, 20);
+            this.lblFilter.TabIndex = 42;
+            this.lblFilter.Text = "Filter by campus:";
             // 
             // Books
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1436, 843);
+            this.ClientSize = new System.Drawing.Size(1902, 993);
             this.Controls.Add(this.AddBooks);
             this.Controls.Add(this.UpdateBook);
             this.Controls.Add(this.Search);
@@ -796,6 +863,7 @@ namespace Book_Exchange_System
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Books";
             this.Text = "Books form";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.LeftGraphic.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.UpdateBook.ResumeLayout(false);
@@ -814,6 +882,7 @@ namespace Book_Exchange_System
             this.TopGraphic.ResumeLayout(false);
             this.TopGraphic.PerformLayout();
             this.Search.ResumeLayout(false);
+            this.Search.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBooks)).EndInit();
@@ -874,10 +943,15 @@ namespace Book_Exchange_System
         private System.Windows.Forms.Panel TopGraphic;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel Search;
-        private System.Windows.Forms.Button btnSearchApplicant;
+        private System.Windows.Forms.Button btnSearchBook;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.TextBox txtSearchApp;
         private System.Windows.Forms.Button btnReloadApplicants;
         private System.Windows.Forms.DataGridView dgvBooks;
+        private System.Windows.Forms.Button btnClearFilters;
+        private System.Windows.Forms.RadioButton rdoFilterM;
+        private System.Windows.Forms.RadioButton rdoFilterV;
+        private System.Windows.Forms.RadioButton rdoFilterP;
+        private System.Windows.Forms.Label lblFilter;
     }
 }
