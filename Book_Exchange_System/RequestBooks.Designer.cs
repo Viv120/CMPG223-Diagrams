@@ -53,6 +53,7 @@ namespace Book_Exchange_System
             this.btnSearchBooks = new System.Windows.Forms.Button();
             this.btnReload = new System.Windows.Forms.Button();
             this.dgvBooks = new System.Windows.Forms.DataGridView();
+            this.SelectBooks = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.UpdateApplicants = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtAppID = new System.Windows.Forms.TextBox();
@@ -71,7 +72,6 @@ namespace Book_Exchange_System
             this.lblNewEmail = new System.Windows.Forms.Label();
             this.lblNewSurname = new System.Windows.Forms.Label();
             this.btnUpdate = new System.Windows.Forms.Button();
-            this.SelectBooks = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.TopGraphic.SuspendLayout();
             this.ButtonGraphics.SuspendLayout();
@@ -111,7 +111,7 @@ namespace Book_Exchange_System
             this.label2.BackColor = System.Drawing.Color.Teal;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 36.31305F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label2.Location = new System.Drawing.Point(698, 71);
+            this.label2.Location = new System.Drawing.Point(707, 73);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(283, 70);
             this.label2.TabIndex = 0;
@@ -351,6 +351,13 @@ namespace Book_Exchange_System
             this.dgvBooks.TabIndex = 36;
             this.dgvBooks.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBooks_CellContentClick);
             // 
+            // SelectBooks
+            // 
+            this.SelectBooks.HeaderText = "Select";
+            this.SelectBooks.MinimumWidth = 6;
+            this.SelectBooks.Name = "SelectBooks";
+            this.SelectBooks.Width = 125;
+            // 
             // UpdateApplicants
             // 
             this.UpdateApplicants.Controls.Add(this.groupBox2);
@@ -564,13 +571,6 @@ namespace Book_Exchange_System
             this.btnUpdate.UseVisualStyleBackColor = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
-            // SelectBooks
-            // 
-            this.SelectBooks.HeaderText = "Select";
-            this.SelectBooks.MinimumWidth = 6;
-            this.SelectBooks.Name = "SelectBooks";
-            this.SelectBooks.Width = 125;
-            // 
             // RequestBooks
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -582,6 +582,7 @@ namespace Book_Exchange_System
             this.Controls.Add(this.ButtonGraphics);
             this.Name = "RequestBooks";
             this.Text = "RequestBooks";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.RequestBooks_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.TopGraphic.ResumeLayout(false);

@@ -31,6 +31,7 @@ namespace Book_Exchange_System
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DonateBooks));
             this.ButtonGraphics = new System.Windows.Forms.Panel();
+            this.btnDonate = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -39,7 +40,11 @@ namespace Book_Exchange_System
             this.label2 = new System.Windows.Forms.Label();
             this.UpdateDonor = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtNewEmail = new System.Windows.Forms.TextBox();
+            this.lblNewEmail = new System.Windows.Forms.Label();
+            this.txtDonorID = new System.Windows.Forms.TextBox();
             this.lblCampus = new System.Windows.Forms.Label();
+            this.dgvCurrentApp = new System.Windows.Forms.DataGridView();
             this.rdoPotch = new System.Windows.Forms.RadioButton();
             this.rdoMahikeng = new System.Windows.Forms.RadioButton();
             this.rdoVaal = new System.Windows.Forms.RadioButton();
@@ -49,11 +54,6 @@ namespace Book_Exchange_System
             this.lblNewName = new System.Windows.Forms.Label();
             this.lblNewSP_Number = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.dgvCurrentApp = new System.Windows.Forms.DataGridView();
-            this.txtDonorID = new System.Windows.Forms.TextBox();
-            this.txtNewEmail = new System.Windows.Forms.TextBox();
-            this.lblNewEmail = new System.Windows.Forms.Label();
-            this.btnDonate = new System.Windows.Forms.Button();
             this.Donate = new System.Windows.Forms.Panel();
             this.gbDonate = new System.Windows.Forms.GroupBox();
             this.lblDonated = new System.Windows.Forms.Label();
@@ -100,6 +100,19 @@ namespace Book_Exchange_System
             this.ButtonGraphics.Name = "ButtonGraphics";
             this.ButtonGraphics.Size = new System.Drawing.Size(253, 993);
             this.ButtonGraphics.TabIndex = 32;
+            // 
+            // btnDonate
+            // 
+            this.btnDonate.BackColor = System.Drawing.Color.Teal;
+            this.btnDonate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDonate.ForeColor = System.Drawing.Color.White;
+            this.btnDonate.Location = new System.Drawing.Point(16, 441);
+            this.btnDonate.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDonate.Name = "btnDonate";
+            this.btnDonate.Size = new System.Drawing.Size(208, 74);
+            this.btnDonate.TabIndex = 6;
+            this.btnDonate.Text = "Donate Books";
+            this.btnDonate.UseVisualStyleBackColor = false;
             // 
             // btnBack
             // 
@@ -165,7 +178,7 @@ namespace Book_Exchange_System
             this.label2.BackColor = System.Drawing.Color.Teal;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 36.31305F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label2.Location = new System.Drawing.Point(747, 71);
+            this.label2.Location = new System.Drawing.Point(766, 69);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(196, 70);
             this.label2.TabIndex = 0;
@@ -203,6 +216,36 @@ namespace Book_Exchange_System
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Update Donors";
             // 
+            // txtNewEmail
+            // 
+            this.txtNewEmail.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.txtNewEmail.Location = new System.Drawing.Point(20, 402);
+            this.txtNewEmail.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNewEmail.Name = "txtNewEmail";
+            this.txtNewEmail.Size = new System.Drawing.Size(301, 33);
+            this.txtNewEmail.TabIndex = 48;
+            // 
+            // lblNewEmail
+            // 
+            this.lblNewEmail.AutoSize = true;
+            this.lblNewEmail.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblNewEmail.Location = new System.Drawing.Point(18, 369);
+            this.lblNewEmail.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblNewEmail.Name = "lblNewEmail";
+            this.lblNewEmail.Size = new System.Drawing.Size(80, 29);
+            this.lblNewEmail.TabIndex = 47;
+            this.lblNewEmail.Text = "Email:";
+            // 
+            // txtDonorID
+            // 
+            this.txtDonorID.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.txtDonorID.Location = new System.Drawing.Point(20, 114);
+            this.txtDonorID.Margin = new System.Windows.Forms.Padding(4);
+            this.txtDonorID.Name = "txtDonorID";
+            this.txtDonorID.ReadOnly = true;
+            this.txtDonorID.Size = new System.Drawing.Size(123, 33);
+            this.txtDonorID.TabIndex = 44;
+            // 
             // lblCampus
             // 
             this.lblCampus.AutoSize = true;
@@ -213,6 +256,16 @@ namespace Book_Exchange_System
             this.lblCampus.Size = new System.Drawing.Size(287, 29);
             this.lblCampus.TabIndex = 22;
             this.lblCampus.Text = "Move to different campus:";
+            // 
+            // dgvCurrentApp
+            // 
+            this.dgvCurrentApp.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCurrentApp.Location = new System.Drawing.Point(629, 176);
+            this.dgvCurrentApp.Name = "dgvCurrentApp";
+            this.dgvCurrentApp.RowHeadersWidth = 51;
+            this.dgvCurrentApp.RowTemplate.Height = 24;
+            this.dgvCurrentApp.Size = new System.Drawing.Size(1020, 279);
+            this.dgvCurrentApp.TabIndex = 43;
             // 
             // rdoPotch
             // 
@@ -317,59 +370,6 @@ namespace Book_Exchange_System
             this.button1.TabIndex = 8;
             this.button1.Text = "Update";
             this.button1.UseVisualStyleBackColor = false;
-            // 
-            // dgvCurrentApp
-            // 
-            this.dgvCurrentApp.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCurrentApp.Location = new System.Drawing.Point(629, 176);
-            this.dgvCurrentApp.Name = "dgvCurrentApp";
-            this.dgvCurrentApp.RowHeadersWidth = 51;
-            this.dgvCurrentApp.RowTemplate.Height = 24;
-            this.dgvCurrentApp.Size = new System.Drawing.Size(1020, 279);
-            this.dgvCurrentApp.TabIndex = 43;
-            // 
-            // txtDonorID
-            // 
-            this.txtDonorID.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.txtDonorID.Location = new System.Drawing.Point(20, 114);
-            this.txtDonorID.Margin = new System.Windows.Forms.Padding(4);
-            this.txtDonorID.Name = "txtDonorID";
-            this.txtDonorID.ReadOnly = true;
-            this.txtDonorID.Size = new System.Drawing.Size(123, 33);
-            this.txtDonorID.TabIndex = 44;
-            // 
-            // txtNewEmail
-            // 
-            this.txtNewEmail.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.txtNewEmail.Location = new System.Drawing.Point(20, 402);
-            this.txtNewEmail.Margin = new System.Windows.Forms.Padding(4);
-            this.txtNewEmail.Name = "txtNewEmail";
-            this.txtNewEmail.Size = new System.Drawing.Size(301, 33);
-            this.txtNewEmail.TabIndex = 48;
-            // 
-            // lblNewEmail
-            // 
-            this.lblNewEmail.AutoSize = true;
-            this.lblNewEmail.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblNewEmail.Location = new System.Drawing.Point(18, 369);
-            this.lblNewEmail.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblNewEmail.Name = "lblNewEmail";
-            this.lblNewEmail.Size = new System.Drawing.Size(80, 29);
-            this.lblNewEmail.TabIndex = 47;
-            this.lblNewEmail.Text = "Email:";
-            // 
-            // btnDonate
-            // 
-            this.btnDonate.BackColor = System.Drawing.Color.Teal;
-            this.btnDonate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDonate.ForeColor = System.Drawing.Color.White;
-            this.btnDonate.Location = new System.Drawing.Point(16, 441);
-            this.btnDonate.Margin = new System.Windows.Forms.Padding(4);
-            this.btnDonate.Name = "btnDonate";
-            this.btnDonate.Size = new System.Drawing.Size(208, 74);
-            this.btnDonate.TabIndex = 6;
-            this.btnDonate.Text = "Donate Books";
-            this.btnDonate.UseVisualStyleBackColor = false;
             // 
             // Donate
             // 
@@ -607,6 +607,7 @@ namespace Book_Exchange_System
             this.Controls.Add(this.ButtonGraphics);
             this.Name = "DonateBooks";
             this.Text = "DonateBooks";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.ButtonGraphics.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.TopGraphic.ResumeLayout(false);

@@ -33,7 +33,6 @@ D:\Vivicia\My Documents\NWU\Modules\Year 2\SEMESTER 2\CMPG223-Diagrams\Book_Exch
 D:\Vivicia\My Documents\NWU\Modules\Year 2\SEMESTER 2\CMPG223-Diagrams\Book_Exchange_System\bin\Debug\System.Numerics.Vectors.xml
 D:\Vivicia\My Documents\NWU\Modules\Year 2\SEMESTER 2\CMPG223-Diagrams\Book_Exchange_System\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 D:\Vivicia\My Documents\NWU\Modules\Year 2\SEMESTER 2\CMPG223-Diagrams\Book_Exchange_System\bin\Debug\System.Threading.Tasks.Extensions.xml
-D:\Vivicia\My Documents\NWU\Modules\Year 2\SEMESTER 2\CMPG223-Diagrams\Book_Exchange_System\obj\Debug\Final-UI_VisualStudio.csproj.AssemblyReference.cache
 D:\Vivicia\My Documents\NWU\Modules\Year 2\SEMESTER 2\CMPG223-Diagrams\Book_Exchange_System\obj\Debug\Book_Exchange_System.Admin.resources
 D:\Vivicia\My Documents\NWU\Modules\Year 2\SEMESTER 2\CMPG223-Diagrams\Book_Exchange_System\obj\Debug\Book_Exchange_System.Books.resources
 D:\Vivicia\My Documents\NWU\Modules\Year 2\SEMESTER 2\CMPG223-Diagrams\Book_Exchange_System\obj\Debug\Book_Exchange_System.Applicants.resources
@@ -46,3 +45,6 @@ D:\Vivicia\My Documents\NWU\Modules\Year 2\SEMESTER 2\CMPG223-Diagrams\Book_Exch
 D:\Vivicia\My Documents\NWU\Modules\Year 2\SEMESTER 2\CMPG223-Diagrams\Book_Exchange_System\obj\Debug\Final-UI_VisualStudio.csproj.CopyComplete
 D:\Vivicia\My Documents\NWU\Modules\Year 2\SEMESTER 2\CMPG223-Diagrams\Book_Exchange_System\obj\Debug\Book_Exchange_System.exe
 D:\Vivicia\My Documents\NWU\Modules\Year 2\SEMESTER 2\CMPG223-Diagrams\Book_Exchange_System\obj\Debug\Book_Exchange_System.pdb
+D:\Vivicia\My Documents\NWU\Modules\Year 2\SEMESTER 2\CMPG223-Diagrams\Book_Exchange_System\obj\Debug\Book_Exchange_System.DonateBooks.resources
+D:\Vivicia\My Documents\NWU\Modules\Year 2\SEMESTER 2\CMPG223-Diagrams\Book_Exchange_System\obj\Debug\Book_Exchange_System.RequestBooks.resources
+D:\Vivicia\My Documents\NWU\Modules\Year 2\SEMESTER 2\CMPG223-Diagrams\Book_Exchange_System\obj\Debug\Final-UI_VisualStudio.csproj.AssemblyReference.cache
