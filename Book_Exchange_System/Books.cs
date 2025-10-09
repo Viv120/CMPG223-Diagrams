@@ -187,9 +187,9 @@ namespace Book_Exchange_System
         //returns to login form
         private void button7_Click(object sender, EventArgs e)
         {
-            Logins loginForm = new Logins();
-            loginForm.Show();
-            this.Hide();
+            Admin admin = new Admin();
+            admin.Show();
+            this.Close();
         }
 
         //adds the new book
