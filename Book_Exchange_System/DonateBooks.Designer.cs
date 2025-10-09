@@ -160,6 +160,7 @@ namespace Book_Exchange_System
             this.btnUpdateDonor.TabIndex = 1;
             this.btnUpdateDonor.Text = "Update Information";
             this.btnUpdateDonor.UseVisualStyleBackColor = false;
+            this.btnUpdateDonor.Click += new System.EventHandler(this.btnUpdateDonor_Click);
             // 
             // TopGraphic
             // 

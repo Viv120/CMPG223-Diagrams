@@ -782,8 +782,8 @@ namespace Book_Exchange_System
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1902, 993);
             this.Controls.Add(this.DeleteApplicants);
-            this.Controls.Add(this.AddApplicants);
             this.Controls.Add(this.UpdateApplicants);
+            this.Controls.Add(this.AddApplicants);
             this.Controls.Add(this.Search);
             this.Controls.Add(this.TopGraphic);
             this.Controls.Add(this.ButtonGraphics);

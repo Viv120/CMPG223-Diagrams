@@ -8,12 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using System.Configuration;
 
 namespace Book_Exchange_System
 {
     public partial class Admin : Form
     {
-        MySqlConnection conn = new MySqlConnection("Server=localhost;Database=book_exchange_db;Uid=root;Pwd=Viv20050209!");
+        string connString = ConfigurationManager.ConnectionStrings["BookExchangeConn"].ConnectionString;
         MySqlCommand cmd;
         MySqlDataAdapter da;
         DataTable dt;
@@ -27,17 +28,19 @@ namespace Book_Exchange_System
         {
             try
             {
-                conn.Open();
+                using (MySqlConnection conn = new MySqlConnection(connString))
+                {
+                    conn.Open();
 
-                string query = $"SELECT * FROM {tableName}";
-                cmd = new MySqlCommand(query, conn);
-                da = new MySqlDataAdapter(cmd);
-                dt = new DataTable();
-                da.Fill(dt);
+                    string query = $"SELECT * FROM {tableName}";
+                    cmd = new MySqlCommand(query, conn);
+                    da = new MySqlDataAdapter(cmd);
+                    dt = new DataTable();
+                    da.Fill(dt);
 
-                dgv.DataSource = dt;
+                    dgv.DataSource = dt;
 
-                conn.Close();
+                }
             }
             catch(Exception ex)
             {

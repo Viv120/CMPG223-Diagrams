@@ -16,5 +16,10 @@ namespace Book_Exchange_System
         {
             InitializeComponent();
         }
+
+        private void btnUpdateDonor_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
