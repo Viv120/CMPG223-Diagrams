@@ -41,8 +41,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.AddDonors = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtDonorPass = new System.Windows.Forms.TextBox();
-            this.lblDonorPass = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
@@ -59,11 +57,11 @@
             this.rdoVaal = new System.Windows.Forms.RadioButton();
             this.cbBookID = new System.Windows.Forms.ComboBox();
             this.lblBookID = new System.Windows.Forms.Label();
-            this.txtNewAName = new System.Windows.Forms.TextBox();
-            this.txtNewASurname = new System.Windows.Forms.TextBox();
+            this.txtNewName = new System.Windows.Forms.TextBox();
+            this.txtNewEmail = new System.Windows.Forms.TextBox();
             this.txtNewSP_Number = new System.Windows.Forms.TextBox();
             this.lblNewName = new System.Windows.Forms.Label();
-            this.lblNewSurname = new System.Windows.Forms.Label();
+            this.lblNewEmail = new System.Windows.Forms.Label();
             this.lblNewSP_Number = new System.Windows.Forms.Label();
             this.btnUpdateDonor = new System.Windows.Forms.Button();
             this.DeleteDonor = new System.Windows.Forms.Panel();
@@ -77,6 +75,7 @@
             this.txtSearchDonor = new System.Windows.Forms.TextBox();
             this.btnReloadDonors = new System.Windows.Forms.Button();
             this.dgvDonors = new System.Windows.Forms.DataGridView();
+<<<<<<< HEAD
             this.DonateBooks = new System.Windows.Forms.Panel();
             this.gbDonate = new System.Windows.Forms.GroupBox();
             this.lblDonated = new System.Windows.Forms.Label();
@@ -95,6 +94,15 @@
             this.lblCondition = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
+=======
+            this.label2 = new System.Windows.Forms.Label();
+            this.rdoP = new System.Windows.Forms.RadioButton();
+            this.rdoV = new System.Windows.Forms.RadioButton();
+            this.rdoM = new System.Windows.Forms.RadioButton();
+            this.label3 = new System.Windows.Forms.Label();
+            this.rdoInd = new System.Windows.Forms.RadioButton();
+            this.rdoOrg = new System.Windows.Forms.RadioButton();
+>>>>>>> main
             this.ButtonGraphic.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.TopGraphic.SuspendLayout();
@@ -108,10 +116,13 @@
             this.Search.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDonors)).BeginInit();
+<<<<<<< HEAD
             this.DonateBooks.SuspendLayout();
             this.gbDonate.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDonate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCondition)).BeginInit();
+=======
+>>>>>>> main
             this.SuspendLayout();
             // 
             // ButtonGraphic
@@ -119,7 +130,6 @@
             this.ButtonGraphic.BackColor = System.Drawing.Color.Transparent;
             this.ButtonGraphic.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ButtonGraphic.BackgroundImage")));
             this.ButtonGraphic.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ButtonGraphic.Controls.Add(this.btnDonateBooks);
             this.ButtonGraphic.Controls.Add(this.pictureBox1);
             this.ButtonGraphic.Controls.Add(this.button10);
             this.ButtonGraphic.Controls.Add(this.panel1);
@@ -129,6 +139,7 @@
             this.ButtonGraphic.Dock = System.Windows.Forms.DockStyle.Left;
             this.ButtonGraphic.Location = new System.Drawing.Point(0, 0);
             this.ButtonGraphic.Name = "ButtonGraphic";
+<<<<<<< HEAD
             this.ButtonGraphic.Size = new System.Drawing.Size(190, 665);
             this.ButtonGraphic.TabIndex = 2;
             // 
@@ -144,6 +155,12 @@
             this.btnDonateBooks.Text = "Donate Books";
             this.btnDonateBooks.UseVisualStyleBackColor = false;
             this.btnDonateBooks.Click += new System.EventHandler(this.btnDonateBooks_Click);
+=======
+            this.ButtonGraphic.Size = new System.Drawing.Size(253, 993);
+            this.ButtonGraphic.TabIndex = 2;
+            // 
+      
+>>>>>>> main
             // 
             // pictureBox1
             // 
@@ -161,7 +178,12 @@
             this.button10.BackColor = System.Drawing.Color.Teal;
             this.button10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button10.ForeColor = System.Drawing.Color.White;
+<<<<<<< HEAD
             this.button10.Location = new System.Drawing.Point(10, 556);
+=======
+            this.button10.Location = new System.Drawing.Point(16, 675);
+            this.button10.Margin = new System.Windows.Forms.Padding(4);
+>>>>>>> main
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(156, 60);
             this.button10.TabIndex = 9;
@@ -184,7 +206,12 @@
             this.btnDeleteBooks.BackColor = System.Drawing.Color.Teal;
             this.btnDeleteBooks.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeleteBooks.ForeColor = System.Drawing.Color.White;
+<<<<<<< HEAD
             this.btnDeleteBooks.Location = new System.Drawing.Point(10, 303);
+=======
+            this.btnDeleteBooks.Location = new System.Drawing.Point(16, 519);
+            this.btnDeleteBooks.Margin = new System.Windows.Forms.Padding(4);
+>>>>>>> main
             this.btnDeleteBooks.Name = "btnDeleteBooks";
             this.btnDeleteBooks.Size = new System.Drawing.Size(156, 60);
             this.btnDeleteBooks.TabIndex = 2;
@@ -197,7 +224,12 @@
             this.btnUpdateBook.BackColor = System.Drawing.Color.Teal;
             this.btnUpdateBook.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdateBook.ForeColor = System.Drawing.Color.White;
+<<<<<<< HEAD
             this.btnUpdateBook.Location = new System.Drawing.Point(10, 222);
+=======
+            this.btnUpdateBook.Location = new System.Drawing.Point(16, 383);
+            this.btnUpdateBook.Margin = new System.Windows.Forms.Padding(4);
+>>>>>>> main
             this.btnUpdateBook.Name = "btnUpdateBook";
             this.btnUpdateBook.Size = new System.Drawing.Size(156, 60);
             this.btnUpdateBook.TabIndex = 1;
@@ -210,7 +242,12 @@
             this.btnAddBooks.BackColor = System.Drawing.Color.Teal;
             this.btnAddBooks.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddBooks.ForeColor = System.Drawing.Color.White;
+<<<<<<< HEAD
             this.btnAddBooks.Location = new System.Drawing.Point(10, 142);
+=======
+            this.btnAddBooks.Location = new System.Drawing.Point(16, 240);
+            this.btnAddBooks.Margin = new System.Windows.Forms.Padding(4);
+>>>>>>> main
             this.btnAddBooks.Name = "btnAddBooks";
             this.btnAddBooks.Size = new System.Drawing.Size(156, 60);
             this.btnAddBooks.TabIndex = 0;
@@ -253,8 +290,13 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.txtDonorPass);
-            this.groupBox1.Controls.Add(this.lblDonorPass);
+            this.groupBox1.Controls.Add(this.rdoInd);
+            this.groupBox1.Controls.Add(this.rdoOrg);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.rdoP);
+            this.groupBox1.Controls.Add(this.rdoV);
+            this.groupBox1.Controls.Add(this.rdoM);
             this.groupBox1.Controls.Add(this.lblName);
             this.groupBox1.Controls.Add(this.txtName);
             this.groupBox1.Controls.Add(this.txtEmail);
@@ -272,6 +314,7 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Add Donors";
             // 
+<<<<<<< HEAD
             // txtDonorPass
             // 
             this.txtDonorPass.Location = new System.Drawing.Point(47, 353);
@@ -290,6 +333,8 @@
             this.lblDonorPass.TabIndex = 33;
             this.lblDonorPass.Text = "Password:";
             // 
+=======
+>>>>>>> main
             // lblName
             // 
             this.lblName.AutoSize = true;
@@ -346,8 +391,12 @@
             // 
             this.btnAddDonor.BackColor = System.Drawing.Color.Teal;
             this.btnAddDonor.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+<<<<<<< HEAD
             this.btnAddDonor.Location = new System.Drawing.Point(66, 405);
             this.btnAddDonor.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+=======
+            this.btnAddDonor.Location = new System.Drawing.Point(201, 522);
+>>>>>>> main
             this.btnAddDonor.Name = "btnAddDonor";
             this.btnAddDonor.Size = new System.Drawing.Size(235, 43);
             this.btnAddDonor.TabIndex = 4;
@@ -360,7 +409,11 @@
             this.UpdateDonor.Location = new System.Drawing.Point(190, 177);
             this.UpdateDonor.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.UpdateDonor.Name = "UpdateDonor";
+<<<<<<< HEAD
             this.UpdateDonor.Size = new System.Drawing.Size(500, 488);
+=======
+            this.UpdateDonor.Size = new System.Drawing.Size(747, 773);
+>>>>>>> main
             this.UpdateDonor.TabIndex = 6;
             // 
             // groupBox2
@@ -368,19 +421,23 @@
             this.groupBox2.Controls.Add(this.groupBox5);
             this.groupBox2.Controls.Add(this.cbBookID);
             this.groupBox2.Controls.Add(this.lblBookID);
-            this.groupBox2.Controls.Add(this.txtNewAName);
-            this.groupBox2.Controls.Add(this.txtNewASurname);
+            this.groupBox2.Controls.Add(this.txtNewName);
+            this.groupBox2.Controls.Add(this.txtNewEmail);
             this.groupBox2.Controls.Add(this.txtNewSP_Number);
             this.groupBox2.Controls.Add(this.lblNewName);
-            this.groupBox2.Controls.Add(this.lblNewSurname);
+            this.groupBox2.Controls.Add(this.lblNewEmail);
             this.groupBox2.Controls.Add(this.lblNewSP_Number);
             this.groupBox2.Controls.Add(this.btnUpdateDonor);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.77391F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(8, 3);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox2.Name = "groupBox2";
+<<<<<<< HEAD
             this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox2.Size = new System.Drawing.Size(500, 488);
+=======
+            this.groupBox2.Size = new System.Drawing.Size(747, 773);
+>>>>>>> main
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Update Donors";
@@ -391,8 +448,12 @@
             this.groupBox5.Controls.Add(this.rdoPotch);
             this.groupBox5.Controls.Add(this.rdoMahikeng);
             this.groupBox5.Controls.Add(this.rdoVaal);
+<<<<<<< HEAD
             this.groupBox5.Location = new System.Drawing.Point(254, 117);
             this.groupBox5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+=======
+            this.groupBox5.Location = new System.Drawing.Point(20, 466);
+>>>>>>> main
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox5.Size = new System.Drawing.Size(218, 188);
@@ -467,26 +528,49 @@
             this.lblBookID.TabIndex = 40;
             this.lblBookID.Text = "ID:";
             // 
-            // txtNewAName
+            // txtNewName
             // 
+<<<<<<< HEAD
             this.txtNewAName.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.txtNewAName.Location = new System.Drawing.Point(15, 147);
             this.txtNewAName.Name = "txtNewAName";
             this.txtNewAName.Size = new System.Drawing.Size(227, 28);
             this.txtNewAName.TabIndex = 38;
+=======
+            this.txtNewName.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.txtNewName.Location = new System.Drawing.Point(25, 183);
+            this.txtNewName.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNewName.Name = "txtNewName";
+            this.txtNewName.Size = new System.Drawing.Size(301, 33);
+            this.txtNewName.TabIndex = 38;
+>>>>>>> main
             // 
-            // txtNewASurname
+            // txtNewEmail
             // 
+<<<<<<< HEAD
             this.txtNewASurname.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.txtNewASurname.Location = new System.Drawing.Point(15, 223);
             this.txtNewASurname.Name = "txtNewASurname";
             this.txtNewASurname.Size = new System.Drawing.Size(227, 28);
             this.txtNewASurname.TabIndex = 37;
+=======
+            this.txtNewEmail.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.txtNewEmail.Location = new System.Drawing.Point(20, 384);
+            this.txtNewEmail.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNewEmail.Name = "txtNewEmail";
+            this.txtNewEmail.Size = new System.Drawing.Size(301, 33);
+            this.txtNewEmail.TabIndex = 37;
+>>>>>>> main
             // 
             // txtNewSP_Number
             // 
             this.txtNewSP_Number.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+<<<<<<< HEAD
             this.txtNewSP_Number.Location = new System.Drawing.Point(15, 297);
+=======
+            this.txtNewSP_Number.Location = new System.Drawing.Point(25, 282);
+            this.txtNewSP_Number.Margin = new System.Windows.Forms.Padding(4);
+>>>>>>> main
             this.txtNewSP_Number.Name = "txtNewSP_Number";
             this.txtNewSP_Number.Size = new System.Drawing.Size(227, 28);
             this.txtNewSP_Number.TabIndex = 34;
@@ -495,14 +579,22 @@
             // 
             this.lblNewName.AutoSize = true;
             this.lblNewName.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+<<<<<<< HEAD
             this.lblNewName.Location = new System.Drawing.Point(17, 111);
             this.lblNewName.Name = "lblNewName";
             this.lblNewName.Size = new System.Drawing.Size(66, 24);
+=======
+            this.lblNewName.Location = new System.Drawing.Point(23, 144);
+            this.lblNewName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblNewName.Name = "lblNewName";
+            this.lblNewName.Size = new System.Drawing.Size(315, 29);
+>>>>>>> main
             this.lblNewName.TabIndex = 33;
-            this.lblNewName.Text = "Name:";
+            this.lblNewName.Text = "Student/Organization Name:";
             // 
-            // lblNewSurname
+            // lblNewEmail
             // 
+<<<<<<< HEAD
             this.lblNewSurname.AutoSize = true;
             this.lblNewSurname.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lblNewSurname.Location = new System.Drawing.Point(15, 189);
@@ -510,23 +602,44 @@
             this.lblNewSurname.Size = new System.Drawing.Size(92, 24);
             this.lblNewSurname.TabIndex = 32;
             this.lblNewSurname.Text = "Surname:";
+=======
+            this.lblNewEmail.AutoSize = true;
+            this.lblNewEmail.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblNewEmail.Location = new System.Drawing.Point(20, 342);
+            this.lblNewEmail.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblNewEmail.Name = "lblNewEmail";
+            this.lblNewEmail.Size = new System.Drawing.Size(80, 29);
+            this.lblNewEmail.TabIndex = 32;
+            this.lblNewEmail.Text = "Email:";
+>>>>>>> main
             // 
             // lblNewSP_Number
             // 
             this.lblNewSP_Number.AutoSize = true;
             this.lblNewSP_Number.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+<<<<<<< HEAD
             this.lblNewSP_Number.Location = new System.Drawing.Point(14, 270);
             this.lblNewSP_Number.Name = "lblNewSP_Number";
             this.lblNewSP_Number.Size = new System.Drawing.Size(118, 24);
+=======
+            this.lblNewSP_Number.Location = new System.Drawing.Point(20, 249);
+            this.lblNewSP_Number.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblNewSP_Number.Name = "lblNewSP_Number";
+            this.lblNewSP_Number.Size = new System.Drawing.Size(271, 29);
+>>>>>>> main
             this.lblNewSP_Number.TabIndex = 28;
-            this.lblNewSP_Number.Text = "SP_Number:";
+            this.lblNewSP_Number.Text = "Student/Phone Number:";
             // 
             // btnUpdateDonor
             // 
             this.btnUpdateDonor.BackColor = System.Drawing.Color.Teal;
             this.btnUpdateDonor.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+<<<<<<< HEAD
             this.btnUpdateDonor.Location = new System.Drawing.Point(85, 378);
             this.btnUpdateDonor.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+=======
+            this.btnUpdateDonor.Location = new System.Drawing.Point(372, 618);
+>>>>>>> main
             this.btnUpdateDonor.Name = "btnUpdateDonor";
             this.btnUpdateDonor.Size = new System.Drawing.Size(230, 41);
             this.btnUpdateDonor.TabIndex = 8;
@@ -595,10 +708,16 @@
             this.Search.Controls.Add(this.panel3);
             this.Search.Controls.Add(this.btnReloadDonors);
             this.Search.Controls.Add(this.dgvDonors);
+<<<<<<< HEAD
             this.Search.Location = new System.Drawing.Point(687, 177);
             this.Search.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Search.Name = "Search";
             this.Search.Size = new System.Drawing.Size(373, 488);
+=======
+            this.Search.Location = new System.Drawing.Point(998, 218);
+            this.Search.Name = "Search";
+            this.Search.Size = new System.Drawing.Size(904, 773);
+>>>>>>> main
             this.Search.TabIndex = 8;
             // 
             // btnSearchDonor
@@ -626,9 +745,16 @@
             // 
             // txtSearchDonor
             // 
+<<<<<<< HEAD
             this.txtSearchDonor.Location = new System.Drawing.Point(8, 6);
             this.txtSearchDonor.Name = "txtSearchDonor";
             this.txtSearchDonor.Size = new System.Drawing.Size(188, 20);
+=======
+            this.txtSearchDonor.Location = new System.Drawing.Point(11, 7);
+            this.txtSearchDonor.Margin = new System.Windows.Forms.Padding(4);
+            this.txtSearchDonor.Name = "txtSearchDonor";
+            this.txtSearchDonor.Size = new System.Drawing.Size(249, 22);
+>>>>>>> main
             this.txtSearchDonor.TabIndex = 27;
             // 
             // btnReloadDonors
@@ -655,6 +781,7 @@
             this.dgvDonors.Size = new System.Drawing.Size(346, 323);
             this.dgvDonors.TabIndex = 32;
             // 
+<<<<<<< HEAD
             // DonateBooks
             // 
             this.DonateBooks.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -664,9 +791,34 @@
             this.DonateBooks.Name = "DonateBooks";
             this.DonateBooks.Size = new System.Drawing.Size(870, 488);
             this.DonateBooks.TabIndex = 1;
+=======
+            // label2
             // 
-            // gbDonate
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(405, 218);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(196, 29);
+            this.label2.TabIndex = 49;
+            this.label2.Text = "Select a campus:";
             // 
+            // rdoP
+            // 
+            this.rdoP.AutoSize = true;
+            this.rdoP.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdoP.Location = new System.Drawing.Point(410, 253);
+            this.rdoP.Margin = new System.Windows.Forms.Padding(4);
+            this.rdoP.Name = "rdoP";
+            this.rdoP.Size = new System.Drawing.Size(225, 24);
+            this.rdoP.TabIndex = 48;
+            this.rdoP.TabStop = true;
+            this.rdoP.Text = "1: Potchefstroom Campus";
+            this.rdoP.UseVisualStyleBackColor = true;
+>>>>>>> main
+            // 
+            // rdoV
+            // 
+<<<<<<< HEAD
             this.gbDonate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.gbDonate.BackColor = System.Drawing.SystemColors.Control;
@@ -735,24 +887,74 @@
             this.txtAName.Name = "txtAName";
             this.txtAName.Size = new System.Drawing.Size(227, 26);
             this.txtAName.TabIndex = 17;
+=======
+            this.rdoV.AutoSize = true;
+            this.rdoV.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdoV.Location = new System.Drawing.Point(410, 324);
+            this.rdoV.Margin = new System.Windows.Forms.Padding(4);
+            this.rdoV.Name = "rdoV";
+            this.rdoV.Size = new System.Drawing.Size(149, 24);
+            this.rdoV.TabIndex = 47;
+            this.rdoV.TabStop = true;
+            this.rdoV.Text = "3: Vaal Campus";
+            this.rdoV.UseVisualStyleBackColor = true;
             // 
-            // txtASurname
+            // rdoM
             // 
+            this.rdoM.AutoSize = true;
+            this.rdoM.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdoM.Location = new System.Drawing.Point(410, 290);
+            this.rdoM.Margin = new System.Windows.Forms.Padding(4);
+            this.rdoM.Name = "rdoM";
+            this.rdoM.Size = new System.Drawing.Size(187, 24);
+            this.rdoM.TabIndex = 46;
+            this.rdoM.TabStop = true;
+            this.rdoM.Text = "2: Mahikeng Campus";
+            this.rdoM.UseVisualStyleBackColor = true;
+>>>>>>> main
+            // 
+            // label3
+            // 
+<<<<<<< HEAD
             this.txtASurname.BackColor = System.Drawing.Color.White;
             this.txtASurname.Location = new System.Drawing.Point(6, 240);
             this.txtASurname.Name = "txtASurname";
             this.txtASurname.Size = new System.Drawing.Size(227, 26);
             this.txtASurname.TabIndex = 16;
+=======
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(62, 402);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(172, 29);
+            this.label3.TabIndex = 50;
+            this.label3.Text = "Type of Donor:";
+>>>>>>> main
             // 
-            // txtEdition
+            // rdoInd
             // 
+<<<<<<< HEAD
             this.txtEdition.Location = new System.Drawing.Point(6, 314);
             this.txtEdition.Name = "txtEdition";
             this.txtEdition.Size = new System.Drawing.Size(100, 26);
             this.txtEdition.TabIndex = 15;
+=======
+            this.rdoInd.AutoSize = true;
+            this.rdoInd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdoInd.Location = new System.Drawing.Point(63, 435);
+            this.rdoInd.Margin = new System.Windows.Forms.Padding(4);
+            this.rdoInd.Name = "rdoInd";
+            this.rdoInd.Size = new System.Drawing.Size(118, 24);
+            this.rdoInd.TabIndex = 52;
+            this.rdoInd.TabStop = true;
+            this.rdoInd.Text = "1: Individual";
+            this.rdoInd.UseVisualStyleBackColor = true;
+>>>>>>> main
             // 
-            // txtYear
+            // rdoOrg
             // 
+<<<<<<< HEAD
             this.txtYear.Location = new System.Drawing.Point(121, 314);
             this.txtYear.Name = "txtYear";
             this.txtYear.Size = new System.Drawing.Size(100, 26);
@@ -862,6 +1064,18 @@
             this.btnAdd.TabIndex = 1;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = false;
+=======
+            this.rdoOrg.AutoSize = true;
+            this.rdoOrg.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdoOrg.Location = new System.Drawing.Point(63, 474);
+            this.rdoOrg.Margin = new System.Windows.Forms.Padding(4);
+            this.rdoOrg.Name = "rdoOrg";
+            this.rdoOrg.Size = new System.Drawing.Size(144, 24);
+            this.rdoOrg.TabIndex = 51;
+            this.rdoOrg.TabStop = true;
+            this.rdoOrg.Text = "2: Organization";
+            this.rdoOrg.UseVisualStyleBackColor = true;
+>>>>>>> main
             // 
             // Donors
             // 
@@ -869,11 +1083,18 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+<<<<<<< HEAD
             this.ClientSize = new System.Drawing.Size(1060, 665);
             this.Controls.Add(this.UpdateDonor);
             this.Controls.Add(this.DonateBooks);
             this.Controls.Add(this.Search);
             this.Controls.Add(this.AddDonors);
+=======
+            this.ClientSize = new System.Drawing.Size(1902, 993);
+            this.Controls.Add(this.UpdateDonor);
+            this.Controls.Add(this.AddDonors);
+            this.Controls.Add(this.Search);
+>>>>>>> main
             this.Controls.Add(this.DeleteDonor);
             this.Controls.Add(this.TopGraphic);
             this.Controls.Add(this.ButtonGraphic);
@@ -881,6 +1102,7 @@
             this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Donors";
             this.Text = "Donor";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.ButtonGraphic.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.TopGraphic.ResumeLayout(false);
@@ -900,11 +1122,14 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDonors)).EndInit();
+<<<<<<< HEAD
             this.DonateBooks.ResumeLayout(false);
             this.gbDonate.ResumeLayout(false);
             this.gbDonate.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDonate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCondition)).EndInit();
+=======
+>>>>>>> main
             this.ResumeLayout(false);
 
         }
@@ -933,11 +1158,11 @@
         private System.Windows.Forms.RadioButton rdoVaal;
         private System.Windows.Forms.ComboBox cbBookID;
         private System.Windows.Forms.Label lblBookID;
-        private System.Windows.Forms.TextBox txtNewAName;
-        private System.Windows.Forms.TextBox txtNewASurname;
+        private System.Windows.Forms.TextBox txtNewName;
+        private System.Windows.Forms.TextBox txtNewEmail;
         private System.Windows.Forms.TextBox txtNewSP_Number;
         private System.Windows.Forms.Label lblNewName;
-        private System.Windows.Forms.Label lblNewSurname;
+        private System.Windows.Forms.Label lblNewEmail;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.TextBox txtSP_Num;
         private System.Windows.Forms.Label lblEmail;
@@ -949,32 +1174,18 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ComboBox cbDeleteDonor;
         private System.Windows.Forms.Label lblNewSP_Number;
-        private System.Windows.Forms.TextBox txtDonorPass;
-        private System.Windows.Forms.Label lblDonorPass;
         private System.Windows.Forms.Panel Search;
         private System.Windows.Forms.Button btnSearchDonor;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TextBox txtSearchDonor;
         private System.Windows.Forms.Button btnReloadDonors;
         private System.Windows.Forms.DataGridView dgvDonors;
-        private System.Windows.Forms.Button btnDonateBooks;
-        private System.Windows.Forms.Panel DonateBooks;
-        private System.Windows.Forms.GroupBox gbDonate;
-        private System.Windows.Forms.TextBox txtAName;
-        private System.Windows.Forms.TextBox txtASurname;
-        private System.Windows.Forms.TextBox txtEdition;
-        private System.Windows.Forms.TextBox txtYear;
-        private System.Windows.Forms.TextBox txtTitle;
-        private System.Windows.Forms.Label lblAuthorF;
-        private System.Windows.Forms.Label lblAuthorL;
-        private System.Windows.Forms.NumericUpDown nudCondition;
-        private System.Windows.Forms.Label lblEdition;
-        private System.Windows.Forms.Label lblYear;
-        private System.Windows.Forms.Label lblCondition;
-        private System.Windows.Forms.Label lblTitle;
-        private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.DataGridView dgvDonate;
-        private System.Windows.Forms.Button btnDonate;
-        private System.Windows.Forms.Label lblDonated;
+        private System.Windows.Forms.RadioButton rdoInd;
+        private System.Windows.Forms.RadioButton rdoOrg;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.RadioButton rdoP;
+        private System.Windows.Forms.RadioButton rdoV;
+        private System.Windows.Forms.RadioButton rdoM;
     }
 }
