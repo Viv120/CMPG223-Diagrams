@@ -55,15 +55,15 @@ namespace Book_Exchange_System
             this.dgvBooks = new System.Windows.Forms.DataGridView();
             this.Applicants = new System.Windows.Forms.Panel();
             this.gbApplicants = new System.Windows.Forms.GroupBox();
-            this.btnReloadApplicants = new System.Windows.Forms.Button();
-            this.btnSearchApp = new System.Windows.Forms.Button();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.txtSearchApplicant = new System.Windows.Forms.TextBox();
             this.cbDeleteApp = new System.Windows.Forms.ComboBox();
             this.lblApplicantID = new System.Windows.Forms.Label();
-            this.btnDelReload = new System.Windows.Forms.Button();
             this.btnDeleteApp = new System.Windows.Forms.Button();
+            this.btnDelReload = new System.Windows.Forms.Button();
+            this.btnReloadApplicants = new System.Windows.Forms.Button();
+            this.btnSearchApp = new System.Windows.Forms.Button();
             this.dgvApplicants = new System.Windows.Forms.DataGridView();
+            this.txtSearchApplicant = new System.Windows.Forms.TextBox();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.TopGraphic.SuspendLayout();
             this.ButtonGraphic.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -76,8 +76,8 @@ namespace Book_Exchange_System
             ((System.ComponentModel.ISupportInitialize)(this.dgvBooks)).BeginInit();
             this.Applicants.SuspendLayout();
             this.gbApplicants.SuspendLayout();
-            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvApplicants)).BeginInit();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // TopGraphic
@@ -375,6 +375,52 @@ namespace Book_Exchange_System
             this.gbApplicants.TabStop = false;
             this.gbApplicants.Text = "Delete Applicants";
             // 
+            // cbDeleteApp
+            // 
+            this.cbDeleteApp.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.cbDeleteApp.FormattingEnabled = true;
+            this.cbDeleteApp.Location = new System.Drawing.Point(13, 136);
+            this.cbDeleteApp.Margin = new System.Windows.Forms.Padding(4);
+            this.cbDeleteApp.Name = "cbDeleteApp";
+            this.cbDeleteApp.Size = new System.Drawing.Size(213, 33);
+            this.cbDeleteApp.TabIndex = 19;
+            // 
+            // lblApplicantID
+            // 
+            this.lblApplicantID.AutoSize = true;
+            this.lblApplicantID.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblApplicantID.Location = new System.Drawing.Point(8, 95);
+            this.lblApplicantID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblApplicantID.Name = "lblApplicantID";
+            this.lblApplicantID.Size = new System.Drawing.Size(123, 25);
+            this.lblApplicantID.TabIndex = 6;
+            this.lblApplicantID.Text = "Applicant ID:";
+            // 
+            // btnDeleteApp
+            // 
+            this.btnDeleteApp.BackColor = System.Drawing.Color.Teal;
+            this.btnDeleteApp.ForeColor = System.Drawing.Color.White;
+            this.btnDeleteApp.Location = new System.Drawing.Point(13, 193);
+            this.btnDeleteApp.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDeleteApp.Name = "btnDeleteApp";
+            this.btnDeleteApp.Size = new System.Drawing.Size(173, 54);
+            this.btnDeleteApp.TabIndex = 1;
+            this.btnDeleteApp.Text = "Delete";
+            this.btnDeleteApp.UseVisualStyleBackColor = false;
+            // 
+            // btnDelReload
+            // 
+            this.btnDelReload.BackColor = System.Drawing.Color.Teal;
+            this.btnDelReload.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelReload.ForeColor = System.Drawing.Color.White;
+            this.btnDelReload.Location = new System.Drawing.Point(458, 639);
+            this.btnDelReload.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDelReload.Name = "btnDelReload";
+            this.btnDelReload.Size = new System.Drawing.Size(168, 43);
+            this.btnDelReload.TabIndex = 5;
+            this.btnDelReload.Text = "Reload Table";
+            this.btnDelReload.UseVisualStyleBackColor = false;
+            // 
             // btnReloadApplicants
             // 
             this.btnReloadApplicants.BackColor = System.Drawing.Color.Teal;
@@ -397,70 +443,6 @@ namespace Book_Exchange_System
             this.btnSearchApp.Text = "Search";
             this.btnSearchApp.UseVisualStyleBackColor = false;
             // 
-            // panel3
-            // 
-            this.panel3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel3.BackgroundImage")));
-            this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel3.Controls.Add(this.txtSearchApplicant);
-            this.panel3.Location = new System.Drawing.Point(454, 57);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(322, 47);
-            this.panel3.TabIndex = 32;
-            // 
-            // txtSearchApplicant
-            // 
-            this.txtSearchApplicant.Location = new System.Drawing.Point(11, 7);
-            this.txtSearchApplicant.Margin = new System.Windows.Forms.Padding(4);
-            this.txtSearchApplicant.Name = "txtSearchApplicant";
-            this.txtSearchApplicant.Size = new System.Drawing.Size(249, 30);
-            this.txtSearchApplicant.TabIndex = 27;
-            // 
-            // cbDeleteApp
-            // 
-            this.cbDeleteApp.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.cbDeleteApp.FormattingEnabled = true;
-            this.cbDeleteApp.Location = new System.Drawing.Point(13, 136);
-            this.cbDeleteApp.Margin = new System.Windows.Forms.Padding(4);
-            this.cbDeleteApp.Name = "cbDeleteApp";
-            this.cbDeleteApp.Size = new System.Drawing.Size(213, 33);
-            this.cbDeleteApp.TabIndex = 19;
-            // 
-            // lblApplicantID
-            // 
-            this.lblApplicantID.AutoSize = true;
-            this.lblApplicantID.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblApplicantID.Location = new System.Drawing.Point(8, 95);
-            this.lblApplicantID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblApplicantID.Name = "lblApplicantID";
-            this.lblApplicantID.Size = new System.Drawing.Size(123, 25);
-            this.lblApplicantID.TabIndex = 6;
-            this.lblApplicantID.Text = "Applicant ID:";
-            // 
-            // btnDelReload
-            // 
-            this.btnDelReload.BackColor = System.Drawing.Color.Teal;
-            this.btnDelReload.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelReload.ForeColor = System.Drawing.Color.White;
-            this.btnDelReload.Location = new System.Drawing.Point(458, 639);
-            this.btnDelReload.Margin = new System.Windows.Forms.Padding(4);
-            this.btnDelReload.Name = "btnDelReload";
-            this.btnDelReload.Size = new System.Drawing.Size(168, 43);
-            this.btnDelReload.TabIndex = 5;
-            this.btnDelReload.Text = "Reload Table";
-            this.btnDelReload.UseVisualStyleBackColor = false;
-            // 
-            // btnDeleteApp
-            // 
-            this.btnDeleteApp.BackColor = System.Drawing.Color.Teal;
-            this.btnDeleteApp.ForeColor = System.Drawing.Color.White;
-            this.btnDeleteApp.Location = new System.Drawing.Point(13, 193);
-            this.btnDeleteApp.Margin = new System.Windows.Forms.Padding(4);
-            this.btnDeleteApp.Name = "btnDeleteApp";
-            this.btnDeleteApp.Size = new System.Drawing.Size(173, 54);
-            this.btnDeleteApp.TabIndex = 1;
-            this.btnDeleteApp.Text = "Delete";
-            this.btnDeleteApp.UseVisualStyleBackColor = false;
-            // 
             // dgvApplicants
             // 
             this.dgvApplicants.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -471,6 +453,24 @@ namespace Book_Exchange_System
             this.dgvApplicants.RowHeadersWidth = 51;
             this.dgvApplicants.Size = new System.Drawing.Size(664, 398);
             this.dgvApplicants.TabIndex = 0;
+            // 
+            // txtSearchApplicant
+            // 
+            this.txtSearchApplicant.Location = new System.Drawing.Point(11, 7);
+            this.txtSearchApplicant.Margin = new System.Windows.Forms.Padding(4);
+            this.txtSearchApplicant.Name = "txtSearchApplicant";
+            this.txtSearchApplicant.Size = new System.Drawing.Size(249, 30);
+            this.txtSearchApplicant.TabIndex = 27;
+            // 
+            // panel3
+            // 
+            this.panel3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel3.BackgroundImage")));
+            this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel3.Controls.Add(this.txtSearchApplicant);
+            this.panel3.Location = new System.Drawing.Point(454, 57);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(322, 47);
+            this.panel3.TabIndex = 32;
             // 
             // Admin
             // 
@@ -484,7 +484,6 @@ namespace Book_Exchange_System
             this.Controls.Add(this.TopGraphic);
             this.Name = "Admin";
             this.Text = "Admin";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.TopGraphic.ResumeLayout(false);
             this.TopGraphic.PerformLayout();
             this.ButtonGraphic.ResumeLayout(false);
@@ -501,9 +500,9 @@ namespace Book_Exchange_System
             this.Applicants.ResumeLayout(false);
             this.gbApplicants.ResumeLayout(false);
             this.gbApplicants.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvApplicants)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvApplicants)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -335,7 +335,6 @@
             this.DoubleBuffered = true;
             this.Name = "Report";
             this.Text = "Report";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ButtonGraphic.ResumeLayout(false);
