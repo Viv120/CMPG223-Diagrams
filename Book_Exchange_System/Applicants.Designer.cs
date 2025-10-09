@@ -32,6 +32,8 @@ namespace Book_Exchange_System
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Applicants));
             this.ButtonGraphics = new System.Windows.Forms.Panel();
+            this.btnReceive = new System.Windows.Forms.Button();
+            this.btnDeleteBooks = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -199,6 +201,8 @@ namespace Book_Exchange_System
             // 
             // UpdateApplicants
             // 
+            this.UpdateApplicants.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.UpdateApplicants.Controls.Add(this.groupBox2);
             this.UpdateApplicants.Location = new System.Drawing.Point(253, 220);
             this.UpdateApplicants.Margin = new System.Windows.Forms.Padding(4);
@@ -254,6 +258,26 @@ namespace Book_Exchange_System
             this.lblNewName.Size = new System.Drawing.Size(70, 25);
             this.lblNewName.TabIndex = 26;
             this.lblNewName.Text = "Name:";
+            // 
+            // txtNewName
+            // 
+            this.txtNewName.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.txtNewName.Location = new System.Drawing.Point(7, 238);
+            this.txtNewName.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNewName.Name = "txtNewName";
+            this.txtNewName.Size = new System.Drawing.Size(301, 30);
+            this.txtNewName.TabIndex = 27;
+            // 
+            // lblName
+            // 
+            this.lblName.AutoSize = true;
+            this.lblName.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblName.Location = new System.Drawing.Point(7, 193);
+            this.lblName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(70, 25);
+            this.lblName.TabIndex = 26;
+            this.lblName.Text = "Name:";
             // 
             // rdoMahikeng
             // 
@@ -332,7 +356,7 @@ namespace Book_Exchange_System
             this.txtNewEmail.Location = new System.Drawing.Point(8, 331);
             this.txtNewEmail.Margin = new System.Windows.Forms.Padding(4);
             this.txtNewEmail.Name = "txtNewEmail";
-            this.txtNewEmail.Size = new System.Drawing.Size(301, 30);
+            this.txtNewEmail.Size = new System.Drawing.Size(638, 30);
             this.txtNewEmail.TabIndex = 17;
             // 
             // txtNewSurname
@@ -369,8 +393,9 @@ namespace Book_Exchange_System
             // btnUpdate
             // 
             this.btnUpdate.BackColor = System.Drawing.Color.Teal;
+            this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdate.ForeColor = System.Drawing.Color.White;
-            this.btnUpdate.Location = new System.Drawing.Point(289, 523);
+            this.btnUpdate.Location = new System.Drawing.Point(353, 450);
             this.btnUpdate.Margin = new System.Windows.Forms.Padding(4);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(313, 53);
@@ -381,6 +406,8 @@ namespace Book_Exchange_System
             // 
             // DeleteApplicants
             // 
+            this.DeleteApplicants.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.DeleteApplicants.Controls.Add(this.groupBox3);
             this.DeleteApplicants.Location = new System.Drawing.Point(253, 220);
             this.DeleteApplicants.Margin = new System.Windows.Forms.Padding(4);
@@ -441,6 +468,8 @@ namespace Book_Exchange_System
             // 
             // AddApplicants
             // 
+            this.AddApplicants.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.AddApplicants.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("AddApplicants.BackgroundImage")));
             this.AddApplicants.Controls.Add(this.groupBox4);
             this.AddApplicants.Location = new System.Drawing.Point(253, 220);
@@ -565,7 +594,7 @@ namespace Book_Exchange_System
             // txtASurname
             // 
             this.txtASurname.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.txtASurname.Location = new System.Drawing.Point(349, 113);
+            this.txtASurname.Location = new System.Drawing.Point(321, 113);
             this.txtASurname.Margin = new System.Windows.Forms.Padding(4);
             this.txtASurname.Name = "txtASurname";
             this.txtASurname.Size = new System.Drawing.Size(301, 33);
@@ -594,7 +623,7 @@ namespace Book_Exchange_System
             // 
             this.lblAuthorL.AutoSize = true;
             this.lblAuthorL.ForeColor = System.Drawing.Color.Black;
-            this.lblAuthorL.Location = new System.Drawing.Point(348, 67);
+            this.lblAuthorL.Location = new System.Drawing.Point(316, 74);
             this.lblAuthorL.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblAuthorL.Name = "lblAuthorL";
             this.lblAuthorL.Size = new System.Drawing.Size(122, 29);
@@ -614,6 +643,8 @@ namespace Book_Exchange_System
             // 
             // Search
             // 
+            this.Search.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.Search.BackColor = System.Drawing.SystemColors.Control;
             this.Search.Controls.Add(this.btnClearFilters);
             this.Search.Controls.Add(this.rdoFilterM);
@@ -731,6 +762,7 @@ namespace Book_Exchange_System
             // 
             // dgvApplicants
             // 
+            this.dgvApplicants.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvApplicants.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvApplicants.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvApplicants.Location = new System.Drawing.Point(16, 194);
