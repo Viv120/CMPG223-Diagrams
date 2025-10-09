@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Donors));
             this.ButtonGraphic = new System.Windows.Forms.Panel();
-            this.btnDonateBooks = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button10 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -115,18 +114,7 @@
             this.ButtonGraphic.Size = new System.Drawing.Size(253, 993);
             this.ButtonGraphic.TabIndex = 2;
             // 
-            // btnDonateBooks
-            // 
-            this.btnDonateBooks.BackColor = System.Drawing.Color.Teal;
-            this.btnDonateBooks.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDonateBooks.ForeColor = System.Drawing.Color.White;
-            this.btnDonateBooks.Location = new System.Drawing.Point(13, 472);
-            this.btnDonateBooks.Margin = new System.Windows.Forms.Padding(4);
-            this.btnDonateBooks.Name = "btnDonateBooks";
-            this.btnDonateBooks.Size = new System.Drawing.Size(208, 74);
-            this.btnDonateBooks.TabIndex = 32;
-            this.btnDonateBooks.Text = "Donate Books";
-            this.btnDonateBooks.UseVisualStyleBackColor = false;
+      
             // 
             // pictureBox1
             // 

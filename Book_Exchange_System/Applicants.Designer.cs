@@ -32,9 +32,9 @@ namespace Book_Exchange_System
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Applicants));
             this.ButtonGraphics = new System.Windows.Forms.Panel();
-            this.btnReceive = new System.Windows.Forms.Button();
-            this.btnDeleteBooks = new System.Windows.Forms.Button();
+
             this.btnBack = new System.Windows.Forms.Button();
+
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnDeleteApplicants = new System.Windows.Forms.Button();
@@ -43,7 +43,9 @@ namespace Book_Exchange_System
             this.UpdateApplicants = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtNewName = new System.Windows.Forms.TextBox();
+
             this.lblNewName = new System.Windows.Forms.Label();
+
             this.rdoMahikeng = new System.Windows.Forms.RadioButton();
             this.rdoVaal = new System.Windows.Forms.RadioButton();
             this.rdoPotch = new System.Windows.Forms.RadioButton();
@@ -62,11 +64,13 @@ namespace Book_Exchange_System
             this.btnDelete = new System.Windows.Forms.Button();
             this.AddApplicants = new System.Windows.Forms.Panel();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+
             this.label1 = new System.Windows.Forms.Label();
             this.rdoP = new System.Windows.Forms.RadioButton();
             this.rdoV = new System.Windows.Forms.RadioButton();
             this.rdoM = new System.Windows.Forms.RadioButton();
             this.btnAddApplicant = new System.Windows.Forms.Button();
+
             this.lblStudentNo = new System.Windows.Forms.Label();
             this.txtStudents = new System.Windows.Forms.TextBox();
             this.txtAName = new System.Windows.Forms.TextBox();
@@ -75,6 +79,7 @@ namespace Book_Exchange_System
             this.lblAuthorF = new System.Windows.Forms.Label();
             this.lblAuthorL = new System.Windows.Forms.Label();
             this.lblEmail = new System.Windows.Forms.Label();
+
             this.Search = new System.Windows.Forms.Panel();
             this.btnClearFilters = new System.Windows.Forms.Button();
             this.rdoFilterM = new System.Windows.Forms.RadioButton();
@@ -88,6 +93,7 @@ namespace Book_Exchange_System
             this.dgvApplicants = new System.Windows.Forms.DataGridView();
             this.TopGraphic = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
+
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.ButtonGraphics.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -97,6 +103,7 @@ namespace Book_Exchange_System
             this.groupBox3.SuspendLayout();
             this.AddApplicants.SuspendLayout();
             this.groupBox4.SuspendLayout();
+
             this.Search.SuspendLayout();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvApplicants)).BeginInit();
@@ -122,7 +129,7 @@ namespace Book_Exchange_System
             this.ButtonGraphics.Size = new System.Drawing.Size(253, 993);
             this.ButtonGraphics.TabIndex = 2;
             // 
-            // btnBack
+
             // 
             this.btnBack.BackColor = System.Drawing.Color.Teal;
             this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -215,7 +222,9 @@ namespace Book_Exchange_System
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox2.Controls.Add(this.txtNewName);
+
             this.groupBox2.Controls.Add(this.lblNewName);
+
             this.groupBox2.Controls.Add(this.rdoMahikeng);
             this.groupBox2.Controls.Add(this.rdoVaal);
             this.groupBox2.Controls.Add(this.rdoPotch);
@@ -237,7 +246,6 @@ namespace Book_Exchange_System
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Update Applicant";
-            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
             // txtNewName
             // 
@@ -269,21 +277,14 @@ namespace Book_Exchange_System
             this.txtNewName.TabIndex = 27;
             // 
             // lblName
-            // 
-            this.lblName.AutoSize = true;
-            this.lblName.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblName.Location = new System.Drawing.Point(7, 193);
-            this.lblName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(70, 25);
-            this.lblName.TabIndex = 26;
-            this.lblName.Text = "Name:";
-            // 
+   
             // rdoMahikeng
             // 
             this.rdoMahikeng.AutoSize = true;
             this.rdoMahikeng.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+
             this.rdoMahikeng.Location = new System.Drawing.Point(13, 469);
+
             this.rdoMahikeng.Margin = new System.Windows.Forms.Padding(4);
             this.rdoMahikeng.Name = "rdoMahikeng";
             this.rdoMahikeng.Size = new System.Drawing.Size(187, 24);
@@ -296,7 +297,9 @@ namespace Book_Exchange_System
             // 
             this.rdoVaal.AutoSize = true;
             this.rdoVaal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+
             this.rdoVaal.Location = new System.Drawing.Point(13, 501);
+
             this.rdoVaal.Margin = new System.Windows.Forms.Padding(4);
             this.rdoVaal.Name = "rdoVaal";
             this.rdoVaal.Size = new System.Drawing.Size(149, 24);
@@ -362,7 +365,9 @@ namespace Book_Exchange_System
             // txtNewSurname
             // 
             this.txtNewSurname.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+
             this.txtNewSurname.Location = new System.Drawing.Point(328, 237);
+
             this.txtNewSurname.Margin = new System.Windows.Forms.Padding(4);
             this.txtNewSurname.Name = "txtNewSurname";
             this.txtNewSurname.Size = new System.Drawing.Size(301, 30);
@@ -383,7 +388,9 @@ namespace Book_Exchange_System
             // 
             this.lblNewSurname.AutoSize = true;
             this.lblNewSurname.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+
             this.lblNewSurname.Location = new System.Drawing.Point(328, 192);
+
             this.lblNewSurname.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNewSurname.Name = "lblNewSurname";
             this.lblNewSurname.Size = new System.Drawing.Size(98, 25);
@@ -427,7 +434,9 @@ namespace Book_Exchange_System
             this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(4);
+
             this.groupBox3.Size = new System.Drawing.Size(747, 773);
+
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Delete Applicants";
@@ -456,11 +465,13 @@ namespace Book_Exchange_System
             // btnDelete
             // 
             this.btnDelete.BackColor = System.Drawing.Color.Teal;
+
             this.btnDelete.ForeColor = System.Drawing.Color.White;
             this.btnDelete.Location = new System.Drawing.Point(13, 293);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(4);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(313, 53);
+
             this.btnDelete.TabIndex = 1;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = false;
@@ -473,17 +484,21 @@ namespace Book_Exchange_System
             this.AddApplicants.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("AddApplicants.BackgroundImage")));
             this.AddApplicants.Controls.Add(this.groupBox4);
             this.AddApplicants.Location = new System.Drawing.Point(253, 220);
+
             this.AddApplicants.Margin = new System.Windows.Forms.Padding(4);
             this.AddApplicants.Name = "AddApplicants";
             this.AddApplicants.Size = new System.Drawing.Size(747, 773);
+
             this.AddApplicants.TabIndex = 23;
             // 
             // groupBox4
             // 
+
             this.groupBox4.Controls.Add(this.label1);
             this.groupBox4.Controls.Add(this.rdoP);
             this.groupBox4.Controls.Add(this.rdoV);
             this.groupBox4.Controls.Add(this.rdoM);
+
             this.groupBox4.Controls.Add(this.btnAddApplicant);
             this.groupBox4.Controls.Add(this.lblStudentNo);
             this.groupBox4.Controls.Add(this.txtStudents);
@@ -501,6 +516,7 @@ namespace Book_Exchange_System
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Add Applicants";
             // 
+
             // label1
             // 
             this.label1.AutoSize = true;
@@ -510,9 +526,20 @@ namespace Book_Exchange_System
             this.label1.Size = new System.Drawing.Size(196, 29);
             this.label1.TabIndex = 45;
             this.label1.Text = "Select a campus:";
+
+            // btnAddApplicant
             // 
-            // rdoP
-            // 
+            this.btnAddApplicant.BackColor = System.Drawing.Color.Teal;
+            this.btnAddApplicant.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddApplicant.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnAddApplicant.Location = new System.Drawing.Point(337, 520);
+            this.btnAddApplicant.Name = "btnAddApplicant";
+            this.btnAddApplicant.Size = new System.Drawing.Size(313, 53);
+            this.btnAddApplicant.TabIndex = 41;
+            this.btnAddApplicant.Text = "Add";
+            this.btnAddApplicant.UseVisualStyleBackColor = false;
+            this.btnAddApplicant.Click += new System.EventHandler(this.btnAddApplicant_Click);
+
             this.rdoP.AutoSize = true;
             this.rdoP.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdoP.Location = new System.Drawing.Point(373, 285);
@@ -562,6 +589,7 @@ namespace Book_Exchange_System
             this.btnAddApplicant.Text = "Add";
             this.btnAddApplicant.UseVisualStyleBackColor = false;
             this.btnAddApplicant.Click += new System.EventHandler(this.btnAddApplicant_Click);
+
             // 
             // lblStudentNo
             // 
@@ -640,6 +668,8 @@ namespace Book_Exchange_System
             this.lblEmail.Size = new System.Drawing.Size(80, 29);
             this.lblEmail.TabIndex = 31;
             this.lblEmail.Text = "Email:";
+     
+
             // 
             // Search
             // 
@@ -655,9 +685,11 @@ namespace Book_Exchange_System
             this.Search.Controls.Add(this.panel6);
             this.Search.Controls.Add(this.btnReloadApplicants);
             this.Search.Controls.Add(this.dgvApplicants);
+
             this.Search.Location = new System.Drawing.Point(998, 218);
             this.Search.Name = "Search";
             this.Search.Size = new System.Drawing.Size(904, 773);
+
             this.Search.TabIndex = 29;
             // 
             // btnClearFilters
@@ -723,7 +755,9 @@ namespace Book_Exchange_System
             this.btnSearchApplicant.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnSearchApplicant.Location = new System.Drawing.Point(448, 31);
             this.btnSearchApplicant.Name = "btnSearchApplicant";
+
             this.btnSearchApplicant.Size = new System.Drawing.Size(313, 53);
+
             this.btnSearchApplicant.TabIndex = 35;
             this.btnSearchApplicant.Text = "Search";
             this.btnSearchApplicant.UseVisualStyleBackColor = false;
@@ -752,9 +786,11 @@ namespace Book_Exchange_System
             this.btnReloadApplicants.BackColor = System.Drawing.Color.Teal;
             this.btnReloadApplicants.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReloadApplicants.ForeColor = System.Drawing.SystemColors.ControlLight;
+
             this.btnReloadApplicants.Location = new System.Drawing.Point(16, 569);
             this.btnReloadApplicants.Name = "btnReloadApplicants";
             this.btnReloadApplicants.Size = new System.Drawing.Size(313, 53);
+
             this.btnReloadApplicants.TabIndex = 33;
             this.btnReloadApplicants.Text = "Reload table";
             this.btnReloadApplicants.UseVisualStyleBackColor = false;
@@ -769,7 +805,9 @@ namespace Book_Exchange_System
             this.dgvApplicants.Name = "dgvApplicants";
             this.dgvApplicants.RowHeadersWidth = 49;
             this.dgvApplicants.RowTemplate.Height = 24;
+
             this.dgvApplicants.Size = new System.Drawing.Size(858, 304);
+
             this.dgvApplicants.TabIndex = 32;
             // 
             // TopGraphic
@@ -780,7 +818,9 @@ namespace Book_Exchange_System
             this.TopGraphic.Dock = System.Windows.Forms.DockStyle.Top;
             this.TopGraphic.Location = new System.Drawing.Point(253, 0);
             this.TopGraphic.Name = "TopGraphic";
+
             this.TopGraphic.Size = new System.Drawing.Size(1649, 218);
+
             this.TopGraphic.TabIndex = 30;
             // 
             // label2
@@ -795,19 +835,72 @@ namespace Book_Exchange_System
             this.label2.TabIndex = 0;
             this.label2.Text = "Applicants";
             // 
+
+            // rdoM
+            // 
+            this.rdoM.AutoSize = true;
+            this.rdoM.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdoM.Location = new System.Drawing.Point(393, 324);
+            this.rdoM.Margin = new System.Windows.Forms.Padding(4);
+            this.rdoM.Name = "rdoM";
+            this.rdoM.Size = new System.Drawing.Size(187, 24);
+            this.rdoM.TabIndex = 45;
+            this.rdoM.TabStop = true;
+            this.rdoM.Text = "2: Mahikeng Campus";
+            this.rdoM.UseVisualStyleBackColor = true;
+            // 
+            // rdoV
+            // 
+            this.rdoV.AutoSize = true;
+            this.rdoV.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdoV.Location = new System.Drawing.Point(393, 356);
+            this.rdoV.Margin = new System.Windows.Forms.Padding(4);
+            this.rdoV.Name = "rdoV";
+            this.rdoV.Size = new System.Drawing.Size(149, 24);
+            this.rdoV.TabIndex = 44;
+            this.rdoV.TabStop = true;
+            this.rdoV.Text = "3: Vaal Campus";
+            this.rdoV.UseVisualStyleBackColor = true;
+            // 
+            // rdoP
+            // 
+            this.rdoP.AutoSize = true;
+            this.rdoP.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdoP.Location = new System.Drawing.Point(393, 292);
+            this.rdoP.Margin = new System.Windows.Forms.Padding(4);
+            this.rdoP.Name = "rdoP";
+            this.rdoP.Size = new System.Drawing.Size(225, 24);
+            this.rdoP.TabIndex = 43;
+            this.rdoP.TabStop = true;
+            this.rdoP.Text = "1: Potchefstroom Campus";
+            this.rdoP.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(388, 250);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(196, 29);
+            this.label1.TabIndex = 42;
+            this.label1.Text = "Select a campus:";
+            // 
             // errorProvider1
             // 
+
             this.errorProvider1.ContainerControl = this;
             // 
             // Applicants
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+
             this.ClientSize = new System.Drawing.Size(1902, 993);
             this.Controls.Add(this.UpdateApplicants);
             this.Controls.Add(this.AddApplicants);
             this.Controls.Add(this.DeleteApplicants);
             this.Controls.Add(this.Search);
+
             this.Controls.Add(this.TopGraphic);
             this.Controls.Add(this.ButtonGraphics);
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -826,6 +919,7 @@ namespace Book_Exchange_System
             this.AddApplicants.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+
             this.Search.ResumeLayout(false);
             this.Search.PerformLayout();
             this.panel6.ResumeLayout(false);
@@ -883,6 +977,7 @@ namespace Book_Exchange_System
         private System.Windows.Forms.Panel TopGraphic;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnAddApplicant;
+
         private System.Windows.Forms.TextBox txtNewName;
         private System.Windows.Forms.Label lblNewName;
         private System.Windows.Forms.Label label1;
@@ -895,5 +990,6 @@ namespace Book_Exchange_System
         private System.Windows.Forms.RadioButton rdoFilterP;
         private System.Windows.Forms.Label lblFilter;
         private System.Windows.Forms.Button btnClearFilters;
+
     }
 }
