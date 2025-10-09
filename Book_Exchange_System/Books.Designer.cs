@@ -168,6 +168,7 @@ namespace Book_Exchange_System
             this.btnUpdateBook.TabIndex = 1;
             this.btnUpdateBook.Text = "Update Books";
             this.btnUpdateBook.UseVisualStyleBackColor = false;
+            this.btnUpdateBook.Click += new System.EventHandler(this.btnUpdateBook_Click);
             // 
             // btnAddBooks
             // 

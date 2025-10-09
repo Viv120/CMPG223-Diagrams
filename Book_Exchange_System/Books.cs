@@ -17,6 +17,9 @@ namespace Book_Exchange_System
             InitializeComponent();
         }
 
-        
+        private void btnUpdateBook_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
