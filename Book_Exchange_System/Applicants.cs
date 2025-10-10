@@ -252,7 +252,9 @@ namespace Book_Exchange_System
                 {
                     conn.Open();
 
-                    string updateQuery = @"UPDATE applicant SET First_Name = @FirstName, Last_Name = @LastName, Email = @Email, Campus_ID = @Campus_ID WHERE Applicant_ID = @ID";
+                    string updateQuery = @"UPDATE applicant SET First_Name = @FirstName, 
+                                           Last_Name = @LastName, Email = @Email, 
+                                           Campus_ID = @Campus_ID WHERE Applicant_ID = @ID";
 
                     cmd = new MySqlCommand(updateQuery, conn);
                     cmd.Parameters.AddWithValue("@FirstName", Name);
@@ -375,7 +377,9 @@ namespace Book_Exchange_System
                 {
                     conn.Open();
 
-                    string queryApplicant = @"INSERT INTO applicant (First_Name, Last_Name, Student_Num, Email, Campus_ID) VALUES (@FirstName, @LastName, @StudentNum, @Email, @CampusID)";
+                    string queryApplicant = @"INSERT INTO applicant (First_Name, Last_Name, 
+                                              Student_Num, Email, Campus_ID) VALUES 
+                                              (@FirstName, @LastName, @StudentNum, @Email, @CampusID)";
 
                     cmd = new MySqlCommand(queryApplicant, conn);
                     cmd.Parameters.AddWithValue("@FirstName", name);
@@ -485,7 +489,8 @@ namespace Book_Exchange_System
                 {
                     conn.Open();
 
-                    string query = @"SELECT * FROM applicant WHERE (First_Name LIKE @search OR Last_Name LIKE @search)";
+                    string query = @"SELECT * FROM applicant WHERE (First_Name LIKE @search 
+                                     OR Last_Name LIKE @search)";
 
                     if (campusID != 0)
                     {

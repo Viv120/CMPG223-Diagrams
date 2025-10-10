@@ -153,7 +153,9 @@ namespace Book_Exchange_System
             {
                 conn.Open();
 
-                string queryApplicant = @"UPDATE applicant SET First_Name = @FirstName, Last_Name = @LastName, Email = @Email, Campus_ID = @CampusID WHERE Applicant_ID = @ID";
+                string queryApplicant = @"UPDATE applicant SET First_Name = @FirstName, 
+                                          Last_Name = @LastName, Email = @Email, 
+                                          Campus_ID = @CampusID WHERE Applicant_ID = @ID";
 
                 cmd = new MySqlCommand(queryApplicant, conn);
                 cmd.Parameters.AddWithValue("@FirstName", name);
@@ -165,7 +167,8 @@ namespace Book_Exchange_System
                 
                 if(!string.IsNullOrWhiteSpace(password))
                 {
-                    string queryLogin = @"UPDATE applicant_login SET Password = @Password, Email = @Email WHERE Applicant_ID = @ID";
+                    string queryLogin = @"UPDATE applicant_login SET Password = @Password, 
+                                          Email = @Email WHERE Applicant_ID = @ID";
 
                     cmd = new MySqlCommand(queryLogin, conn);
                     cmd.Parameters.AddWithValue("@Password", password);
@@ -263,8 +266,9 @@ namespace Book_Exchange_System
             {
                 conn.Open();
 
-                string query = @"SELECT Book_ID, Title, Author_FName, Author_LName, Edition, Year_Published, Book_Condition, 
-                                 Campus_ID FROM books WHERE Campus_ID = @CampusID AND (Title LIKE @Title OR
+                string query = @"SELECT Book_ID, Title, Author_FName, Author_LName, Edition, 
+                                 Year_Published, Book_Condition, Campus_ID FROM books WHERE 
+                                 Campus_ID = @CampusID AND (Title LIKE @Title OR
                                  Author_FName LIKE @AName OR Author_LName LIKE @ASurname) 
                                  AND Book_Condition = @Condition";
 
