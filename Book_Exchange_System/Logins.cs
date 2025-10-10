@@ -22,6 +22,7 @@ namespace Book_Exchange_System
             InitializeComponent();
         }
 
+<<<<<<< HEAD
         private bool TestMySqlConnection()
         {
             string connectionString = "Server=127.0.0.1;Port=3306;Database=book_exchange_db;Uid=root;Pwd=12123;";
@@ -510,6 +511,11 @@ namespace Book_Exchange_System
         private void btnRegisterDonor_Click(object sender, EventArgs e)
         {
             ShowRegisterPopup("Donor");
+=======
+        private void Logins_Load(object sender, EventArgs e)
+        {
+
+>>>>>>> origin/main
         }
     }
 }

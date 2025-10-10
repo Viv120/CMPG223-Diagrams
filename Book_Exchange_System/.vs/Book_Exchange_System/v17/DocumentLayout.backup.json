@@ -1,0 +1,156 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\zandb\\Documents\\GitHub\\CMPG223-Diagrams\\Book_Exchange_System\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{48D9D4F9-519D-4AE2-B504-10C539B9AF20}|Final-UI_VisualStudio.csproj|C:\\Users\\zandb\\Documents\\GitHub\\CMPG223-Diagrams\\Book_Exchange_System\\donatebooks.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48D9D4F9-519D-4AE2-B504-10C539B9AF20}|Final-UI_VisualStudio.csproj|solutionrelative:donatebooks.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48D9D4F9-519D-4AE2-B504-10C539B9AF20}|Final-UI_VisualStudio.csproj|c:\\users\\zandb\\documents\\github\\cmpg223-diagrams\\book_exchange_system\\donatebooks.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{48D9D4F9-519D-4AE2-B504-10C539B9AF20}|Final-UI_VisualStudio.csproj|solutionrelative:donatebooks.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48D9D4F9-519D-4AE2-B504-10C539B9AF20}|Final-UI_VisualStudio.csproj|C:\\Users\\zandb\\Documents\\GitHub\\CMPG223-Diagrams\\Book_Exchange_System\\applicants.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48D9D4F9-519D-4AE2-B504-10C539B9AF20}|Final-UI_VisualStudio.csproj|solutionrelative:applicants.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48D9D4F9-519D-4AE2-B504-10C539B9AF20}|Final-UI_VisualStudio.csproj|C:\\Users\\zandb\\Documents\\GitHub\\CMPG223-Diagrams\\Book_Exchange_System\\donors.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{48D9D4F9-519D-4AE2-B504-10C539B9AF20}|Final-UI_VisualStudio.csproj|solutionrelative:donors.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48D9D4F9-519D-4AE2-B504-10C539B9AF20}|Final-UI_VisualStudio.csproj|C:\\Users\\zandb\\Documents\\GitHub\\CMPG223-Diagrams\\Book_Exchange_System\\donors.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48D9D4F9-519D-4AE2-B504-10C539B9AF20}|Final-UI_VisualStudio.csproj|solutionrelative:donors.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48D9D4F9-519D-4AE2-B504-10C539B9AF20}|Final-UI_VisualStudio.csproj|C:\\Users\\zandb\\Documents\\GitHub\\CMPG223-Diagrams\\Book_Exchange_System\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48D9D4F9-519D-4AE2-B504-10C539B9AF20}|Final-UI_VisualStudio.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48D9D4F9-519D-4AE2-B504-10C539B9AF20}|Final-UI_VisualStudio.csproj|C:\\Users\\zandb\\Documents\\GitHub\\CMPG223-Diagrams\\Book_Exchange_System\\applicants.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{48D9D4F9-519D-4AE2-B504-10C539B9AF20}|Final-UI_VisualStudio.csproj|solutionrelative:applicants.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48D9D4F9-519D-4AE2-B504-10C539B9AF20}|Final-UI_VisualStudio.csproj|C:\\Users\\zandb\\Documents\\GitHub\\CMPG223-Diagrams\\Book_Exchange_System\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{48D9D4F9-519D-4AE2-B504-10C539B9AF20}|Final-UI_VisualStudio.csproj|solutionrelative:app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Donors.cs",
+              "DocumentMoniker": "C:\\Users\\zandb\\Documents\\GitHub\\CMPG223-Diagrams\\Book_Exchange_System\\Donors.cs",
+              "RelativeDocumentMoniker": "Donors.cs",
+              "ToolTip": "C:\\Users\\zandb\\Documents\\GitHub\\CMPG223-Diagrams\\Book_Exchange_System\\Donors.cs",
+              "RelativeToolTip": "Donors.cs",
+              "ViewState": "AgIAAKwAAAAAAAAAAAAEwLQBAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-07T17:19:25.275Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Donors.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\zandb\\Documents\\GitHub\\CMPG223-Diagrams\\Book_Exchange_System\\Donors.cs",
+              "RelativeDocumentMoniker": "Donors.cs",
+              "ToolTip": "C:\\Users\\zandb\\Documents\\GitHub\\CMPG223-Diagrams\\Book_Exchange_System\\Donors.cs [Design]",
+              "RelativeToolTip": "Donors.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-07T17:17:08.617Z",
+              "IsPinned": true,
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DonateBooks.cs",
+              "DocumentMoniker": "C:\\Users\\zandb\\Documents\\GitHub\\CMPG223-Diagrams\\Book_Exchange_System\\DonateBooks.cs",
+              "RelativeDocumentMoniker": "DonateBooks.cs",
+              "ToolTip": "C:\\Users\\zandb\\Documents\\GitHub\\CMPG223-Diagrams\\Book_Exchange_System\\DonateBooks.cs",
+              "RelativeToolTip": "DonateBooks.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-09T23:02:14.786Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DonateBooks.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\zandb\\Documents\\GitHub\\CMPG223-Diagrams\\Book_Exchange_System\\DonateBooks.cs",
+              "RelativeDocumentMoniker": "DonateBooks.cs",
+              "ToolTip": "C:\\Users\\zandb\\Documents\\GitHub\\CMPG223-Diagrams\\Book_Exchange_System\\DonateBooks.cs [Design]",
+              "RelativeToolTip": "DonateBooks.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-09T22:02:08.631Z",
+              "IsPinned": true,
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Applicants.cs",
+              "DocumentMoniker": "C:\\Users\\zandb\\Documents\\GitHub\\CMPG223-Diagrams\\Book_Exchange_System\\Applicants.cs",
+              "RelativeDocumentMoniker": "Applicants.cs",
+              "ToolTip": "C:\\Users\\zandb\\Documents\\GitHub\\CMPG223-Diagrams\\Book_Exchange_System\\Applicants.cs",
+              "RelativeToolTip": "Applicants.cs",
+              "ViewState": "AgIAAKgAAAAAAAAAAAAtwKEBAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-10T00:43:56.493Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Applicants.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\zandb\\Documents\\GitHub\\CMPG223-Diagrams\\Book_Exchange_System\\Applicants.cs",
+              "RelativeDocumentMoniker": "Applicants.cs",
+              "ToolTip": "C:\\Users\\zandb\\Documents\\GitHub\\CMPG223-Diagrams\\Book_Exchange_System\\Applicants.cs [Design]",
+              "RelativeToolTip": "Applicants.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-09T23:55:07.396Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\zandb\\Documents\\GitHub\\CMPG223-Diagrams\\Book_Exchange_System\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\zandb\\Documents\\GitHub\\CMPG223-Diagrams\\Book_Exchange_System\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-07T17:29:28.853Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "App.config",
+              "DocumentMoniker": "C:\\Users\\zandb\\Documents\\GitHub\\CMPG223-Diagrams\\Book_Exchange_System\\App.config",
+              "RelativeDocumentMoniker": "App.config",
+              "ToolTip": "C:\\Users\\zandb\\Documents\\GitHub\\CMPG223-Diagrams\\Book_Exchange_System\\App.config",
+              "RelativeToolTip": "App.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAABTAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2025-10-09T16:17:42.29Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
