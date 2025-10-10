@@ -736,9 +736,9 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1426, 807);
+            this.Controls.Add(this.UpdateDonor);
             this.Controls.Add(this.AddDonors);
             this.Controls.Add(this.DeleteDonor);
-            this.Controls.Add(this.UpdateDonor);
             this.Controls.Add(this.Search);
             this.Controls.Add(this.TopGraphic);
             this.Controls.Add(this.ButtonGraphic);

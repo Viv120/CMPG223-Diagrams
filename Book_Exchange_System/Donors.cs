@@ -144,7 +144,7 @@ namespace Book_Exchange_System
                 validate = false;
             }
 
-                if (!validate)
+            if (!validate)
             {
                 return;
             }
@@ -182,7 +182,18 @@ namespace Book_Exchange_System
                 catch (Exception ex)
                 {
                     MessageBox.Show("Error adding Donor: " + ex.Message);
-                }   
+                }
+
+            txtEmail.Clear();
+            txtSP_Num.Clear();
+            txtName.Clear();
+            
+            rdoP.Checked = false;
+            rdoM.Checked = false;
+            rdoV.Checked = false;
+
+            rdoInd.Checked = false;
+            rdoOrg.Checked = false;
 
         }
 
@@ -307,6 +318,7 @@ namespace Book_Exchange_System
             string Name = txtNewName.Text;
             string studNum = txtNewSP_Number.Text;
             string Email = txtNewEmail.Text;
+            bool validate = true;
 
             int campusID = 0;
             if (rdoPotch.Checked)
@@ -320,6 +332,33 @@ namespace Book_Exchange_System
             else if (rdoVaal.Checked)
             {
                 campusID = 3;
+            }
+            else
+            {
+                MessageBox.Show("Please choose a campus!");
+                validate = false;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtNewEmail.Text))
+            {
+                errorProvider1.SetError(txtNewEmail, "Please enter a email!");
+                validate = false;
+            }
+            else if (string.IsNullOrWhiteSpace(txtNewSP_Number.Text))
+            {
+                errorProvider1.SetError(txtNewSP_Number, "Please enter a number!");
+                validate = false;
+            }
+            else if (string.IsNullOrWhiteSpace(txtNewName.Text))
+            {
+                errorProvider1.SetError(txtNewName, "Please enter a name!");
+                validate = false;
+            }
+
+
+            if(!validate)
+            {
+                return;
             }
 
 
@@ -342,13 +381,13 @@ namespace Book_Exchange_System
                     cmd.ExecuteNonQuery();
 
 
-                     string sqlQuery2 = @"UPDATE donor_login SET Email = @Email WHERE Donor_ID = @ID";
+                     //string sqlQuery2 = @"UPDATE donor_login SET Email = @Email WHERE Donor_ID = @ID";
 
-                     MySqlCommand cmd2 = new MySqlCommand(sqlQuery2, conn);
-                     cmd2.Parameters.AddWithValue("@Email", Email);
-                     cmd2.Parameters.AddWithValue("@Donor_ID", selectedID);
+                     //MySqlCommand cmd2 = new MySqlCommand(sqlQuery2, conn);
+                     //cmd2.Parameters.AddWithValue("@Email", Email);
+                    // cmd2.Parameters.AddWithValue("@Donor_ID", selectedID);
 
-                     cmd2.ExecuteNonQuery();
+                     //cmd2.ExecuteNonQuery();
 
                     MessageBox.Show("Donor updated successfully!");
                     LoadDonors();

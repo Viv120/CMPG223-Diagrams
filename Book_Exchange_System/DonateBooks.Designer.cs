@@ -29,6 +29,7 @@ namespace Book_Exchange_System
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DonateBooks));
             this.ButtonGraphics = new System.Windows.Forms.Panel();
             this.btnDonate = new System.Windows.Forms.Button();
@@ -72,6 +73,7 @@ namespace Book_Exchange_System
             this.lblCondition = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.ButtonGraphics.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.TopGraphic.SuspendLayout();
@@ -82,6 +84,7 @@ namespace Book_Exchange_System
             this.gbDonate.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDonate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCondition)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // ButtonGraphics
@@ -130,9 +133,9 @@ namespace Book_Exchange_System
             // 
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.77391F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(188, 182);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(893, 630);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
@@ -144,7 +147,7 @@ namespace Book_Exchange_System
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.Location = new System.Drawing.Point(12, 10);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(84, 83);
             this.pictureBox1.TabIndex = 4;
@@ -170,7 +173,7 @@ namespace Book_Exchange_System
             this.TopGraphic.Controls.Add(this.label2);
             this.TopGraphic.Dock = System.Windows.Forms.DockStyle.Top;
             this.TopGraphic.Location = new System.Drawing.Point(190, 0);
-            this.TopGraphic.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TopGraphic.Margin = new System.Windows.Forms.Padding(2);
             this.TopGraphic.Name = "TopGraphic";
             this.TopGraphic.Size = new System.Drawing.Size(1236, 177);
             this.TopGraphic.TabIndex = 33;
@@ -192,7 +195,7 @@ namespace Book_Exchange_System
             // 
             this.UpdateDonor.Controls.Add(this.groupBox2);
             this.UpdateDonor.Location = new System.Drawing.Point(190, 179);
-            this.UpdateDonor.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.UpdateDonor.Margin = new System.Windows.Forms.Padding(2);
             this.UpdateDonor.Name = "UpdateDonor";
             this.UpdateDonor.Size = new System.Drawing.Size(1237, 628);
             this.UpdateDonor.TabIndex = 34;
@@ -215,9 +218,9 @@ namespace Book_Exchange_System
             this.groupBox2.Controls.Add(this.button1);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.77391F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(8, 3);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox2.Size = new System.Drawing.Size(1237, 628);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
@@ -247,7 +250,7 @@ namespace Book_Exchange_System
             this.txtDonorID.Location = new System.Drawing.Point(15, 93);
             this.txtDonorID.Name = "txtDonorID";
             this.txtDonorID.ReadOnly = true;
-            this.txtDonorID.Size = new System.Drawing.Size(93, 28);
+            this.txtDonorID.Size = new System.Drawing.Size(61, 28);
             this.txtDonorID.TabIndex = 44;
             // 
             // lblCampus
@@ -264,7 +267,7 @@ namespace Book_Exchange_System
             // 
             this.dgvCurrentApp.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCurrentApp.Location = new System.Drawing.Point(472, 143);
-            this.dgvCurrentApp.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvCurrentApp.Margin = new System.Windows.Forms.Padding(2);
             this.dgvCurrentApp.Name = "dgvCurrentApp";
             this.dgvCurrentApp.RowHeadersWidth = 51;
             this.dgvCurrentApp.RowTemplate.Height = 24;
@@ -361,12 +364,13 @@ namespace Book_Exchange_System
             this.button1.BackColor = System.Drawing.Color.Teal;
             this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button1.Location = new System.Drawing.Point(201, 539);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(230, 41);
             this.button1.TabIndex = 8;
             this.button1.Text = "Update";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Donate
             // 
@@ -424,7 +428,7 @@ namespace Book_Exchange_System
             // 
             this.dgvDonate.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDonate.Location = new System.Drawing.Point(374, 68);
-            this.dgvDonate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvDonate.Margin = new System.Windows.Forms.Padding(2);
             this.dgvDonate.Name = "dgvDonate";
             this.dgvDonate.RowHeadersWidth = 51;
             this.dgvDonate.RowTemplate.Height = 24;
@@ -578,6 +582,10 @@ namespace Book_Exchange_System
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // DonateBooks
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -587,10 +595,11 @@ namespace Book_Exchange_System
             this.Controls.Add(this.Donate);
             this.Controls.Add(this.TopGraphic);
             this.Controls.Add(this.ButtonGraphics);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "DonateBooks";
             this.Text = "DonateBooks";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.DonateBooks_Load);
             this.ButtonGraphics.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.TopGraphic.ResumeLayout(false);
@@ -604,6 +613,7 @@ namespace Book_Exchange_System
             this.gbDonate.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDonate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCondition)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -652,5 +662,6 @@ namespace Book_Exchange_System
         private System.Windows.Forms.Label lblCondition;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }
