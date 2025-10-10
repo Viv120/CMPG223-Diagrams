@@ -1,0 +1,10 @@
+# Ignore Visual Studio build/cache/user files
+.vs/
+bin/
+obj/
+*.user
+*.suo
+*.cache
+*.log
+packages/
+*.nupkg
