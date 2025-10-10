@@ -29,11 +29,13 @@ namespace Book_Exchange_System
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RequestBooks));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.TopGraphic = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.ButtonGraphics = new System.Windows.Forms.Panel();
+            this.btnRegApp = new System.Windows.Forms.Button();
             this.btnReceive = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -72,6 +74,24 @@ namespace Book_Exchange_System
             this.lblNewEmail = new System.Windows.Forms.Label();
             this.lblNewSurname = new System.Windows.Forms.Label();
             this.btnUpdate = new System.Windows.Forms.Button();
+            this.Add = new System.Windows.Forms.Panel();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.txtAddPassword = new System.Windows.Forms.TextBox();
+            this.lblAddPassword = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.rdoP = new System.Windows.Forms.RadioButton();
+            this.rdoV = new System.Windows.Forms.RadioButton();
+            this.rdoM = new System.Windows.Forms.RadioButton();
+            this.btnAddApplicant = new System.Windows.Forms.Button();
+            this.lblAddStudents = new System.Windows.Forms.Label();
+            this.txtAddStudents = new System.Windows.Forms.TextBox();
+            this.txtAddName = new System.Windows.Forms.TextBox();
+            this.txtAddSurname = new System.Windows.Forms.TextBox();
+            this.txtAddEmail = new System.Windows.Forms.TextBox();
+            this.lblAddName = new System.Windows.Forms.Label();
+            this.lblAddSurname = new System.Windows.Forms.Label();
+            this.lblAddEmail = new System.Windows.Forms.Label();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.TopGraphic.SuspendLayout();
             this.ButtonGraphics.SuspendLayout();
@@ -81,6 +101,9 @@ namespace Book_Exchange_System
             this.UpdateApplicants.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCurrentApp)).BeginInit();
+            this.Add.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -122,6 +145,7 @@ namespace Book_Exchange_System
             this.ButtonGraphics.BackColor = System.Drawing.Color.Green;
             this.ButtonGraphics.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ButtonGraphics.BackgroundImage")));
             this.ButtonGraphics.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ButtonGraphics.Controls.Add(this.btnRegApp);
             this.ButtonGraphics.Controls.Add(this.btnReceive);
             this.ButtonGraphics.Controls.Add(this.btnBack);
             this.ButtonGraphics.Controls.Add(this.groupBox1);
@@ -134,12 +158,26 @@ namespace Book_Exchange_System
             this.ButtonGraphics.Size = new System.Drawing.Size(253, 993);
             this.ButtonGraphics.TabIndex = 31;
             // 
+            // btnRegApp
+            // 
+            this.btnRegApp.BackColor = System.Drawing.Color.Teal;
+            this.btnRegApp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegApp.ForeColor = System.Drawing.Color.White;
+            this.btnRegApp.Location = new System.Drawing.Point(16, 224);
+            this.btnRegApp.Margin = new System.Windows.Forms.Padding(4);
+            this.btnRegApp.Name = "btnRegApp";
+            this.btnRegApp.Size = new System.Drawing.Size(208, 74);
+            this.btnRegApp.TabIndex = 7;
+            this.btnRegApp.Text = "Register";
+            this.btnRegApp.UseVisualStyleBackColor = false;
+            this.btnRegApp.Click += new System.EventHandler(this.btnRegApp_Click);
+            // 
             // btnReceive
             // 
             this.btnReceive.BackColor = System.Drawing.Color.Teal;
             this.btnReceive.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReceive.ForeColor = System.Drawing.Color.White;
-            this.btnReceive.Location = new System.Drawing.Point(16, 441);
+            this.btnReceive.Location = new System.Drawing.Point(16, 495);
             this.btnReceive.Margin = new System.Windows.Forms.Padding(4);
             this.btnReceive.Name = "btnReceive";
             this.btnReceive.Size = new System.Drawing.Size(208, 74);
@@ -153,14 +191,14 @@ namespace Book_Exchange_System
             this.btnBack.BackColor = System.Drawing.Color.Teal;
             this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBack.ForeColor = System.Drawing.Color.White;
-            this.btnBack.Location = new System.Drawing.Point(16, 609);
+            this.btnBack.Location = new System.Drawing.Point(16, 629);
             this.btnBack.Margin = new System.Windows.Forms.Padding(4);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(208, 74);
             this.btnBack.TabIndex = 5;
             this.btnBack.Text = "Back";
             this.btnBack.UseVisualStyleBackColor = false;
-            this.btnBack.Click += new System.EventHandler(this.btnDeleteBooks_Click);
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // groupBox1
             // 
@@ -177,7 +215,7 @@ namespace Book_Exchange_System
             this.btnUpdateApplicants.BackColor = System.Drawing.Color.Teal;
             this.btnUpdateApplicants.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdateApplicants.ForeColor = System.Drawing.Color.White;
-            this.btnUpdateApplicants.Location = new System.Drawing.Point(16, 305);
+            this.btnUpdateApplicants.Location = new System.Drawing.Point(16, 359);
             this.btnUpdateApplicants.Margin = new System.Windows.Forms.Padding(4);
             this.btnUpdateApplicants.Name = "btnUpdateApplicants";
             this.btnUpdateApplicants.Size = new System.Drawing.Size(208, 74);
@@ -571,13 +609,215 @@ namespace Book_Exchange_System
             this.btnUpdate.UseVisualStyleBackColor = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
+            // Add
+            // 
+            this.Add.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.Add.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Add.BackgroundImage")));
+            this.Add.Controls.Add(this.groupBox4);
+            this.Add.Location = new System.Drawing.Point(253, 220);
+            this.Add.Margin = new System.Windows.Forms.Padding(4);
+            this.Add.Name = "Add";
+            this.Add.Size = new System.Drawing.Size(1649, 773);
+            this.Add.TabIndex = 35;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.txtAddPassword);
+            this.groupBox4.Controls.Add(this.lblAddPassword);
+            this.groupBox4.Controls.Add(this.label1);
+            this.groupBox4.Controls.Add(this.rdoP);
+            this.groupBox4.Controls.Add(this.rdoV);
+            this.groupBox4.Controls.Add(this.rdoM);
+            this.groupBox4.Controls.Add(this.btnAddApplicant);
+            this.groupBox4.Controls.Add(this.lblAddStudents);
+            this.groupBox4.Controls.Add(this.txtAddStudents);
+            this.groupBox4.Controls.Add(this.txtAddName);
+            this.groupBox4.Controls.Add(this.txtAddSurname);
+            this.groupBox4.Controls.Add(this.txtAddEmail);
+            this.groupBox4.Controls.Add(this.lblAddName);
+            this.groupBox4.Controls.Add(this.lblAddSurname);
+            this.groupBox4.Controls.Add(this.lblAddEmail);
+            this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.77391F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox4.Location = new System.Drawing.Point(0, 0);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(1649, 773);
+            this.groupBox4.TabIndex = 0;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Add Applicant";
+            // 
+            // txtAddPassword
+            // 
+            this.txtAddPassword.Location = new System.Drawing.Point(669, 362);
+            this.txtAddPassword.Margin = new System.Windows.Forms.Padding(4);
+            this.txtAddPassword.Name = "txtAddPassword";
+            this.txtAddPassword.PasswordChar = '*';
+            this.txtAddPassword.Size = new System.Drawing.Size(301, 33);
+            this.txtAddPassword.TabIndex = 47;
+            // 
+            // lblAddPassword
+            // 
+            this.lblAddPassword.AutoSize = true;
+            this.lblAddPassword.ForeColor = System.Drawing.Color.Black;
+            this.lblAddPassword.Location = new System.Drawing.Point(668, 329);
+            this.lblAddPassword.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblAddPassword.Name = "lblAddPassword";
+            this.lblAddPassword.Size = new System.Drawing.Size(126, 29);
+            this.lblAddPassword.TabIndex = 46;
+            this.lblAddPassword.Text = "Password:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(1113, 289);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(196, 29);
+            this.label1.TabIndex = 42;
+            this.label1.Text = "Select a campus:";
+            // 
+            // rdoP
+            // 
+            this.rdoP.AutoSize = true;
+            this.rdoP.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdoP.Location = new System.Drawing.Point(1118, 331);
+            this.rdoP.Margin = new System.Windows.Forms.Padding(4);
+            this.rdoP.Name = "rdoP";
+            this.rdoP.Size = new System.Drawing.Size(225, 24);
+            this.rdoP.TabIndex = 43;
+            this.rdoP.TabStop = true;
+            this.rdoP.Text = "1: Potchefstroom Campus";
+            this.rdoP.UseVisualStyleBackColor = true;
+            // 
+            // rdoV
+            // 
+            this.rdoV.AutoSize = true;
+            this.rdoV.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdoV.Location = new System.Drawing.Point(1118, 395);
+            this.rdoV.Margin = new System.Windows.Forms.Padding(4);
+            this.rdoV.Name = "rdoV";
+            this.rdoV.Size = new System.Drawing.Size(149, 24);
+            this.rdoV.TabIndex = 44;
+            this.rdoV.TabStop = true;
+            this.rdoV.Text = "3: Vaal Campus";
+            this.rdoV.UseVisualStyleBackColor = true;
+            // 
+            // rdoM
+            // 
+            this.rdoM.AutoSize = true;
+            this.rdoM.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdoM.Location = new System.Drawing.Point(1118, 363);
+            this.rdoM.Margin = new System.Windows.Forms.Padding(4);
+            this.rdoM.Name = "rdoM";
+            this.rdoM.Size = new System.Drawing.Size(187, 24);
+            this.rdoM.TabIndex = 45;
+            this.rdoM.TabStop = true;
+            this.rdoM.Text = "2: Mahikeng Campus";
+            this.rdoM.UseVisualStyleBackColor = true;
+            // 
+            // btnAddApplicant
+            // 
+            this.btnAddApplicant.BackColor = System.Drawing.Color.Teal;
+            this.btnAddApplicant.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddApplicant.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnAddApplicant.Location = new System.Drawing.Point(657, 622);
+            this.btnAddApplicant.Name = "btnAddApplicant";
+            this.btnAddApplicant.Size = new System.Drawing.Size(313, 53);
+            this.btnAddApplicant.TabIndex = 41;
+            this.btnAddApplicant.Text = "Add";
+            this.btnAddApplicant.UseVisualStyleBackColor = false;
+            this.btnAddApplicant.Click += new System.EventHandler(this.btnAddApplicant_Click);
+            // 
+            // lblAddStudents
+            // 
+            this.lblAddStudents.AutoSize = true;
+            this.lblAddStudents.ForeColor = System.Drawing.Color.Black;
+            this.lblAddStudents.Location = new System.Drawing.Point(1113, 70);
+            this.lblAddStudents.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblAddStudents.Name = "lblAddStudents";
+            this.lblAddStudents.Size = new System.Drawing.Size(140, 29);
+            this.lblAddStudents.TabIndex = 38;
+            this.lblAddStudents.Text = " Student no:";
+            // 
+            // txtAddStudents
+            // 
+            this.txtAddStudents.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.txtAddStudents.Location = new System.Drawing.Point(1118, 109);
+            this.txtAddStudents.Margin = new System.Windows.Forms.Padding(4);
+            this.txtAddStudents.Name = "txtAddStudents";
+            this.txtAddStudents.Size = new System.Drawing.Size(301, 33);
+            this.txtAddStudents.TabIndex = 37;
+            // 
+            // txtAddName
+            // 
+            this.txtAddName.Location = new System.Drawing.Point(214, 113);
+            this.txtAddName.Margin = new System.Windows.Forms.Padding(4);
+            this.txtAddName.Name = "txtAddName";
+            this.txtAddName.Size = new System.Drawing.Size(301, 33);
+            this.txtAddName.TabIndex = 36;
+            // 
+            // txtAddSurname
+            // 
+            this.txtAddSurname.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.txtAddSurname.Location = new System.Drawing.Point(669, 113);
+            this.txtAddSurname.Margin = new System.Windows.Forms.Padding(4);
+            this.txtAddSurname.Name = "txtAddSurname";
+            this.txtAddSurname.Size = new System.Drawing.Size(301, 33);
+            this.txtAddSurname.TabIndex = 35;
+            // 
+            // txtAddEmail
+            // 
+            this.txtAddEmail.Location = new System.Drawing.Point(214, 362);
+            this.txtAddEmail.Margin = new System.Windows.Forms.Padding(4);
+            this.txtAddEmail.Name = "txtAddEmail";
+            this.txtAddEmail.Size = new System.Drawing.Size(301, 33);
+            this.txtAddEmail.TabIndex = 34;
+            // 
+            // lblAddName
+            // 
+            this.lblAddName.AutoSize = true;
+            this.lblAddName.ForeColor = System.Drawing.Color.Black;
+            this.lblAddName.Location = new System.Drawing.Point(213, 67);
+            this.lblAddName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblAddName.Name = "lblAddName";
+            this.lblAddName.Size = new System.Drawing.Size(84, 29);
+            this.lblAddName.TabIndex = 33;
+            this.lblAddName.Text = "Name:";
+            // 
+            // lblAddSurname
+            // 
+            this.lblAddSurname.AutoSize = true;
+            this.lblAddSurname.ForeColor = System.Drawing.Color.Black;
+            this.lblAddSurname.Location = new System.Drawing.Point(664, 74);
+            this.lblAddSurname.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblAddSurname.Name = "lblAddSurname";
+            this.lblAddSurname.Size = new System.Drawing.Size(122, 29);
+            this.lblAddSurname.TabIndex = 32;
+            this.lblAddSurname.Text = " Surname:";
+            // 
+            // lblAddEmail
+            // 
+            this.lblAddEmail.AutoSize = true;
+            this.lblAddEmail.ForeColor = System.Drawing.Color.Black;
+            this.lblAddEmail.Location = new System.Drawing.Point(213, 329);
+            this.lblAddEmail.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblAddEmail.Name = "lblAddEmail";
+            this.lblAddEmail.Size = new System.Drawing.Size(80, 29);
+            this.lblAddEmail.TabIndex = 31;
+            this.lblAddEmail.Text = "Email:";
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // RequestBooks
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1902, 993);
-            this.Controls.Add(this.Request);
             this.Controls.Add(this.UpdateApplicants);
+            this.Controls.Add(this.Request);
+            this.Controls.Add(this.Add);
             this.Controls.Add(this.TopGraphic);
             this.Controls.Add(this.ButtonGraphics);
             this.Name = "RequestBooks";
@@ -596,6 +836,10 @@ namespace Book_Exchange_System
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCurrentApp)).EndInit();
+            this.Add.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -644,5 +888,24 @@ namespace Book_Exchange_System
         private System.Windows.Forms.TextBox txtSearchName;
         private System.Windows.Forms.TextBox txtSearchSurname;
         private System.Windows.Forms.DataGridViewCheckBoxColumn SelectBooks;
+        private System.Windows.Forms.Button btnRegApp;
+        private System.Windows.Forms.Panel Add;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.TextBox txtAddPassword;
+        private System.Windows.Forms.Label lblAddPassword;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.RadioButton rdoP;
+        private System.Windows.Forms.RadioButton rdoV;
+        private System.Windows.Forms.RadioButton rdoM;
+        private System.Windows.Forms.Button btnAddApplicant;
+        private System.Windows.Forms.Label lblAddStudents;
+        private System.Windows.Forms.TextBox txtAddStudents;
+        private System.Windows.Forms.TextBox txtAddName;
+        private System.Windows.Forms.TextBox txtAddSurname;
+        private System.Windows.Forms.TextBox txtAddEmail;
+        private System.Windows.Forms.Label lblAddName;
+        private System.Windows.Forms.Label lblAddSurname;
+        private System.Windows.Forms.Label lblAddEmail;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

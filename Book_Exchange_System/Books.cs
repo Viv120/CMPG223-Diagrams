@@ -48,39 +48,8 @@ namespace Book_Exchange_System
             }
         }
 
-        //loads book ids into combobox in update panel
-        private void LoadBookIDs()
-        {
-            try
-            {
-                using (MySqlConnection conn = new MySqlConnection(connString))
-                {
-                    conn.Open();
-
-                    string query = "SELECT Book_ID FROM books ORDER BY Book_ID ASC";
-                    using (MySqlCommand comm = new MySqlCommand(query, conn))
-                    {
-                        using (MySqlDataReader reader = comm.ExecuteReader())
-                        {
-                            cmbBookID.Items.Clear();
-                            while (reader.Read())
-                            {
-                                cmbBookID.Items.Add(reader.GetInt32("Book_ID"));
-                            }
-                        }
-                    }
-
-                    conn.Close();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error loading Book IDs: " + ex.Message);
-            }
-        }
-
         //loads book ids into combo box in delete panel
-        private void LoadBookIDsDelete()
+        private void RefreshBookID()
         {
             try
             {
@@ -124,7 +93,7 @@ namespace Book_Exchange_System
         {
             UpdateBook.Visible = true;
             UpdateBook.BringToFront();
-            LoadBookIDs(); //makes sure updated book ids are loaded
+            RefreshBookID(); //makes sure updated book ids are loaded
 
         }
         //opens delete books panel
@@ -132,7 +101,7 @@ namespace Book_Exchange_System
         {
             Deletebooks.Visible = true;
             Deletebooks.BringToFront();
-            LoadBookIDsDelete(); //makes sure updated book ids are loaded
+            RefreshBookID(); //makes sure updated book ids are loaded
         }
 
         //returns to login form
@@ -422,7 +391,7 @@ namespace Book_Exchange_System
                         
                         MessageBox.Show("Book updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         LoadBooks();
-                        LoadBookIDs();
+                        RefreshBookID();
 
                         //clear everything
                         cmbBookID.SelectedIndex = -1;
@@ -482,8 +451,7 @@ namespace Book_Exchange_System
 
                         MessageBox.Show("Book deleted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         LoadBooks();
-                        LoadBookIDs();
-                        LoadBookIDsDelete();
+                        RefreshBookID();
                         cmbDeleteBook.SelectedIndex = -1;
                     }
                 }

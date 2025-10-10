@@ -16,7 +16,6 @@ namespace Book_Exchange_System
     public partial class Applicants : Form
     {
         string connString = ConfigurationManager.ConnectionStrings["BookExchangeConn"].ConnectionString;
-        MySqlConnection conn = new MySqlConnection("Server=localhost;Database=book_exchange_db;Uid=root;Pwd=Viv20050209!");
         MySqlCommand cmd;
         MySqlDataAdapter da;
         DataTable dt;
@@ -68,7 +67,7 @@ namespace Book_Exchange_System
                     cmbDeleteApp.Items.Clear();
 
                     conn.Open();
-                    string query = "SELECT Applicant_ID FROM applicant";
+                    string query = "SELECT Applicant_ID FROM applicant ORDER BY Applicant_ID ASC";
                     cmd = new MySqlCommand(query, conn);
 
                     using (reader = cmd.ExecuteReader())
@@ -100,64 +99,14 @@ namespace Book_Exchange_System
        
         private void btnUpdateApplicants_Click(object sender, EventArgs e)
         {
-            try
-            {
-                using (MySqlConnection conn = new MySqlConnection(connString))
-                {
-                    ShowPanels(UpdateApplicants);
-
-                    conn.Open();
-
-                    string query = "SELECT Applicant_ID FROM applicant";
-
-                    cmd = new MySqlCommand(query, conn);
-
-                    using (reader = cmd.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            int App_ID = reader.GetInt32("Applicant_ID");
-                            cmbAppID.Items.Add(App_ID);
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                this.Close();
-            }
+            ShowPanels(UpdateApplicants);
+            RefreshApplicantID();
         }
 
         private void btnDeleteApplicants_Click(object sender, EventArgs e)
         {
-            try
-            {
-                using (MySqlConnection conn = new MySqlConnection(connString))
-                {
-                    ShowPanels(DeleteApplicants);
-
-                    conn.Open();
-
-                    string query = "SELECT Applicant_ID FROM applicant";
-
-                    cmd = new MySqlCommand(query, conn);
-
-                    using (reader = cmd.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            int App_ID = reader.GetInt32("Applicant_ID");
-                            cmbDeleteApp.Items.Add(App_ID);
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                this.Close();
-            }
+            ShowPanels(DeleteApplicants);
+            RefreshApplicantID();
         }
 
         private void btnAddApplicants_Click(object sender, EventArgs e)
@@ -389,7 +338,32 @@ namespace Book_Exchange_System
                     cmd.Parameters.AddWithValue("@CampusID", campusID);
                     cmd.ExecuteNonQuery();
 
-                    MessageBox.Show("Applicant added successfully!");
+                    long Applicant_ID = cmd.LastInsertedId;
+
+                    string defaultPassword = "Applicant123!";
+                    string checkQuery = "SELECT COUNT(*) FROM applicant_login WHERE Email = @Email";
+
+                    MySqlCommand checkCmd = new MySqlCommand(checkQuery, conn);
+                    checkCmd.Parameters.AddWithValue("@Email", email);
+                    int exists = Convert.ToInt32(checkCmd.ExecuteScalar());
+
+                    if (exists == 0)
+                    {
+                        string insertLogin = @"INSERT INTO applicant_login(Email,Applicant_ID, Password) 
+                                               VALUES(@Email,@Applicant_ID, @Password )";
+
+                        MySqlCommand insertCmd = new MySqlCommand(insertLogin, conn);
+                        insertCmd.Parameters.AddWithValue("@Email", email);
+                        insertCmd.Parameters.AddWithValue("@Donor_ID", Applicant_ID);
+                        insertCmd.Parameters.AddWithValue("@Password", defaultPassword);
+                        insertCmd.ExecuteNonQuery();
+
+                        MessageBox.Show($"Applicant added successfully!\nDefault password: {defaultPassword}", "Success", MessageBoxButtons.OK);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Applicant added successfully! (Existing login found, password not changed)", "Info", MessageBoxButtons.OK);
+                    }
                 }
                 LoadApplicants();
 
