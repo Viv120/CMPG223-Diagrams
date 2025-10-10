@@ -16,5 +16,10 @@ namespace Book_Exchange_System
         {
             InitializeComponent();
         }
+
+        private void Logins_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

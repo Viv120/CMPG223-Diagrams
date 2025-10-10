@@ -76,9 +76,10 @@ namespace Book_Exchange_System
             this.tcLogin.Controls.Add(this.tpApplicant);
             this.tcLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tcLogin.Location = new System.Drawing.Point(0, 0);
+            this.tcLogin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tcLogin.Name = "tcLogin";
             this.tcLogin.SelectedIndex = 0;
-            this.tcLogin.Size = new System.Drawing.Size(1905, 996);
+            this.tcLogin.Size = new System.Drawing.Size(1429, 809);
             this.tcLogin.TabIndex = 0;
             // 
             // tbAdmin
@@ -91,10 +92,11 @@ namespace Book_Exchange_System
             this.tbAdmin.Controls.Add(this.btnLoginAdmin);
             this.tbAdmin.Controls.Add(this.pictureBox1);
             this.tbAdmin.ForeColor = System.Drawing.SystemColors.Control;
-            this.tbAdmin.Location = new System.Drawing.Point(4, 41);
+            this.tbAdmin.Location = new System.Drawing.Point(4, 37);
+            this.tbAdmin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tbAdmin.Name = "tbAdmin";
-            this.tbAdmin.Padding = new System.Windows.Forms.Padding(3);
-            this.tbAdmin.Size = new System.Drawing.Size(1897, 951);
+            this.tbAdmin.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbAdmin.Size = new System.Drawing.Size(1421, 768);
             this.tbAdmin.TabIndex = 0;
             this.tbAdmin.Text = "Admin Login";
             this.tbAdmin.UseVisualStyleBackColor = true;
@@ -106,9 +108,10 @@ namespace Book_Exchange_System
             | System.Windows.Forms.AnchorStyles.Right)));
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.77391F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.ForeColor = System.Drawing.Color.Black;
-            this.button4.Location = new System.Drawing.Point(1306, 854);
+            this.button4.Location = new System.Drawing.Point(980, 694);
+            this.button4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(130, 86);
+            this.button4.Size = new System.Drawing.Size(98, 70);
             this.button4.TabIndex = 19;
             this.button4.Text = "Reset Password";
             this.button4.UseVisualStyleBackColor = true;
@@ -116,18 +119,20 @@ namespace Book_Exchange_System
             // txtAdminPass
             // 
             this.txtAdminPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.89565F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAdminPass.Location = new System.Drawing.Point(819, 910);
+            this.txtAdminPass.Location = new System.Drawing.Point(614, 739);
+            this.txtAdminPass.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtAdminPass.Name = "txtAdminPass";
             this.txtAdminPass.PasswordChar = '*';
-            this.txtAdminPass.Size = new System.Drawing.Size(258, 30);
+            this.txtAdminPass.Size = new System.Drawing.Size(194, 25);
             this.txtAdminPass.TabIndex = 13;
             // 
             // txtAdminEmail
             // 
             this.txtAdminEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.89565F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAdminEmail.Location = new System.Drawing.Point(819, 854);
+            this.txtAdminEmail.Location = new System.Drawing.Point(614, 694);
+            this.txtAdminEmail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtAdminEmail.Name = "txtAdminEmail";
-            this.txtAdminEmail.Size = new System.Drawing.Size(258, 30);
+            this.txtAdminEmail.Size = new System.Drawing.Size(194, 25);
             this.txtAdminEmail.TabIndex = 14;
             // 
             // lblAdminPass
@@ -136,9 +141,10 @@ namespace Book_Exchange_System
             this.lblAdminPass.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblAdminPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.77391F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAdminPass.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblAdminPass.Location = new System.Drawing.Point(663, 913);
+            this.lblAdminPass.Location = new System.Drawing.Point(497, 742);
+            this.lblAdminPass.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblAdminPass.Name = "lblAdminPass";
-            this.lblAdminPass.Size = new System.Drawing.Size(120, 29);
+            this.lblAdminPass.Size = new System.Drawing.Size(92, 24);
             this.lblAdminPass.TabIndex = 12;
             this.lblAdminPass.Text = "Password";
             // 
@@ -148,9 +154,10 @@ namespace Book_Exchange_System
             this.lblAdminEmail.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblAdminEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.77391F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAdminEmail.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblAdminEmail.Location = new System.Drawing.Point(663, 863);
+            this.lblAdminEmail.Location = new System.Drawing.Point(497, 701);
+            this.lblAdminEmail.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblAdminEmail.Name = "lblAdminEmail";
-            this.lblAdminEmail.Size = new System.Drawing.Size(74, 29);
+            this.lblAdminEmail.Size = new System.Drawing.Size(57, 24);
             this.lblAdminEmail.TabIndex = 11;
             this.lblAdminEmail.Text = "Email";
             // 
@@ -161,9 +168,10 @@ namespace Book_Exchange_System
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnLoginAdmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.77391F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLoginAdmin.ForeColor = System.Drawing.Color.Black;
-            this.btnLoginAdmin.Location = new System.Drawing.Point(1126, 879);
+            this.btnLoginAdmin.Location = new System.Drawing.Point(844, 714);
+            this.btnLoginAdmin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnLoginAdmin.Name = "btnLoginAdmin";
-            this.btnLoginAdmin.Size = new System.Drawing.Size(130, 39);
+            this.btnLoginAdmin.Size = new System.Drawing.Size(98, 32);
             this.btnLoginAdmin.TabIndex = 9;
             this.btnLoginAdmin.Text = "Login";
             this.btnLoginAdmin.UseVisualStyleBackColor = true;
@@ -172,9 +180,10 @@ namespace Book_Exchange_System
             // 
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(-3, 2);
+            this.pictureBox1.Location = new System.Drawing.Point(-2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1900, 953);
+            this.pictureBox1.Size = new System.Drawing.Size(1425, 774);
             this.pictureBox1.TabIndex = 8;
             this.pictureBox1.TabStop = false;
             // 
@@ -188,10 +197,11 @@ namespace Book_Exchange_System
             this.tpDonor.Controls.Add(this.lblDonorEmail);
             this.tpDonor.Controls.Add(this.btnLoginDonor);
             this.tpDonor.Controls.Add(this.pictureBox2);
-            this.tpDonor.Location = new System.Drawing.Point(4, 41);
+            this.tpDonor.Location = new System.Drawing.Point(4, 37);
+            this.tpDonor.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tpDonor.Name = "tpDonor";
-            this.tpDonor.Padding = new System.Windows.Forms.Padding(3);
-            this.tpDonor.Size = new System.Drawing.Size(1897, 951);
+            this.tpDonor.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tpDonor.Size = new System.Drawing.Size(1421, 768);
             this.tpDonor.TabIndex = 1;
             this.tpDonor.Text = "Donor Login";
             this.tpDonor.UseVisualStyleBackColor = true;
@@ -202,9 +212,10 @@ namespace Book_Exchange_System
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.77391F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(1386, 854);
+            this.button2.Location = new System.Drawing.Point(1040, 694);
+            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(130, 86);
+            this.button2.Size = new System.Drawing.Size(98, 70);
             this.button2.TabIndex = 19;
             this.button2.Text = "Reset Password";
             this.button2.UseVisualStyleBackColor = true;
@@ -215,9 +226,10 @@ namespace Book_Exchange_System
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRegisterDonor.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.77391F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegisterDonor.Location = new System.Drawing.Point(1193, 901);
+            this.btnRegisterDonor.Location = new System.Drawing.Point(895, 732);
+            this.btnRegisterDonor.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnRegisterDonor.Name = "btnRegisterDonor";
-            this.btnRegisterDonor.Size = new System.Drawing.Size(130, 39);
+            this.btnRegisterDonor.Size = new System.Drawing.Size(98, 32);
             this.btnRegisterDonor.TabIndex = 16;
             this.btnRegisterDonor.Text = "Register";
             this.btnRegisterDonor.UseVisualStyleBackColor = true;
@@ -225,18 +237,20 @@ namespace Book_Exchange_System
             // txtDonorPass
             // 
             this.txtDonorPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.89565F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDonorPass.Location = new System.Drawing.Point(819, 906);
+            this.txtDonorPass.Location = new System.Drawing.Point(614, 736);
+            this.txtDonorPass.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtDonorPass.Name = "txtDonorPass";
             this.txtDonorPass.PasswordChar = '*';
-            this.txtDonorPass.Size = new System.Drawing.Size(258, 30);
+            this.txtDonorPass.Size = new System.Drawing.Size(194, 25);
             this.txtDonorPass.TabIndex = 14;
             // 
             // txtDonorEmail
             // 
             this.txtDonorEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.89565F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDonorEmail.Location = new System.Drawing.Point(819, 854);
+            this.txtDonorEmail.Location = new System.Drawing.Point(614, 694);
+            this.txtDonorEmail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtDonorEmail.Name = "txtDonorEmail";
-            this.txtDonorEmail.Size = new System.Drawing.Size(258, 30);
+            this.txtDonorEmail.Size = new System.Drawing.Size(194, 25);
             this.txtDonorEmail.TabIndex = 15;
             // 
             // lblDonorPass
@@ -245,9 +259,10 @@ namespace Book_Exchange_System
             this.lblDonorPass.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblDonorPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.77391F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDonorPass.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblDonorPass.Location = new System.Drawing.Point(663, 909);
+            this.lblDonorPass.Location = new System.Drawing.Point(497, 739);
+            this.lblDonorPass.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDonorPass.Name = "lblDonorPass";
-            this.lblDonorPass.Size = new System.Drawing.Size(120, 29);
+            this.lblDonorPass.Size = new System.Drawing.Size(92, 24);
             this.lblDonorPass.TabIndex = 13;
             this.lblDonorPass.Text = "Password";
             // 
@@ -257,9 +272,10 @@ namespace Book_Exchange_System
             this.lblDonorEmail.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblDonorEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.77391F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDonorEmail.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblDonorEmail.Location = new System.Drawing.Point(663, 860);
+            this.lblDonorEmail.Location = new System.Drawing.Point(497, 699);
+            this.lblDonorEmail.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDonorEmail.Name = "lblDonorEmail";
-            this.lblDonorEmail.Size = new System.Drawing.Size(74, 29);
+            this.lblDonorEmail.Size = new System.Drawing.Size(57, 24);
             this.lblDonorEmail.TabIndex = 12;
             this.lblDonorEmail.Text = "Email";
             // 
@@ -269,9 +285,10 @@ namespace Book_Exchange_System
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnLoginDonor.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.77391F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLoginDonor.Location = new System.Drawing.Point(1193, 854);
+            this.btnLoginDonor.Location = new System.Drawing.Point(895, 694);
+            this.btnLoginDonor.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnLoginDonor.Name = "btnLoginDonor";
-            this.btnLoginDonor.Size = new System.Drawing.Size(130, 39);
+            this.btnLoginDonor.Size = new System.Drawing.Size(98, 32);
             this.btnLoginDonor.TabIndex = 10;
             this.btnLoginDonor.Text = "Login";
             this.btnLoginDonor.UseVisualStyleBackColor = true;
@@ -280,9 +297,10 @@ namespace Book_Exchange_System
             // 
             this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox2.Location = new System.Drawing.Point(-3, 2);
+            this.pictureBox2.Location = new System.Drawing.Point(-2, 2);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(1900, 953);
+            this.pictureBox2.Size = new System.Drawing.Size(1425, 774);
             this.pictureBox2.TabIndex = 8;
             this.pictureBox2.TabStop = false;
             // 
@@ -296,9 +314,10 @@ namespace Book_Exchange_System
             this.tpApplicant.Controls.Add(this.lblAppPass);
             this.tpApplicant.Controls.Add(this.lblAppEmail);
             this.tpApplicant.Controls.Add(this.pictureBox3);
-            this.tpApplicant.Location = new System.Drawing.Point(4, 41);
+            this.tpApplicant.Location = new System.Drawing.Point(4, 37);
+            this.tpApplicant.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tpApplicant.Name = "tpApplicant";
-            this.tpApplicant.Size = new System.Drawing.Size(1897, 951);
+            this.tpApplicant.Size = new System.Drawing.Size(1421, 768);
             this.tpApplicant.TabIndex = 2;
             this.tpApplicant.Text = "Applicant Login";
             this.tpApplicant.UseVisualStyleBackColor = true;
@@ -309,9 +328,10 @@ namespace Book_Exchange_System
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnNewPassApp.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.77391F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNewPassApp.Location = new System.Drawing.Point(1386, 854);
+            this.btnNewPassApp.Location = new System.Drawing.Point(1040, 694);
+            this.btnNewPassApp.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnNewPassApp.Name = "btnNewPassApp";
-            this.btnNewPassApp.Size = new System.Drawing.Size(130, 86);
+            this.btnNewPassApp.Size = new System.Drawing.Size(98, 70);
             this.btnNewPassApp.TabIndex = 18;
             this.btnNewPassApp.Text = "Reset Password";
             this.btnNewPassApp.UseVisualStyleBackColor = true;
@@ -322,9 +342,10 @@ namespace Book_Exchange_System
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRegisterApp.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.77391F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegisterApp.Location = new System.Drawing.Point(1193, 901);
+            this.btnRegisterApp.Location = new System.Drawing.Point(895, 732);
+            this.btnRegisterApp.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnRegisterApp.Name = "btnRegisterApp";
-            this.btnRegisterApp.Size = new System.Drawing.Size(130, 39);
+            this.btnRegisterApp.Size = new System.Drawing.Size(98, 32);
             this.btnRegisterApp.TabIndex = 17;
             this.btnRegisterApp.Text = "Register";
             this.btnRegisterApp.UseVisualStyleBackColor = true;
@@ -332,18 +353,20 @@ namespace Book_Exchange_System
             // txtAppPass
             // 
             this.txtAppPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.89565F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAppPass.Location = new System.Drawing.Point(819, 901);
+            this.txtAppPass.Location = new System.Drawing.Point(614, 732);
+            this.txtAppPass.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtAppPass.Name = "txtAppPass";
             this.txtAppPass.PasswordChar = '*';
-            this.txtAppPass.Size = new System.Drawing.Size(258, 30);
+            this.txtAppPass.Size = new System.Drawing.Size(194, 25);
             this.txtAppPass.TabIndex = 6;
             // 
             // txtAppEmail
             // 
             this.txtAppEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.89565F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAppEmail.Location = new System.Drawing.Point(819, 854);
+            this.txtAppEmail.Location = new System.Drawing.Point(614, 694);
+            this.txtAppEmail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtAppEmail.Name = "txtAppEmail";
-            this.txtAppEmail.Size = new System.Drawing.Size(258, 30);
+            this.txtAppEmail.Size = new System.Drawing.Size(194, 25);
             this.txtAppEmail.TabIndex = 7;
             // 
             // btnLoginApp
@@ -352,9 +375,10 @@ namespace Book_Exchange_System
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnLoginApp.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.77391F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLoginApp.Location = new System.Drawing.Point(1193, 854);
+            this.btnLoginApp.Location = new System.Drawing.Point(895, 694);
+            this.btnLoginApp.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnLoginApp.Name = "btnLoginApp";
-            this.btnLoginApp.Size = new System.Drawing.Size(130, 39);
+            this.btnLoginApp.Size = new System.Drawing.Size(98, 32);
             this.btnLoginApp.TabIndex = 9;
             this.btnLoginApp.Text = "Login";
             this.btnLoginApp.UseVisualStyleBackColor = true;
@@ -365,9 +389,10 @@ namespace Book_Exchange_System
             this.lblAppPass.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblAppPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.77391F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAppPass.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblAppPass.Location = new System.Drawing.Point(663, 904);
+            this.lblAppPass.Location = new System.Drawing.Point(497, 734);
+            this.lblAppPass.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblAppPass.Name = "lblAppPass";
-            this.lblAppPass.Size = new System.Drawing.Size(120, 29);
+            this.lblAppPass.Size = new System.Drawing.Size(92, 24);
             this.lblAppPass.TabIndex = 5;
             this.lblAppPass.Text = "Password";
             // 
@@ -377,9 +402,10 @@ namespace Book_Exchange_System
             this.lblAppEmail.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblAppEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.77391F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAppEmail.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblAppEmail.Location = new System.Drawing.Point(663, 855);
+            this.lblAppEmail.Location = new System.Drawing.Point(497, 695);
+            this.lblAppEmail.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblAppEmail.Name = "lblAppEmail";
-            this.lblAppEmail.Size = new System.Drawing.Size(74, 29);
+            this.lblAppEmail.Size = new System.Drawing.Size(57, 24);
             this.lblAppEmail.TabIndex = 4;
             this.lblAppEmail.Text = "Email";
             // 
@@ -387,9 +413,10 @@ namespace Book_Exchange_System
             // 
             this.pictureBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.BackgroundImage")));
             this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox3.Location = new System.Drawing.Point(-3, 2);
+            this.pictureBox3.Location = new System.Drawing.Point(-2, 2);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(1900, 953);
+            this.pictureBox3.Size = new System.Drawing.Size(1425, 774);
             this.pictureBox3.TabIndex = 8;
             this.pictureBox3.TabStop = false;
             // 
@@ -421,13 +448,15 @@ namespace Book_Exchange_System
             // 
             // Logins
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1902, 993);
+            this.ClientSize = new System.Drawing.Size(1426, 807);
             this.Controls.Add(this.tcLogin);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Logins";
             this.Text = "Logins";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.Logins_Load);
             this.tcLogin.ResumeLayout(false);
             this.tbAdmin.ResumeLayout(false);
             this.tbAdmin.PerformLayout();
