@@ -9,13 +9,12 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using System.Configuration;
-
+using System.Text.RegularExpressions;
 
 namespace Book_Exchange_System
 {
     public partial class Books : Form
     {
-        //works with code in App.config
         string connString = ConfigurationManager.ConnectionStrings["BookExchangeConn"].ConnectionString;
         public Books()
         {
@@ -41,8 +40,6 @@ namespace Book_Exchange_System
                             dgvBooks.DataSource = dt;
                         }
                     }
-
-                    conn.Close();
                 }
             }
             catch (Exception error)
@@ -65,10 +62,10 @@ namespace Book_Exchange_System
                     {
                         using (MySqlDataReader reader = comm.ExecuteReader())
                         {
-                            cbBookID.Items.Clear();
+                            cmbBookID.Items.Clear();
                             while (reader.Read())
                             {
-                                cbBookID.Items.Add(reader.GetInt32("Book_ID"));
+                                cmbBookID.Items.Add(reader.GetInt32("Book_ID"));
                             }
                         }
                     }
@@ -82,7 +79,6 @@ namespace Book_Exchange_System
             }
         }
 
-        //
         //loads book ids into combo box in delete panel
         private void LoadBookIDsDelete()
         {
@@ -97,15 +93,16 @@ namespace Book_Exchange_System
                     {
                         using (MySqlDataReader reader = comm.ExecuteReader())
                         {
-                            cbDeleteBook.Items.Clear(); //clears old ids in case of changes
+                            cmbDeleteBook.Items.Clear(); //clears old ids in case of changes
+                            cmbBookID.Items.Clear();
                             while (reader.Read())
                             {
-                                cbDeleteBook.Items.Add(reader.GetInt32("Book_ID"));
+                                int id = reader.GetInt32("Book_ID");
+                                cmbBookID.Items.Add(id);
+                                cmbDeleteBook.Items.Add(id);
                             }
                         }
                     }
-
-                    conn.Close();
                 }
             }
             catch (Exception ex)
@@ -117,7 +114,7 @@ namespace Book_Exchange_System
         //allows user to search for a specific book using: title, author name and lastname
         private void SearchBooks()
         {
-            string findWord = txtSearchApp.Text.Trim();
+            string findWord = txtSearchBook.Text.Trim();
 
             if (string.IsNullOrEmpty(findWord))
             {
@@ -144,21 +141,12 @@ namespace Book_Exchange_System
                             dgvBooks.DataSource = dt;
                         }
                     }
-
-                    connection.Close();
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error searching  for book: " + ex.Message);
             }
-        }
-
-
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
         }
 
         //opens add books panel
@@ -185,7 +173,7 @@ namespace Book_Exchange_System
         }
 
         //returns to login form
-        private void button7_Click(object sender, EventArgs e)
+        private void btnBack_Click(object sender, EventArgs e)
         {
             Admin admin = new Admin();
             admin.Show();
@@ -195,6 +183,8 @@ namespace Book_Exchange_System
         //adds the new book
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            bool valid = true;
+
             string bookTitle = txtTitle.Text;
             string authorName = txtAName.Text;
             string authorSurname = txtASurname.Text;
@@ -206,7 +196,7 @@ namespace Book_Exchange_System
             int campusID = 0;
             if (rbMahikeng.Checked)
             {
-                campusID = 3;
+                campusID = 2;
             }
             else if (rbPotch.Checked)
             {
@@ -214,9 +204,81 @@ namespace Book_Exchange_System
             }
             else if (rbVaal.Checked)
             {
-                campusID = 2;
+                campusID = 3;
             }
 
+            errorProvider1.Clear();
+            txtTitle.BackColor = SystemColors.Window;
+            txtAName.BackColor = SystemColors.Window;
+            txtASurname.BackColor = SystemColors.Window;
+            txtEdition.BackColor = SystemColors.Window;
+            txtYear.BackColor = SystemColors.Window;
+            nudCondition.BackColor = SystemColors.Window;
+            rbPotch.BackColor = SystemColors.Control;
+            rbMahikeng.BackColor = SystemColors.Control;
+            rbVaal.BackColor = SystemColors.Control;
+
+            if (string.IsNullOrWhiteSpace(bookTitle))
+            {
+                txtTitle.BackColor = Color.LightPink;
+                errorProvider1.SetError(txtTitle, "Please enter a title!");
+                valid = false;
+            }
+            if (string.IsNullOrWhiteSpace(authorName))
+            {
+                txtAName.BackColor = Color.LightPink;
+                errorProvider1.SetError(txtAName, "Please enter a name!");
+                valid = false;
+            }
+            if (string.IsNullOrWhiteSpace(authorSurname))
+            {
+                txtASurname.BackColor = Color.LightPink;
+                errorProvider1.SetError(txtASurname, "Please enter a surname!");
+                valid = false;
+            }
+            if (string.IsNullOrWhiteSpace(bookEdition))
+            {
+                txtEdition.BackColor = Color.LightPink;
+                errorProvider1.SetError(txtEdition, "Please enter the edition!");
+                valid = false;
+            }
+            if (string.IsNullOrWhiteSpace(yearPublished))
+            {
+                txtYear.BackColor = Color.LightPink;
+                errorProvider1.SetError(txtYear, "Please enter a year!");
+                valid = false;
+            }
+            if (!Regex.IsMatch(txtYear.Text, @"^\d{4}$"))
+            {
+                txtYear.BackColor = Color.LightPink;
+                errorProvider1.SetError(txtYear, "Year published must be 4 digits!");
+                valid = false;
+            }
+            if (bookCondition <= 0)
+            {
+                nudCondition.BackColor = Color.LightPink;
+                errorProvider1.SetError(nudCondition, "Please enter a valid book condition!");
+                valid = false;
+            }
+            if (campusID == 0)
+            {
+                rbPotch.BackColor = Color.LightPink;
+                rbMahikeng.BackColor = Color.LightPink;
+                rbVaal.BackColor = Color.LightPink;
+                errorProvider1.SetError(rbPotch, "Please select a campus!");
+                valid = false;
+            }
+            else
+            {
+                rbPotch.BackColor = SystemColors.Control;
+                rbMahikeng.BackColor = SystemColors.Control;
+                rbVaal.BackColor = SystemColors.Control;
+            }
+
+            if (!valid)
+            {
+                return;
+            }
             try
             {
                 using (MySqlConnection conn = new MySqlConnection(connString))
@@ -237,33 +299,39 @@ namespace Book_Exchange_System
                         comm.ExecuteNonQuery();
                     }
 
-                    MessageBox.Show("Book added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                    MessageBox.Show("Book added successfully!", "Success", MessageBoxButtons.OK);
                     LoadBooks();
 
-                    conn.Close();
-
-                    txtTitle.Text = "";
-                    txtAName.Text = "";
-                    txtASurname.Text = "";
-                    txtEdition.Text = "";
-                    txtYear.Text = "";
+                    txtTitle.Clear();
+                    txtAName.Clear();
+                    txtASurname.Clear();
+                    txtEdition.Clear();
+                    txtYear.Clear();
                     nudCondition.Value = 1;
                     rbMahikeng.Checked = false;
                     rbPotch.Checked = false;
                     rbVaal.Checked = false;
 
+                    errorProvider1.Clear();
+                    txtTitle.BackColor = SystemColors.Window;
+                    txtAName.BackColor = SystemColors.Window;
+                    txtASurname.BackColor = SystemColors.Window;
+                    txtEdition.BackColor = SystemColors.Window;
+                    txtYear.BackColor = SystemColors.Window;
+                    nudCondition.BackColor = SystemColors.Window;
+                    rbPotch.BackColor = SystemColors.Control;
+                    rbMahikeng.BackColor = SystemColors.Control;
+                    rbVaal.BackColor = SystemColors.Control;
                 }
-
             }
             catch (Exception error)
             {
-                MessageBox.Show("Error adding the book into database: " + error);
+                MessageBox.Show("Error adding book: " + error);
             }
 
         }
 
-        private void btnReloadApplicants_Click(object sender, EventArgs e)
+        private void btnReloadBooks_Click(object sender, EventArgs e)
         {
             LoadBooks();
         }
@@ -273,63 +341,74 @@ namespace Book_Exchange_System
             LoadBooks();
         }
 
-        private void cbBookID_SelectedIndexChanged(object sender, EventArgs e)
+        private void cmbBookID_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cbBookID.SelectedItem != null)
+            if (cmbBookID.SelectedItem == null)
             {
-                int bookID = (int)cbBookID.SelectedItem;
+                return;
+            }
 
-                try
+            int selectedID = Convert.ToInt32(cmbBookID.SelectedItem);
+
+            try
+            {
+                using (MySqlConnection conn = new MySqlConnection(connString))
                 {
-                    using (MySqlConnection conn = new MySqlConnection(connString))
+                    conn.Open();
+                    string showQuery = "SELECT * FROM books WHERE Book_ID = @id";
+
+                    using (MySqlCommand cmd = new MySqlCommand(showQuery, conn))
                     {
-                        conn.Open();
-                        string showQuery = "SELECT * FROM books WHERE Book_ID = @id";
+                        cmd.Parameters.AddWithValue("@id", selectedID);
 
-                        using (MySqlCommand cmd = new MySqlCommand(showQuery, conn))
+                        using (MySqlDataReader reader = cmd.ExecuteReader())
                         {
-                            cmd.Parameters.AddWithValue("@id", bookID);
-                            using (MySqlDataReader reader = cmd.ExecuteReader())
+                            if (reader.Read())
                             {
-                                if (reader.Read())
-                                {
-                                    txtUpdateTitle.Text = reader["Title"].ToString();
-                                    txtUpdateAName.Text = reader["Author_FName"].ToString();
-                                    txtUpdateASurname.Text = reader["Author_LName"].ToString();
-                                    txtUpdateEdition.Text = reader["Edition"].ToString();
-                                    txtUpdateYear.Text = reader["Year_Published"].ToString();
-                                    nudUpdateCondition.Value = Convert.ToInt32(reader["Book_Condition"]);
+                                txtUpdateTitle.Text = reader["Title"].ToString();
+                                txtUpdateAName.Text = reader["Author_FName"].ToString();
+                                txtUpdateASurname.Text = reader["Author_LName"].ToString();
+                                txtUpdateEdition.Text = reader["Edition"].ToString();
+                                txtUpdateYear.Text = reader["Year_Published"].ToString();
+                                nudUpdateCondition.Value = Convert.ToInt32(reader["Book_Condition"]);
 
-                                    int campusID = Convert.ToInt32(reader["Campus_ID"]);
-                                    if (campusID == 1)
-                                        rbUpdatePotch.Checked = true;
-                                    else if (campusID == 2)
-                                        rbUpdateVaal.Checked = true;
-                                    else if (campusID == 3)
-                                        rbUpdateMahikeng.Checked = true;
+                                int campusID = Convert.ToInt32(reader["Campus_ID"]);
+
+                                if (campusID == 1)
+                                {
+                                    rbUpdatePotch.Checked = true;
+                                }
+                                else if (campusID == 2)
+                                {
+                                    rbUpdateMahikeng.Checked = true;
+                                }
+                                else if (campusID == 3)
+                                {
+                                    rbUpdateVaal.Checked = true;
                                 }
                             }
                         }
                     }
                 }
-                catch (Exception error)
-                {
-                    MessageBox.Show("Error loading book details " + error);
-                }
             }
+            catch (Exception error)
+            {
+                MessageBox.Show("Error loading book details " + error);
+            }
+            
 
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            if (cbBookID.SelectedItem == null)
+            if (cmbBookID.SelectedItem == null)
             {
                 MessageBox.Show("Please select a Book ID to update.");
                 return;
             }
 
             //update the old book details
-            int bookID = (int)cbBookID.SelectedItem;
+            int selectedID = Convert.ToInt32(cmbBookID.SelectedItem);
             string bookTitle = txtUpdateTitle.Text;
             string authorFName = txtUpdateAName.Text;
             string authorLName = txtUpdateASurname.Text;
@@ -338,9 +417,18 @@ namespace Book_Exchange_System
             int bookCondition = (int)nudUpdateCondition.Value;
 
             int campusID = 0;
-            if (rbUpdateMahikeng.Checked) campusID = 3;
-            else if (rbUpdatePotch.Checked) campusID = 1;
-            else if (rbUpdateVaal.Checked) campusID = 2;
+            if (rbUpdatePotch.Checked) 
+            {
+                campusID = 1;
+            }
+            else if (rbUpdateMahikeng.Checked)
+            {
+                campusID = 2;
+            }
+            else if (rbUpdateVaal.Checked)
+            {
+                campusID = 3;
+            }
 
             try
             {
@@ -360,31 +448,25 @@ namespace Book_Exchange_System
                         cmd.Parameters.AddWithValue("@year", yearPublished);
                         cmd.Parameters.AddWithValue("@condition", bookCondition);
                         cmd.Parameters.AddWithValue("@campusid", campusID);
-                        cmd.Parameters.AddWithValue("@id", bookID);
+                        cmd.Parameters.AddWithValue("@id", selectedID);
 
-                        int rowsAffected = cmd.ExecuteNonQuery();
-                        if (rowsAffected > 0)
-                        {
-                            MessageBox.Show("Book updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            LoadBooks();
-                            LoadBookIDs();
+                        cmd.ExecuteNonQuery();
+                        
+                        MessageBox.Show("Book updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LoadBooks();
+                        LoadBookIDs();
 
-                            //clear everything
-                            cbBookID.SelectedIndex = 0;
-                            txtUpdateTitle.Text = "";
-                            txtUpdateAName.Text = "";
-                            txtUpdateASurname.Text = "";
-                            txtUpdateEdition.Text = "";
-                            txtUpdateYear.Text = "";
-                            nudUpdateCondition.Value = 1;
-                            rbUpdateMahikeng.Checked = false;
-                            rbUpdatePotch.Checked = false;
-                            rbUpdateVaal.Checked = false;
-                        }
-                        else
-                        {
-                            MessageBox.Show("Update failed. Please check the Book ID.");
-                        }
+                        //clear everything
+                        cmbBookID.SelectedIndex = -1;
+                        txtUpdateTitle.Clear();
+                        txtUpdateAName.Clear();
+                        txtUpdateASurname.Clear();
+                        txtUpdateEdition.Clear();
+                        txtUpdateYear.Clear();
+                        nudUpdateCondition.Value = 1;
+                        rbUpdateMahikeng.Checked = false;
+                        rbUpdatePotch.Checked = false;
+                        rbUpdateVaal.Checked = false;
                     }
                 }
             }
@@ -397,21 +479,23 @@ namespace Book_Exchange_System
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (cbDeleteBook.SelectedItem == null)
+            if (cmbDeleteBook.SelectedItem == null)
             {
                 MessageBox.Show("Please select a Book ID to delete.");
                 return;
             }
-            int bookID = (int)cbDeleteBook.SelectedItem;
+            int bookID = Convert.ToInt32(cmbDeleteBook.SelectedItem);
 
             //make sure the user wants to delete the book
             DialogResult result = MessageBox.Show(
-            $"Are you sure you want to delete Book ID {bookID}?",
+            $"Are you sure you want to delete this Book?",
             "Confirm Delete",
-            MessageBoxButtons.YesNo,
-            MessageBoxIcon.Warning);
+            MessageBoxButtons.YesNo);
 
-            if (result != DialogResult.Yes) return;
+            if (result != DialogResult.Yes)
+            {
+                return;
+            }
 
             try
             {
@@ -426,20 +510,13 @@ namespace Book_Exchange_System
                     {
                         cmd.Parameters.AddWithValue("@id", bookID);
 
-                        int rowsAffected = cmd.ExecuteNonQuery();
+                        cmd.ExecuteNonQuery();
 
-                        if (rowsAffected > 0)
-                        {
-                            MessageBox.Show("Book deleted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            LoadBooks();
-                            LoadBookIDs();
-                            LoadBookIDsDelete();
-                            cbDeleteBook.SelectedIndex = 0;
-                        }
-                        else
-                        {
-                            MessageBox.Show("Delete failed. Check the Book ID.");
-                        }
+                        MessageBox.Show("Book deleted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LoadBooks();
+                        LoadBookIDs();
+                        LoadBookIDsDelete();
+                        cmbDeleteBook.SelectedIndex = -1;
                     }
                 }
             }
@@ -447,13 +524,50 @@ namespace Book_Exchange_System
             {
                 MessageBox.Show("Error deleting book: " + ex.Message);
             }
-
-
         }
 
         private void btnSearchApplicant_Click(object sender, EventArgs e)
         {
-            SearchBooks();
+            string findWord = txtSearchBook.Text;
+
+            if (string.IsNullOrEmpty(findWord))
+            {
+                LoadBooks();
+                return;
+            }
+
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(connString))
+                {
+                    connection.Open();
+
+                    string searchQuery = @"SELECT * FROM books WHERE (Title LIKE @findWord OR Author_FName LIKE @findWord OR Author_LName LIKE @findWord)";
+
+                    using (MySqlCommand cmd = new MySqlCommand(searchQuery, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@findWord", "%" + findWord + "%");
+
+                        using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
+                        {
+                            DataTable dt = new DataTable();
+                            adapter.Fill(dt);
+                            dgvBooks.DataSource = dt;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error searching for book: " + ex.Message);
+            }
+        }
+
+        private void btnClearFilters_Click(object sender, EventArgs e)
+        {
+            txtSearchBook.Clear();
+
+            LoadBooks();
         }
     }
 }

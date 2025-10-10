@@ -8,12 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using System.Configuration;
 using System.Text.RegularExpressions;
 
 namespace Book_Exchange_System
 {
     public partial class Applicants : Form
     {
+        string connString = ConfigurationManager.ConnectionStrings["BookExchangeConn"].ConnectionString;
         MySqlConnection conn = new MySqlConnection("Server=localhost;Database=book_exchange_db;Uid=root;Pwd=Viv20050209!");
         MySqlCommand cmd;
         MySqlDataAdapter da;
@@ -35,7 +37,7 @@ namespace Book_Exchange_System
         {
             try
             {
-                using (MySqlConnection conn = new MySqlConnection("Server=localhost;Database=book_exchange_db;Uid=root;Pwd=Viv20050209!"))
+                using (MySqlConnection conn = new MySqlConnection(connString))
                 {
                     conn.Open();
                     string query = "SELECT * FROM applicant";
@@ -60,7 +62,7 @@ namespace Book_Exchange_System
         {
             try
             {
-                using (MySqlConnection conn = new MySqlConnection("Server=localhost;Database=book_exchange_db;Uid=root;Pwd=Viv20050209!"))
+                using (MySqlConnection conn = new MySqlConnection(connString))
                 {
                     cmbAppID.Items.Clear();
                     cmbDeleteApp.Items.Clear();
@@ -100,7 +102,7 @@ namespace Book_Exchange_System
         {
             try
             {
-                using (MySqlConnection conn = new MySqlConnection("Server=localhost;Database=book_exchange_db;Uid=root;Pwd=Viv20050209!"))
+                using (MySqlConnection conn = new MySqlConnection(connString))
                 {
                     ShowPanels(UpdateApplicants);
 
@@ -131,7 +133,7 @@ namespace Book_Exchange_System
         {
             try
             {
-                using (MySqlConnection conn = new MySqlConnection("Server=localhost;Database=book_exchange_db;Uid=root;Pwd=Viv20050209!"))
+                using (MySqlConnection conn = new MySqlConnection(connString))
                 {
                     ShowPanels(DeleteApplicants);
 
@@ -175,7 +177,7 @@ namespace Book_Exchange_System
 
             try
             {
-                using (MySqlConnection conn = new MySqlConnection("Server=localhost;Database=book_exchange_db;Uid=root;Pwd=Viv20050209!"))
+                using (MySqlConnection conn = new MySqlConnection(connString))
                 {
                     conn.Open();
 
@@ -246,7 +248,7 @@ namespace Book_Exchange_System
 
             try
             {
-                using (MySqlConnection conn = new MySqlConnection("Server=localhost;Database=book_exchange_db;Uid=root;Pwd=Viv20050209!"))
+                using (MySqlConnection conn = new MySqlConnection(connString))
                 {
                     conn.Open();
 
@@ -369,7 +371,7 @@ namespace Book_Exchange_System
 
             try
             {
-                using (MySqlConnection conn = new MySqlConnection("Server=localhost;Database=book_exchange_db;Uid=root;Pwd=Viv20050209!"))
+                using (MySqlConnection conn = new MySqlConnection(connString))
                 {
                     conn.Open();
 
@@ -431,7 +433,7 @@ namespace Book_Exchange_System
 
             try
             {
-                using (MySqlConnection conn = new MySqlConnection("Server=localhost;Database=book_exchange_db;Uid=root;Pwd=Viv20050209!"))
+                using (MySqlConnection conn = new MySqlConnection(connString))
                 {
                     conn.Open();
 
@@ -449,21 +451,13 @@ namespace Book_Exchange_System
 
                     MessageBox.Show("Applicant deleted successfully!");
                     LoadApplicants();
+                    RefreshApplicantID();
                     cmbDeleteApp.SelectedIndex = -1;
-
-                    txtNewName.Clear();
-                    txtNewSurname.Clear();
-                    txtNewEmail.Clear();
-                    cmbAppID.SelectedIndex = -1;
-                    rdoPotch.Checked = false;
-                    rdoMahikeng.Checked = false;
-                    rdoVaal.Checked = false;
                 }
-                RefreshApplicantID();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error updating applicant: " + ex.Message);
+                MessageBox.Show("Error deleting applicant: " + ex.Message);
             }
         }
 
@@ -487,7 +481,7 @@ namespace Book_Exchange_System
 
             try
             {
-                using (MySqlConnection conn = new MySqlConnection("Server=localhost;Database=book_exchange_db;Uid=root;Pwd=Viv20050209!"))
+                using (MySqlConnection conn = new MySqlConnection(connString))
                 {
                     conn.Open();
 
