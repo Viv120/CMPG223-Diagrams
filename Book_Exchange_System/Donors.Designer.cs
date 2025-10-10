@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Donors));
             this.ButtonGraphic = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -40,13 +41,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.AddDonors = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.rdoM = new System.Windows.Forms.RadioButton();
+            this.rdoV = new System.Windows.Forms.RadioButton();
+            this.rdoP = new System.Windows.Forms.RadioButton();
             this.rdoInd = new System.Windows.Forms.RadioButton();
             this.rdoOrg = new System.Windows.Forms.RadioButton();
             this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.rdoP = new System.Windows.Forms.RadioButton();
-            this.rdoV = new System.Windows.Forms.RadioButton();
-            this.rdoM = new System.Windows.Forms.RadioButton();
             this.lblName = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
@@ -82,12 +84,13 @@
             this.txtSearchDonor = new System.Windows.Forms.TextBox();
             this.btnReloadDonors = new System.Windows.Forms.Button();
             this.dgvDonors = new System.Windows.Forms.DataGridView();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.ButtonGraphic.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.TopGraphic.SuspendLayout();
             this.AddDonors.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.UpdateDonor.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -96,7 +99,7 @@
             this.Search.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDonors)).BeginInit();
-            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // ButtonGraphic
@@ -121,7 +124,7 @@
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.Location = new System.Drawing.Point(27, 23);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(84, 83);
             this.pictureBox1.TabIndex = 31;
@@ -145,7 +148,7 @@
             this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel1.Location = new System.Drawing.Point(195, 180);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(865, 464);
             this.panel1.TabIndex = 8;
@@ -195,7 +198,7 @@
             this.TopGraphic.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.TopGraphic.Controls.Add(this.label1);
             this.TopGraphic.Location = new System.Drawing.Point(188, 0);
-            this.TopGraphic.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TopGraphic.Margin = new System.Windows.Forms.Padding(2);
             this.TopGraphic.Name = "TopGraphic";
             this.TopGraphic.Size = new System.Drawing.Size(1238, 177);
             this.TopGraphic.TabIndex = 3;
@@ -217,7 +220,7 @@
             // 
             this.AddDonors.Controls.Add(this.groupBox1);
             this.AddDonors.Location = new System.Drawing.Point(190, 179);
-            this.AddDonors.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.AddDonors.Margin = new System.Windows.Forms.Padding(2);
             this.AddDonors.Name = "AddDonors";
             this.AddDonors.Size = new System.Drawing.Size(560, 628);
             this.AddDonors.TabIndex = 5;
@@ -237,13 +240,69 @@
             this.groupBox1.Controls.Add(this.btnAddDonor);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.77391F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(560, 628);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Add Donors";
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.rdoM);
+            this.panel2.Controls.Add(this.rdoV);
+            this.panel2.Controls.Add(this.rdoP);
+            this.panel2.Location = new System.Drawing.Point(314, 159);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(215, 138);
+            this.panel2.TabIndex = 53;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(3, 8);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(154, 24);
+            this.label2.TabIndex = 49;
+            this.label2.Text = "Select a campus:";
+            // 
+            // rdoM
+            // 
+            this.rdoM.AutoSize = true;
+            this.rdoM.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdoM.Location = new System.Drawing.Point(7, 67);
+            this.rdoM.Name = "rdoM";
+            this.rdoM.Size = new System.Drawing.Size(158, 21);
+            this.rdoM.TabIndex = 46;
+            this.rdoM.TabStop = true;
+            this.rdoM.Text = "2: Mahikeng Campus";
+            this.rdoM.UseVisualStyleBackColor = true;
+            // 
+            // rdoV
+            // 
+            this.rdoV.AutoSize = true;
+            this.rdoV.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdoV.Location = new System.Drawing.Point(7, 94);
+            this.rdoV.Name = "rdoV";
+            this.rdoV.Size = new System.Drawing.Size(125, 21);
+            this.rdoV.TabIndex = 47;
+            this.rdoV.TabStop = true;
+            this.rdoV.Text = "3: Vaal Campus";
+            this.rdoV.UseVisualStyleBackColor = true;
+            // 
+            // rdoP
+            // 
+            this.rdoP.AutoSize = true;
+            this.rdoP.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdoP.Location = new System.Drawing.Point(7, 37);
+            this.rdoP.Name = "rdoP";
+            this.rdoP.Size = new System.Drawing.Size(188, 21);
+            this.rdoP.TabIndex = 48;
+            this.rdoP.TabStop = true;
+            this.rdoP.Text = "1: Potchefstroom Campus";
+            this.rdoP.UseVisualStyleBackColor = true;
             // 
             // rdoInd
             // 
@@ -279,51 +338,6 @@
             this.label3.TabIndex = 50;
             this.label3.Text = "Type of Donor:";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 8);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(154, 24);
-            this.label2.TabIndex = 49;
-            this.label2.Text = "Select a campus:";
-            // 
-            // rdoP
-            // 
-            this.rdoP.AutoSize = true;
-            this.rdoP.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdoP.Location = new System.Drawing.Point(7, 37);
-            this.rdoP.Name = "rdoP";
-            this.rdoP.Size = new System.Drawing.Size(188, 21);
-            this.rdoP.TabIndex = 48;
-            this.rdoP.TabStop = true;
-            this.rdoP.Text = "1: Potchefstroom Campus";
-            this.rdoP.UseVisualStyleBackColor = true;
-            // 
-            // rdoV
-            // 
-            this.rdoV.AutoSize = true;
-            this.rdoV.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdoV.Location = new System.Drawing.Point(7, 94);
-            this.rdoV.Name = "rdoV";
-            this.rdoV.Size = new System.Drawing.Size(125, 21);
-            this.rdoV.TabIndex = 47;
-            this.rdoV.TabStop = true;
-            this.rdoV.Text = "3: Vaal Campus";
-            this.rdoV.UseVisualStyleBackColor = true;
-            // 
-            // rdoM
-            // 
-            this.rdoM.AutoSize = true;
-            this.rdoM.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdoM.Location = new System.Drawing.Point(7, 67);
-            this.rdoM.Name = "rdoM";
-            this.rdoM.Size = new System.Drawing.Size(158, 21);
-            this.rdoM.TabIndex = 46;
-            this.rdoM.TabStop = true;
-            this.rdoM.Text = "2: Mahikeng Campus";
-            this.rdoM.UseVisualStyleBackColor = true;
-            // 
             // lblName
             // 
             this.lblName.AutoSize = true;
@@ -337,7 +351,7 @@
             // txtName
             // 
             this.txtName.Location = new System.Drawing.Point(46, 185);
-            this.txtName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtName.Margin = new System.Windows.Forms.Padding(2);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(216, 28);
             this.txtName.TabIndex = 31;
@@ -381,7 +395,7 @@
             this.btnAddDonor.BackColor = System.Drawing.Color.Teal;
             this.btnAddDonor.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnAddDonor.Location = new System.Drawing.Point(151, 424);
-            this.btnAddDonor.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAddDonor.Margin = new System.Windows.Forms.Padding(2);
             this.btnAddDonor.Name = "btnAddDonor";
             this.btnAddDonor.Size = new System.Drawing.Size(235, 43);
             this.btnAddDonor.TabIndex = 4;
@@ -393,7 +407,7 @@
             // 
             this.UpdateDonor.Controls.Add(this.groupBox2);
             this.UpdateDonor.Location = new System.Drawing.Point(190, 179);
-            this.UpdateDonor.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.UpdateDonor.Margin = new System.Windows.Forms.Padding(2);
             this.UpdateDonor.Name = "UpdateDonor";
             this.UpdateDonor.Size = new System.Drawing.Size(560, 628);
             this.UpdateDonor.TabIndex = 6;
@@ -412,9 +426,9 @@
             this.groupBox2.Controls.Add(this.btnUpdateDonor);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.77391F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox2.Size = new System.Drawing.Size(560, 628);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
@@ -427,9 +441,9 @@
             this.groupBox5.Controls.Add(this.rdoMahikeng);
             this.groupBox5.Controls.Add(this.rdoVaal);
             this.groupBox5.Location = new System.Drawing.Point(15, 379);
-            this.groupBox5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox5.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox5.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox5.Size = new System.Drawing.Size(218, 188);
             this.groupBox5.TabIndex = 42;
             this.groupBox5.TabStop = false;
@@ -561,18 +575,19 @@
             this.btnUpdateDonor.BackColor = System.Drawing.Color.Teal;
             this.btnUpdateDonor.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnUpdateDonor.Location = new System.Drawing.Point(279, 502);
-            this.btnUpdateDonor.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnUpdateDonor.Margin = new System.Windows.Forms.Padding(2);
             this.btnUpdateDonor.Name = "btnUpdateDonor";
             this.btnUpdateDonor.Size = new System.Drawing.Size(230, 41);
             this.btnUpdateDonor.TabIndex = 8;
             this.btnUpdateDonor.Text = "Update";
             this.btnUpdateDonor.UseVisualStyleBackColor = false;
+            this.btnUpdateDonor.Click += new System.EventHandler(this.btnUpdateDonor_Click);
             // 
             // DeleteDonor
             // 
             this.DeleteDonor.Controls.Add(this.groupBox3);
             this.DeleteDonor.Location = new System.Drawing.Point(190, 179);
-            this.DeleteDonor.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.DeleteDonor.Margin = new System.Windows.Forms.Padding(2);
             this.DeleteDonor.Name = "DeleteDonor";
             this.DeleteDonor.Size = new System.Drawing.Size(560, 628);
             this.DeleteDonor.TabIndex = 7;
@@ -584,9 +599,9 @@
             this.groupBox3.Controls.Add(this.btnDeleteDonor);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.77391F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.Location = new System.Drawing.Point(0, 0);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox3.Size = new System.Drawing.Size(560, 628);
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
@@ -596,7 +611,7 @@
             // 
             this.cbDeleteDonor.FormattingEnabled = true;
             this.cbDeleteDonor.Location = new System.Drawing.Point(36, 90);
-            this.cbDeleteDonor.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbDeleteDonor.Margin = new System.Windows.Forms.Padding(2);
             this.cbDeleteDonor.Name = "cbDeleteDonor";
             this.cbDeleteDonor.Size = new System.Drawing.Size(239, 30);
             this.cbDeleteDonor.TabIndex = 27;
@@ -616,12 +631,13 @@
             this.btnDeleteDonor.BackColor = System.Drawing.Color.Teal;
             this.btnDeleteDonor.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnDeleteDonor.Location = new System.Drawing.Point(52, 405);
-            this.btnDeleteDonor.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDeleteDonor.Margin = new System.Windows.Forms.Padding(2);
             this.btnDeleteDonor.Name = "btnDeleteDonor";
             this.btnDeleteDonor.Size = new System.Drawing.Size(218, 41);
             this.btnDeleteDonor.TabIndex = 8;
             this.btnDeleteDonor.Text = "Delete";
             this.btnDeleteDonor.UseVisualStyleBackColor = false;
+            this.btnDeleteDonor.Click += new System.EventHandler(this.btnDeleteDonor_Click);
             // 
             // Search
             // 
@@ -632,7 +648,7 @@
             this.Search.Controls.Add(this.btnReloadDonors);
             this.Search.Controls.Add(this.dgvDonors);
             this.Search.Location = new System.Drawing.Point(748, 177);
-            this.Search.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Search.Margin = new System.Windows.Forms.Padding(2);
             this.Search.Name = "Search";
             this.Search.Size = new System.Drawing.Size(678, 628);
             this.Search.TabIndex = 8;
@@ -643,7 +659,7 @@
             this.btnClearFilters.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClearFilters.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnClearFilters.Location = new System.Drawing.Point(336, 96);
-            this.btnClearFilters.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnClearFilters.Margin = new System.Windows.Forms.Padding(2);
             this.btnClearFilters.Name = "btnClearFilters";
             this.btnClearFilters.Size = new System.Drawing.Size(235, 43);
             this.btnClearFilters.TabIndex = 41;
@@ -657,7 +673,7 @@
             this.btnSearchDonor.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearchDonor.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnSearchDonor.Location = new System.Drawing.Point(336, 25);
-            this.btnSearchDonor.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSearchDonor.Margin = new System.Windows.Forms.Padding(2);
             this.btnSearchDonor.Name = "btnSearchDonor";
             this.btnSearchDonor.Size = new System.Drawing.Size(235, 43);
             this.btnSearchDonor.TabIndex = 35;
@@ -671,7 +687,7 @@
             this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel3.Controls.Add(this.txtSearchDonor);
             this.panel3.Location = new System.Drawing.Point(14, 25);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(304, 38);
             this.panel3.TabIndex = 34;
@@ -689,7 +705,7 @@
             this.btnReloadDonors.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReloadDonors.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.btnReloadDonors.Location = new System.Drawing.Point(12, 462);
-            this.btnReloadDonors.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnReloadDonors.Margin = new System.Windows.Forms.Padding(2);
             this.btnReloadDonors.Name = "btnReloadDonors";
             this.btnReloadDonors.Size = new System.Drawing.Size(235, 43);
             this.btnReloadDonors.TabIndex = 33;
@@ -702,23 +718,16 @@
             this.dgvDonors.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvDonors.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDonors.Location = new System.Drawing.Point(12, 158);
-            this.dgvDonors.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvDonors.Margin = new System.Windows.Forms.Padding(2);
             this.dgvDonors.Name = "dgvDonors";
             this.dgvDonors.RowHeadersWidth = 49;
             this.dgvDonors.RowTemplate.Height = 24;
             this.dgvDonors.Size = new System.Drawing.Size(644, 247);
             this.dgvDonors.TabIndex = 32;
             // 
-            // panel2
+            // errorProvider1
             // 
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.rdoM);
-            this.panel2.Controls.Add(this.rdoV);
-            this.panel2.Controls.Add(this.rdoP);
-            this.panel2.Location = new System.Drawing.Point(314, 159);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(215, 138);
-            this.panel2.TabIndex = 53;
+            this.errorProvider1.ContainerControl = this;
             // 
             // Donors
             // 
@@ -728,13 +737,13 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1426, 807);
             this.Controls.Add(this.AddDonors);
+            this.Controls.Add(this.DeleteDonor);
             this.Controls.Add(this.UpdateDonor);
             this.Controls.Add(this.Search);
-            this.Controls.Add(this.DeleteDonor);
             this.Controls.Add(this.TopGraphic);
             this.Controls.Add(this.ButtonGraphic);
             this.DoubleBuffered = true;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Donors";
             this.Text = "Donor";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -746,6 +755,8 @@
             this.AddDonors.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.UpdateDonor.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
@@ -758,8 +769,7 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDonors)).EndInit();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -819,5 +829,6 @@
         private System.Windows.Forms.RadioButton rdoM;
         private System.Windows.Forms.Button btnClearFilters;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }
