@@ -21,5 +21,15 @@ namespace Book_Exchange_System
         {
 
         }
+
+        private void btnLoginApp_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnLoginAdmin_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
