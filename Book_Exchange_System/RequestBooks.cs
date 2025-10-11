@@ -15,7 +15,7 @@ namespace Book_Exchange_System
 {
     public partial class RequestBooks : Form
     {
-        string connString = ConfigurationManager.ConnectionStrings["BookExchangeConn"].ConnectionString;
+        string connString = "server=localhost;user id=bookexchange;password=OurProjectPassword;database=book_exchange_db;";
         MySqlCommand cmd;
         MySqlDataAdapter da;
         DataTable dt;

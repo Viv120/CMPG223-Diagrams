@@ -140,6 +140,7 @@
     <EmbeddedResource Include="RequestBooks.resx">
       <DependentUpon>RequestBooks.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Book_Exchange_System.csproj" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

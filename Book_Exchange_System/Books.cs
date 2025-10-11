@@ -15,7 +15,7 @@ namespace Book_Exchange_System
 {
     public partial class Books : Form
     {
-        string connString = ConfigurationManager.ConnectionStrings["BookExchangeConn"].ConnectionString;
+        string connString = "server=localhost;user id=bookexchange;password=OurProjectPassword;database=book_exchange_db;";
         public Books()
         {
             InitializeComponent();

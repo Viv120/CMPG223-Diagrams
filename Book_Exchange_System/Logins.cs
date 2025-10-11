@@ -15,7 +15,8 @@ namespace Book_Exchange_System
 {
     public partial class Logins : Form
     {
-        string connString = ConfigurationManager.ConnectionStrings["BookExchangeConn"].ConnectionString;
+        string connString = "server=localhost;user id=bookexchange;password=OurProjectPassword;database=book_exchange_db;";
+
         MySqlCommand cmd;
 
         public Logins()
@@ -35,8 +36,8 @@ namespace Book_Exchange_System
 
         private void btnLoginAdmin_Click(object sender, EventArgs e)
         {
-            String email = txtAdminEmail.Text;
-            String password = txtAdminPass.Text;
+            string email = txtAdminEmail.Text;
+            string password = txtAdminPass.Text;
 
             if (!ValidateFields(email, password, txtAdminEmail, txtAdminPass))
             {
@@ -79,8 +80,8 @@ namespace Book_Exchange_System
 
         private void btnLoginDonor_Click(object sender, EventArgs e)
         {
-            String password = txtDonorPass.Text;
-            String email = txtDonorEmail.Text;
+            string password = txtDonorPass.Text;
+            string email = txtDonorEmail.Text;
             string defaultPassword = "Donor123!";
 
             if (!ValidateFields(email, password, txtDonorEmail, txtDonorPass))
@@ -211,7 +212,7 @@ namespace Book_Exchange_System
                 errorProvider1.SetError(emailBox, "");
             }
 
-            if (string.IsNullOrEmpty(password) || !Regex.IsMatch(txtDonorPass.Text, @"^(?=.[A-Z])(?=.*\d)(?=.*[@$!%?&]).{8,}$"))
+            if (string.IsNullOrEmpty(password) || !Regex.IsMatch(password, @"^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%?&]).{8,}$"))
             {
                 txtDonorPass.BackColor = Color.LightPink;
                 errorProvider1.SetError(txtDonorPass, "Password must be 8+ characters with uppercase, number and special character!");

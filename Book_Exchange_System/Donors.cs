@@ -15,8 +15,8 @@ namespace Book_Exchange_System
 {
     public partial class Donors: Form
     {
-        private string connString = ConfigurationManager.ConnectionStrings["BookexchangeConn"].ConnectionString;
-        
+        string connString = "server=localhost;user id=bookexchange;password=OurProjectPassword;database=book_exchange_db;";
+
         MySqlCommand cmd;
         MySqlDataAdapter da;
         DataTable dt;

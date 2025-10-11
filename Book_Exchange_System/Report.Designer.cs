@@ -31,35 +31,46 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Report));
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnUpdateBook = new System.Windows.Forms.Button();
+            this.btnIssuedReport = new System.Windows.Forms.Button();
             this.btnDeleteBooks = new System.Windows.Forms.Button();
             this.ButtonGraphic = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnDonatedReport = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.dgvReport = new System.Windows.Forms.DataGridView();
+            this.dgvIssue = new System.Windows.Forms.DataGridView();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lblTotalIssued = new System.Windows.Forms.Label();
+            this.lblIssuedDateRange = new System.Windows.Forms.Label();
             this.dtpEndDate = new System.Windows.Forms.DateTimePicker();
             this.dtpStartDate = new System.Windows.Forms.DateTimePicker();
             this.lblEnd = new System.Windows.Forms.Label();
             this.lblStart = new System.Windows.Forms.Label();
-            this.ReportPanel = new System.Windows.Forms.Panel();
+            this.Issued = new System.Windows.Forms.Panel();
+            this.Donated = new System.Windows.Forms.Panel();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.lblTotalDonated = new System.Windows.Forms.Label();
+            this.lblDonatedDateRange = new System.Windows.Forms.Label();
+            this.dtpDonatedEnd = new System.Windows.Forms.DateTimePicker();
+            this.dtpDonatedStart = new System.Windows.Forms.DateTimePicker();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.dgvDonate = new System.Windows.Forms.DataGridView();
+            this.btnDonated = new System.Windows.Forms.Button();
+            this.btnIssued = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.ButtonGraphic.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvReport)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvIssue)).BeginInit();
             this.panel3.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.ReportPanel.SuspendLayout();
+            this.Issued.SuspendLayout();
+            this.Donated.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDonate)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -84,18 +95,19 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Report";
             // 
-            // btnUpdateBook
+            // btnIssuedReport
             // 
-            this.btnUpdateBook.BackColor = System.Drawing.Color.Teal;
-            this.btnUpdateBook.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdateBook.ForeColor = System.Drawing.Color.White;
-            this.btnUpdateBook.Location = new System.Drawing.Point(13, 306);
-            this.btnUpdateBook.Margin = new System.Windows.Forms.Padding(4);
-            this.btnUpdateBook.Name = "btnUpdateBook";
-            this.btnUpdateBook.Size = new System.Drawing.Size(208, 96);
-            this.btnUpdateBook.TabIndex = 1;
-            this.btnUpdateBook.Text = "Generate report";
-            this.btnUpdateBook.UseVisualStyleBackColor = false;
+            this.btnIssuedReport.BackColor = System.Drawing.Color.Teal;
+            this.btnIssuedReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIssuedReport.ForeColor = System.Drawing.Color.White;
+            this.btnIssuedReport.Location = new System.Drawing.Point(13, 306);
+            this.btnIssuedReport.Margin = new System.Windows.Forms.Padding(4);
+            this.btnIssuedReport.Name = "btnIssuedReport";
+            this.btnIssuedReport.Size = new System.Drawing.Size(208, 96);
+            this.btnIssuedReport.TabIndex = 1;
+            this.btnIssuedReport.Text = "Books Issued per Time Period";
+            this.btnIssuedReport.UseVisualStyleBackColor = false;
+            this.btnIssuedReport.Click += new System.EventHandler(this.btnIssuedReport_Click);
             // 
             // btnDeleteBooks
             // 
@@ -115,11 +127,11 @@
             this.ButtonGraphic.BackColor = System.Drawing.Color.Transparent;
             this.ButtonGraphic.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ButtonGraphic.BackgroundImage")));
             this.ButtonGraphic.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ButtonGraphic.Controls.Add(this.button1);
+            this.ButtonGraphic.Controls.Add(this.btnDonatedReport);
             this.ButtonGraphic.Controls.Add(this.pictureBox1);
             this.ButtonGraphic.Controls.Add(this.panel2);
             this.ButtonGraphic.Controls.Add(this.btnDeleteBooks);
-            this.ButtonGraphic.Controls.Add(this.btnUpdateBook);
+            this.ButtonGraphic.Controls.Add(this.btnIssuedReport);
             this.ButtonGraphic.Dock = System.Windows.Forms.DockStyle.Left;
             this.ButtonGraphic.Location = new System.Drawing.Point(0, 0);
             this.ButtonGraphic.Margin = new System.Windows.Forms.Padding(4);
@@ -127,18 +139,19 @@
             this.ButtonGraphic.Size = new System.Drawing.Size(246, 993);
             this.ButtonGraphic.TabIndex = 3;
             // 
-            // button1
+            // btnDonatedReport
             // 
-            this.button1.BackColor = System.Drawing.Color.Teal;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(13, 461);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(208, 96);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "Print Report";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnDonatedReport.BackColor = System.Drawing.Color.Teal;
+            this.btnDonatedReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDonatedReport.ForeColor = System.Drawing.Color.White;
+            this.btnDonatedReport.Location = new System.Drawing.Point(13, 461);
+            this.btnDonatedReport.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDonatedReport.Name = "btnDonatedReport";
+            this.btnDonatedReport.Size = new System.Drawing.Size(208, 96);
+            this.btnDonatedReport.TabIndex = 10;
+            this.btnDonatedReport.Text = "Books Donated per Time Period";
+            this.btnDonatedReport.UseVisualStyleBackColor = false;
+            this.btnDonatedReport.Click += new System.EventHandler(this.btnDonatedReport_Click);
             // 
             // pictureBox1
             // 
@@ -159,16 +172,16 @@
             this.panel2.Size = new System.Drawing.Size(1153, 571);
             this.panel2.TabIndex = 8;
             // 
-            // dgvReport
+            // dgvIssue
             // 
-            this.dgvReport.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dgvReport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvReport.Location = new System.Drawing.Point(122, 193);
-            this.dgvReport.Name = "dgvReport";
-            this.dgvReport.RowHeadersWidth = 49;
-            this.dgvReport.RowTemplate.Height = 24;
-            this.dgvReport.Size = new System.Drawing.Size(1386, 395);
-            this.dgvReport.TabIndex = 4;
+            this.dgvIssue.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dgvIssue.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvIssue.Location = new System.Drawing.Point(777, 114);
+            this.dgvIssue.Name = "dgvIssue";
+            this.dgvIssue.RowHeadersWidth = 49;
+            this.dgvIssue.RowTemplate.Height = 24;
+            this.dgvIssue.Size = new System.Drawing.Size(698, 450);
+            this.dgvIssue.TabIndex = 4;
             // 
             // button2
             // 
@@ -217,16 +230,14 @@
             // groupBox1
             // 
             this.groupBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("groupBox1.BackgroundImage")));
-            this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.btnIssued);
+            this.groupBox1.Controls.Add(this.lblTotalIssued);
+            this.groupBox1.Controls.Add(this.lblIssuedDateRange);
             this.groupBox1.Controls.Add(this.dtpEndDate);
             this.groupBox1.Controls.Add(this.dtpStartDate);
             this.groupBox1.Controls.Add(this.lblEnd);
             this.groupBox1.Controls.Add(this.lblStart);
-            this.groupBox1.Controls.Add(this.dgvReport);
+            this.groupBox1.Controls.Add(this.dgvIssue);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.27826F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
@@ -234,59 +245,37 @@
             this.groupBox1.Size = new System.Drawing.Size(1649, 765);
             this.groupBox1.TabIndex = 14;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Report";
+            this.groupBox1.Text = "Books Issued";
             // 
-            // label8
+            // lblTotalIssued
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(582, 704);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(93, 32);
-            this.label8.TabIndex = 11;
-            this.label8.Text = "label8";
+            this.lblTotalIssued.AutoSize = true;
+            this.lblTotalIssued.BackColor = System.Drawing.Color.White;
+            this.lblTotalIssued.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalIssued.ForeColor = System.Drawing.Color.Purple;
+            this.lblTotalIssued.Location = new System.Drawing.Point(561, 527);
+            this.lblTotalIssued.Name = "lblTotalIssued";
+            this.lblTotalIssued.Size = new System.Drawing.Size(70, 26);
+            this.lblTotalIssued.TabIndex = 8;
+            this.lblTotalIssued.Text = "label5";
             // 
-            // label7
+            // lblIssuedDateRange
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(442, 704);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(93, 32);
-            this.label7.TabIndex = 10;
-            this.label7.Text = "label7";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(577, 645);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(93, 32);
-            this.label6.TabIndex = 9;
-            this.label6.Text = "label6";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(437, 645);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(93, 32);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "label5";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.01739F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(431, 602);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(222, 20);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "uselabels to show summary ";
+            this.lblIssuedDateRange.AutoSize = true;
+            this.lblIssuedDateRange.BackColor = System.Drawing.Color.White;
+            this.lblIssuedDateRange.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIssuedDateRange.ForeColor = System.Drawing.Color.Purple;
+            this.lblIssuedDateRange.Location = new System.Drawing.Point(94, 525);
+            this.lblIssuedDateRange.Name = "lblIssuedDateRange";
+            this.lblIssuedDateRange.Size = new System.Drawing.Size(288, 26);
+            this.lblIssuedDateRange.TabIndex = 7;
+            this.lblIssuedDateRange.Text = "uselabels to show summary ";
             // 
             // dtpEndDate
             // 
             this.dtpEndDate.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 13.77391F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpEndDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.77391F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpEndDate.Location = new System.Drawing.Point(1089, 121);
+            this.dtpEndDate.Location = new System.Drawing.Point(122, 260);
             this.dtpEndDate.Name = "dtpEndDate";
             this.dtpEndDate.Size = new System.Drawing.Size(419, 33);
             this.dtpEndDate.TabIndex = 6;
@@ -303,10 +292,10 @@
             // 
             this.lblEnd.AutoSize = true;
             this.lblEnd.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblEnd.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.77391F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEnd.Location = new System.Drawing.Point(1084, 82);
+            this.lblEnd.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEnd.Location = new System.Drawing.Point(122, 221);
             this.lblEnd.Name = "lblEnd";
-            this.lblEnd.Size = new System.Drawing.Size(118, 29);
+            this.lblEnd.Size = new System.Drawing.Size(109, 26);
             this.lblEnd.TabIndex = 1;
             this.lblEnd.Text = "End Date:";
             // 
@@ -321,13 +310,143 @@
             this.lblStart.TabIndex = 0;
             this.lblStart.Text = "Start Date:";
             // 
-            // ReportPanel
+            // Issued
             // 
-            this.ReportPanel.Controls.Add(this.groupBox1);
-            this.ReportPanel.Location = new System.Drawing.Point(254, 228);
-            this.ReportPanel.Name = "ReportPanel";
-            this.ReportPanel.Size = new System.Drawing.Size(1649, 765);
-            this.ReportPanel.TabIndex = 12;
+            this.Issued.Controls.Add(this.groupBox1);
+            this.Issued.Location = new System.Drawing.Point(254, 228);
+            this.Issued.Name = "Issued";
+            this.Issued.Size = new System.Drawing.Size(1649, 765);
+            this.Issued.TabIndex = 12;
+            // 
+            // Donated
+            // 
+            this.Donated.Controls.Add(this.groupBox2);
+            this.Donated.Location = new System.Drawing.Point(254, 228);
+            this.Donated.Name = "Donated";
+            this.Donated.Size = new System.Drawing.Size(1649, 765);
+            this.Donated.TabIndex = 14;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("groupBox2.BackgroundImage")));
+            this.groupBox2.Controls.Add(this.btnDonated);
+            this.groupBox2.Controls.Add(this.lblTotalDonated);
+            this.groupBox2.Controls.Add(this.lblDonatedDateRange);
+            this.groupBox2.Controls.Add(this.dtpDonatedEnd);
+            this.groupBox2.Controls.Add(this.dtpDonatedStart);
+            this.groupBox2.Controls.Add(this.label12);
+            this.groupBox2.Controls.Add(this.label13);
+            this.groupBox2.Controls.Add(this.dgvDonate);
+            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.27826F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.groupBox2.Location = new System.Drawing.Point(0, 0);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(1649, 765);
+            this.groupBox2.TabIndex = 14;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Books Donated";
+            // 
+            // lblTotalDonated
+            // 
+            this.lblTotalDonated.AutoSize = true;
+            this.lblTotalDonated.BackColor = System.Drawing.Color.White;
+            this.lblTotalDonated.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalDonated.ForeColor = System.Drawing.Color.Purple;
+            this.lblTotalDonated.Location = new System.Drawing.Point(561, 524);
+            this.lblTotalDonated.Name = "lblTotalDonated";
+            this.lblTotalDonated.Size = new System.Drawing.Size(79, 29);
+            this.lblTotalDonated.TabIndex = 9;
+            this.lblTotalDonated.Text = "label9";
+            // 
+            // lblDonatedDateRange
+            // 
+            this.lblDonatedDateRange.AutoSize = true;
+            this.lblDonatedDateRange.BackColor = System.Drawing.Color.White;
+            this.lblDonatedDateRange.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDonatedDateRange.ForeColor = System.Drawing.Color.Purple;
+            this.lblDonatedDateRange.Location = new System.Drawing.Point(94, 525);
+            this.lblDonatedDateRange.Name = "lblDonatedDateRange";
+            this.lblDonatedDateRange.Size = new System.Drawing.Size(315, 29);
+            this.lblDonatedDateRange.TabIndex = 7;
+            this.lblDonatedDateRange.Text = "uselabels to show summary ";
+            // 
+            // dtpDonatedEnd
+            // 
+            this.dtpDonatedEnd.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 13.77391F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpDonatedEnd.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.77391F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpDonatedEnd.Location = new System.Drawing.Point(127, 260);
+            this.dtpDonatedEnd.Name = "dtpDonatedEnd";
+            this.dtpDonatedEnd.Size = new System.Drawing.Size(419, 33);
+            this.dtpDonatedEnd.TabIndex = 6;
+            // 
+            // dtpDonatedStart
+            // 
+            this.dtpDonatedStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.77391F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpDonatedStart.Location = new System.Drawing.Point(122, 121);
+            this.dtpDonatedStart.Name = "dtpDonatedStart";
+            this.dtpDonatedStart.Size = new System.Drawing.Size(419, 33);
+            this.dtpDonatedStart.TabIndex = 5;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.77391F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(122, 221);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(118, 29);
+            this.label12.TabIndex = 1;
+            this.label12.Text = "End Date:";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.77391F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(117, 79);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(124, 29);
+            this.label13.TabIndex = 0;
+            this.label13.Text = "Start Date:";
+            // 
+            // dgvDonate
+            // 
+            this.dgvDonate.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dgvDonate.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDonate.Location = new System.Drawing.Point(777, 114);
+            this.dgvDonate.Name = "dgvDonate";
+            this.dgvDonate.RowHeadersWidth = 49;
+            this.dgvDonate.RowTemplate.Height = 24;
+            this.dgvDonate.Size = new System.Drawing.Size(698, 450);
+            this.dgvDonate.TabIndex = 4;
+            // 
+            // btnDonated
+            // 
+            this.btnDonated.BackColor = System.Drawing.Color.Teal;
+            this.btnDonated.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDonated.ForeColor = System.Drawing.Color.White;
+            this.btnDonated.Location = new System.Drawing.Point(112, 370);
+            this.btnDonated.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDonated.Name = "btnDonated";
+            this.btnDonated.Size = new System.Drawing.Size(434, 53);
+            this.btnDonated.TabIndex = 12;
+            this.btnDonated.Text = "Total Books Donated per Time Period";
+            this.btnDonated.UseVisualStyleBackColor = false;
+            this.btnDonated.Click += new System.EventHandler(this.btnDonated_Click);
+            // 
+            // btnIssued
+            // 
+            this.btnIssued.BackColor = System.Drawing.Color.Teal;
+            this.btnIssued.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIssued.ForeColor = System.Drawing.Color.White;
+            this.btnIssued.Location = new System.Drawing.Point(112, 370);
+            this.btnIssued.Margin = new System.Windows.Forms.Padding(4);
+            this.btnIssued.Name = "btnIssued";
+            this.btnIssued.Size = new System.Drawing.Size(434, 53);
+            this.btnIssued.TabIndex = 15;
+            this.btnIssued.Text = "Total Books Issued per Time Period";
+            this.btnIssued.UseVisualStyleBackColor = false;
+            this.btnIssued.Click += new System.EventHandler(this.btnIssued_Click);
             // 
             // Report
             // 
@@ -336,7 +455,8 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1902, 993);
-            this.Controls.Add(this.ReportPanel);
+            this.Controls.Add(this.Donated);
+            this.Controls.Add(this.Issued);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -346,16 +466,21 @@
             this.Name = "Report";
             this.Text = "Report";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.Report_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ButtonGraphic.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvReport)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvIssue)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.ReportPanel.ResumeLayout(false);
+            this.Issued.ResumeLayout(false);
+            this.Donated.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDonate)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -364,27 +489,35 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnUpdateBook;
+        private System.Windows.Forms.Button btnIssuedReport;
         private System.Windows.Forms.Button btnDeleteBooks;
         private System.Windows.Forms.Panel ButtonGraphic;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DataGridView dgvReport;
+        private System.Windows.Forms.Button btnDonatedReport;
+        private System.Windows.Forms.DataGridView dgvIssue;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblIssuedDateRange;
         private System.Windows.Forms.DateTimePicker dtpEndDate;
         private System.Windows.Forms.DateTimePicker dtpStartDate;
         private System.Windows.Forms.Label lblEnd;
         private System.Windows.Forms.Label lblStart;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Panel ReportPanel;
+        private System.Windows.Forms.Label lblTotalIssued;
+        private System.Windows.Forms.Panel Issued;
+        private System.Windows.Forms.Panel Donated;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label lblTotalDonated;
+        private System.Windows.Forms.Label lblDonatedDateRange;
+        private System.Windows.Forms.DateTimePicker dtpDonatedEnd;
+        private System.Windows.Forms.DateTimePicker dtpDonatedStart;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.DataGridView dgvDonate;
+        private System.Windows.Forms.Button btnDonated;
+        private System.Windows.Forms.Button btnIssued;
     }
 }
