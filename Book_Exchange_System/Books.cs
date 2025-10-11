@@ -48,39 +48,8 @@ namespace Book_Exchange_System
             }
         }
 
-        //loads book ids into combobox in update panel
-        private void LoadBookIDs()
-        {
-            try
-            {
-                using (MySqlConnection conn = new MySqlConnection(connString))
-                {
-                    conn.Open();
-
-                    string query = "SELECT Book_ID FROM books ORDER BY Book_ID ASC";
-                    using (MySqlCommand comm = new MySqlCommand(query, conn))
-                    {
-                        using (MySqlDataReader reader = comm.ExecuteReader())
-                        {
-                            cmbBookID.Items.Clear();
-                            while (reader.Read())
-                            {
-                                cmbBookID.Items.Add(reader.GetInt32("Book_ID"));
-                            }
-                        }
-                    }
-
-                    conn.Close();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error loading Book IDs: " + ex.Message);
-            }
-        }
-
         //loads book ids into combo box in delete panel
-        private void LoadBookIDsDelete()
+        private void RefreshBookID()
         {
             try
             {
@@ -111,44 +80,7 @@ namespace Book_Exchange_System
             }
         }
 
-        //allows user to search for a specific book using: title, author name and lastname
-        private void SearchBooks()
-        {
-            string findWord = txtSearchBook.Text.Trim();
-
-            if (string.IsNullOrEmpty(findWord))
-            {
-                LoadBooks();
-                return;
-            }
-
-            try
-            {
-                using (MySqlConnection connection = new MySqlConnection(connString))
-                {
-                    connection.Open();
-
-                    string searchQuery = @"SELECT * FROM books WHERE Title LIKE @findWord OR Author_FName LIKE @findWord OR Author_LName LIKE @findWord";
-
-                    using (MySqlCommand cmd = new MySqlCommand(searchQuery, connection))
-                    {
-                        cmd.Parameters.AddWithValue("@findWord", "%" + findWord + "%");
-
-                        using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
-                        {
-                            DataTable dt = new DataTable();
-                            adapter.Fill(dt);
-                            dgvBooks.DataSource = dt;
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error searching  for book: " + ex.Message);
-            }
-        }
-
+       
         //opens add books panel
         private void btnAddBooks_Click(object sender, EventArgs e)
         {
@@ -161,7 +93,7 @@ namespace Book_Exchange_System
         {
             UpdateBook.Visible = true;
             UpdateBook.BringToFront();
-            LoadBookIDs(); //makes sure updated book ids are loaded
+            RefreshBookID(); //makes sure updated book ids are loaded
 
         }
         //opens delete books panel
@@ -169,7 +101,7 @@ namespace Book_Exchange_System
         {
             Deletebooks.Visible = true;
             Deletebooks.BringToFront();
-            LoadBookIDsDelete(); //makes sure updated book ids are loaded
+            RefreshBookID(); //makes sure updated book ids are loaded
         }
 
         //returns to login form
@@ -284,7 +216,9 @@ namespace Book_Exchange_System
                 using (MySqlConnection conn = new MySqlConnection(connString))
                 {
                     conn.Open();
-                    string addQuery = "INSERT INTO books (Title, Author_FName, Author_LName, Edition, Year_Published, Book_Condition, Campus_ID) " + "VALUES (@title, @fname, @lname, @edition, @year, @condition, @campusid)";
+                    string addQuery = "INSERT INTO books (Title, Author_FName, Author_LName," +
+                                      "Edition, Year_Published, Book_Condition, Campus_ID) " + "VALUES " +
+                                      "(@title, @fname, @lname, @edition, @year, @condition, @campusid)";
 
                     using (MySqlCommand comm = new MySqlCommand(addQuery, conn))
                     {
@@ -437,7 +371,10 @@ namespace Book_Exchange_System
                 {
                     conn.Open();
 
-                    string updateQuery = @"UPDATE books SET Title=@title, Author_FName=@fname, Author_LName=@lname, Edition=@edition, Year_Published=@year, Book_Condition=@condition, Campus_ID=@campusid WHERE Book_ID=@id";
+                    string updateQuery = @"UPDATE books SET Title=@title, Author_FName=@fname,
+                                           Author_LName=@lname, Edition=@edition, 
+                                           Year_Published=@year, Book_Condition=@condition, 
+                                           Campus_ID=@campusid WHERE Book_ID=@id";
 
                     using (MySqlCommand cmd = new MySqlCommand(updateQuery, conn))
                     {
@@ -454,7 +391,7 @@ namespace Book_Exchange_System
                         
                         MessageBox.Show("Book updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         LoadBooks();
-                        LoadBookIDs();
+                        RefreshBookID();
 
                         //clear everything
                         cmbBookID.SelectedIndex = -1;
@@ -514,8 +451,7 @@ namespace Book_Exchange_System
 
                         MessageBox.Show("Book deleted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         LoadBooks();
-                        LoadBookIDs();
-                        LoadBookIDsDelete();
+                        RefreshBookID();
                         cmbDeleteBook.SelectedIndex = -1;
                     }
                 }
@@ -542,7 +478,8 @@ namespace Book_Exchange_System
                 {
                     connection.Open();
 
-                    string searchQuery = @"SELECT * FROM books WHERE (Title LIKE @findWord OR Author_FName LIKE @findWord OR Author_LName LIKE @findWord)";
+                    string searchQuery = @"SELECT * FROM books WHERE (Title LIKE @findWord OR 
+                                           Author_FName LIKE @findWord OR Author_LName LIKE @findWord)";
 
                     using (MySqlCommand cmd = new MySqlCommand(searchQuery, connection))
                     {
