@@ -25,12 +25,14 @@ namespace Book_Exchange_System
 
         private int donorID;
         private int campusID;
+        private string donorEmail;
 
         private bool isRegisterMode = false;
 
-        public DonateBooks()
+        public DonateBooks(string email)
         {
             InitializeComponent();
+            this.donorEmail = email;
             InitializeForm(false);
         }
 

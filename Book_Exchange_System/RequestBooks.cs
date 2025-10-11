@@ -23,12 +23,15 @@ namespace Book_Exchange_System
 
         private int applicantID;
         private int campusID;
+        private string applicantEmail;
+
 
         private bool isRegisterMode = false;
 
-        public RequestBooks()
+        public RequestBooks(string email)
         {
             InitializeComponent();
+            this.applicantEmail = email;
             InitializeForm(false);
         }
 
