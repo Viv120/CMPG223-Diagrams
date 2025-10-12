@@ -32,7 +32,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.btnIssuedReport = new System.Windows.Forms.Button();
-            this.btnDeleteBooks = new System.Windows.Forms.Button();
+            this.btnBack = new System.Windows.Forms.Button();
             this.ButtonGraphic = new System.Windows.Forms.Panel();
             this.btnDonatedReport = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -43,6 +43,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnIssued = new System.Windows.Forms.Button();
             this.lblTotalIssued = new System.Windows.Forms.Label();
             this.lblIssuedDateRange = new System.Windows.Forms.Label();
             this.dtpEndDate = new System.Windows.Forms.DateTimePicker();
@@ -52,6 +53,7 @@
             this.Issued = new System.Windows.Forms.Panel();
             this.Donated = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnDonated = new System.Windows.Forms.Button();
             this.lblTotalDonated = new System.Windows.Forms.Label();
             this.lblDonatedDateRange = new System.Windows.Forms.Label();
             this.dtpDonatedEnd = new System.Windows.Forms.DateTimePicker();
@@ -59,8 +61,6 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.dgvDonate = new System.Windows.Forms.DataGridView();
-            this.btnDonated = new System.Windows.Forms.Button();
-            this.btnIssued = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.ButtonGraphic.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -109,18 +109,19 @@
             this.btnIssuedReport.UseVisualStyleBackColor = false;
             this.btnIssuedReport.Click += new System.EventHandler(this.btnIssuedReport_Click);
             // 
-            // btnDeleteBooks
+            // btnBack
             // 
-            this.btnDeleteBooks.BackColor = System.Drawing.Color.Teal;
-            this.btnDeleteBooks.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteBooks.ForeColor = System.Drawing.Color.White;
-            this.btnDeleteBooks.Location = new System.Drawing.Point(16, 690);
-            this.btnDeleteBooks.Margin = new System.Windows.Forms.Padding(4);
-            this.btnDeleteBooks.Name = "btnDeleteBooks";
-            this.btnDeleteBooks.Size = new System.Drawing.Size(208, 74);
-            this.btnDeleteBooks.TabIndex = 2;
-            this.btnDeleteBooks.Text = "Back";
-            this.btnDeleteBooks.UseVisualStyleBackColor = false;
+            this.btnBack.BackColor = System.Drawing.Color.Teal;
+            this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBack.ForeColor = System.Drawing.Color.White;
+            this.btnBack.Location = new System.Drawing.Point(16, 690);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(4);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(208, 74);
+            this.btnBack.TabIndex = 2;
+            this.btnBack.Text = "Back";
+            this.btnBack.UseVisualStyleBackColor = false;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // ButtonGraphic
             // 
@@ -130,7 +131,7 @@
             this.ButtonGraphic.Controls.Add(this.btnDonatedReport);
             this.ButtonGraphic.Controls.Add(this.pictureBox1);
             this.ButtonGraphic.Controls.Add(this.panel2);
-            this.ButtonGraphic.Controls.Add(this.btnDeleteBooks);
+            this.ButtonGraphic.Controls.Add(this.btnBack);
             this.ButtonGraphic.Controls.Add(this.btnIssuedReport);
             this.ButtonGraphic.Dock = System.Windows.Forms.DockStyle.Left;
             this.ButtonGraphic.Location = new System.Drawing.Point(0, 0);
@@ -174,6 +175,7 @@
             // 
             // dgvIssue
             // 
+            this.dgvIssue.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvIssue.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvIssue.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvIssue.Location = new System.Drawing.Point(777, 114);
@@ -247,17 +249,32 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Books Issued";
             // 
+            // btnIssued
+            // 
+            this.btnIssued.BackColor = System.Drawing.Color.Teal;
+            this.btnIssued.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIssued.ForeColor = System.Drawing.Color.White;
+            this.btnIssued.Location = new System.Drawing.Point(112, 370);
+            this.btnIssued.Margin = new System.Windows.Forms.Padding(4);
+            this.btnIssued.Name = "btnIssued";
+            this.btnIssued.Size = new System.Drawing.Size(434, 53);
+            this.btnIssued.TabIndex = 15;
+            this.btnIssued.Text = "Total Books Issued per Time Period";
+            this.btnIssued.UseVisualStyleBackColor = false;
+            this.btnIssued.Click += new System.EventHandler(this.btnIssued_Click);
+            // 
             // lblTotalIssued
             // 
             this.lblTotalIssued.AutoSize = true;
             this.lblTotalIssued.BackColor = System.Drawing.Color.White;
             this.lblTotalIssued.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalIssued.ForeColor = System.Drawing.Color.Purple;
-            this.lblTotalIssued.Location = new System.Drawing.Point(561, 527);
+            this.lblTotalIssued.Location = new System.Drawing.Point(94, 583);
             this.lblTotalIssued.Name = "lblTotalIssued";
             this.lblTotalIssued.Size = new System.Drawing.Size(70, 26);
             this.lblTotalIssued.TabIndex = 8;
             this.lblTotalIssued.Text = "label5";
+            this.lblTotalIssued.Visible = false;
             // 
             // lblIssuedDateRange
             // 
@@ -270,6 +287,7 @@
             this.lblIssuedDateRange.Size = new System.Drawing.Size(288, 26);
             this.lblIssuedDateRange.TabIndex = 7;
             this.lblIssuedDateRange.Text = "uselabels to show summary ";
+            this.lblIssuedDateRange.Visible = false;
             // 
             // dtpEndDate
             // 
@@ -346,17 +364,32 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Books Donated";
             // 
+            // btnDonated
+            // 
+            this.btnDonated.BackColor = System.Drawing.Color.Teal;
+            this.btnDonated.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDonated.ForeColor = System.Drawing.Color.White;
+            this.btnDonated.Location = new System.Drawing.Point(112, 370);
+            this.btnDonated.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDonated.Name = "btnDonated";
+            this.btnDonated.Size = new System.Drawing.Size(434, 53);
+            this.btnDonated.TabIndex = 12;
+            this.btnDonated.Text = "Total Books Donated per Time Period";
+            this.btnDonated.UseVisualStyleBackColor = false;
+            this.btnDonated.Click += new System.EventHandler(this.btnDonated_Click);
+            // 
             // lblTotalDonated
             // 
             this.lblTotalDonated.AutoSize = true;
             this.lblTotalDonated.BackColor = System.Drawing.Color.White;
             this.lblTotalDonated.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalDonated.ForeColor = System.Drawing.Color.Purple;
-            this.lblTotalDonated.Location = new System.Drawing.Point(561, 524);
+            this.lblTotalDonated.Location = new System.Drawing.Point(94, 583);
             this.lblTotalDonated.Name = "lblTotalDonated";
-            this.lblTotalDonated.Size = new System.Drawing.Size(79, 29);
+            this.lblTotalDonated.Size = new System.Drawing.Size(70, 26);
             this.lblTotalDonated.TabIndex = 9;
             this.lblTotalDonated.Text = "label9";
+            this.lblTotalDonated.Visible = false;
             // 
             // lblDonatedDateRange
             // 
@@ -366,9 +399,10 @@
             this.lblDonatedDateRange.ForeColor = System.Drawing.Color.Purple;
             this.lblDonatedDateRange.Location = new System.Drawing.Point(94, 525);
             this.lblDonatedDateRange.Name = "lblDonatedDateRange";
-            this.lblDonatedDateRange.Size = new System.Drawing.Size(315, 29);
+            this.lblDonatedDateRange.Size = new System.Drawing.Size(288, 26);
             this.lblDonatedDateRange.TabIndex = 7;
             this.lblDonatedDateRange.Text = "uselabels to show summary ";
+            this.lblDonatedDateRange.Visible = false;
             // 
             // dtpDonatedEnd
             // 
@@ -411,6 +445,7 @@
             // 
             // dgvDonate
             // 
+            this.dgvDonate.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvDonate.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvDonate.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDonate.Location = new System.Drawing.Point(777, 114);
@@ -419,34 +454,6 @@
             this.dgvDonate.RowTemplate.Height = 24;
             this.dgvDonate.Size = new System.Drawing.Size(698, 450);
             this.dgvDonate.TabIndex = 4;
-            // 
-            // btnDonated
-            // 
-            this.btnDonated.BackColor = System.Drawing.Color.Teal;
-            this.btnDonated.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDonated.ForeColor = System.Drawing.Color.White;
-            this.btnDonated.Location = new System.Drawing.Point(112, 370);
-            this.btnDonated.Margin = new System.Windows.Forms.Padding(4);
-            this.btnDonated.Name = "btnDonated";
-            this.btnDonated.Size = new System.Drawing.Size(434, 53);
-            this.btnDonated.TabIndex = 12;
-            this.btnDonated.Text = "Total Books Donated per Time Period";
-            this.btnDonated.UseVisualStyleBackColor = false;
-            this.btnDonated.Click += new System.EventHandler(this.btnDonated_Click);
-            // 
-            // btnIssued
-            // 
-            this.btnIssued.BackColor = System.Drawing.Color.Teal;
-            this.btnIssued.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnIssued.ForeColor = System.Drawing.Color.White;
-            this.btnIssued.Location = new System.Drawing.Point(112, 370);
-            this.btnIssued.Margin = new System.Windows.Forms.Padding(4);
-            this.btnIssued.Name = "btnIssued";
-            this.btnIssued.Size = new System.Drawing.Size(434, 53);
-            this.btnIssued.TabIndex = 15;
-            this.btnIssued.Text = "Total Books Issued per Time Period";
-            this.btnIssued.UseVisualStyleBackColor = false;
-            this.btnIssued.Click += new System.EventHandler(this.btnIssued_Click);
             // 
             // Report
             // 
@@ -490,7 +497,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnIssuedReport;
-        private System.Windows.Forms.Button btnDeleteBooks;
+        private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Panel ButtonGraphic;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel2;

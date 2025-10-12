@@ -29,17 +29,48 @@ namespace Book_Exchange_System
 
         private bool isRegisterMode = false;
 
-        public DonateBooks(string email)
+        public DonateBooks(string email, bool registerMode)
         {
             InitializeComponent();
             this.donorEmail = email;
-            InitializeForm(false);
-        }
 
-        public DonateBooks(bool registerMode)
-        {
-            InitializeComponent();
             InitializeForm(registerMode);
+
+            if(!registerMode)
+            {
+                try
+                {
+                    using (MySqlConnection conn = new MySqlConnection(connString))
+                    {
+                        conn.Open();
+                        string query = "SELECT Donor_ID, Campus_ID FROM donor WHERE Email = @Email";
+                        using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                        {
+                            cmd.Parameters.AddWithValue("@Email", email);
+                            using (MySqlDataReader reader = cmd.ExecuteReader())
+                            {
+                                if (reader.Read())
+                                {
+                                    donorID = Convert.ToInt32(reader["Donor_ID"]);
+                                    campusID = Convert.ToInt32(reader["Campus_ID"]);
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Donor not found!");
+                                }
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error retrieving donor ID: " + ex.Message);
+                }
+            }
+            
+            LoadDonors();
+            LoadDonorLogin();
+            LoadDonatedBooks();
         }
 
         private void InitializeForm(bool registerMode)
@@ -72,6 +103,33 @@ namespace Book_Exchange_System
             panel.BringToFront();
         }
 
+        private void LoadDonorLogin()
+        {
+            try
+            {
+                using (MySqlConnection conn = new MySqlConnection(connString))
+                {
+                    conn.Open();
+                    string query = "SELECT Password FROM donor_login WHERE Donor_ID = @ID";
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@ID", donorID);
+                        object result = cmd.ExecuteScalar();
+                        if (result != null)
+                        {
+                            txtDonorPass.Text = result.ToString();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading donor login info: " + ex.Message);
+            }
+        }
+
+        
+
         private void LoadDonors()
         {
             try
@@ -83,6 +141,14 @@ namespace Book_Exchange_System
                     cmd = new MySqlCommand(query, conn);
 
                     cmd.Parameters.AddWithValue("@ID", donorID);
+
+                    using (MySqlDataAdapter da = new MySqlDataAdapter(cmd))
+                    {
+                        DataTable donorTable = new DataTable();
+                        da.Fill(donorTable);
+                        dgvCurrentApp.DataSource = donorTable;
+                        dgvCurrentApp.Refresh();
+                    }
 
                     using (reader = cmd.ExecuteReader())
                     {
@@ -185,7 +251,13 @@ namespace Book_Exchange_System
 
         private void DonateBooks_Load(object sender, EventArgs e)
         {
-            ShowPanels(UpdateDonor);
+            Add.Visible = false;
+            UpdateDonor.Visible = false;
+            Donate.Visible = false;
+
+            LoadDonors();
+            LoadDonorLogin();
+            LoadDonatedBooks();
         }
 
 
@@ -324,6 +396,7 @@ namespace Book_Exchange_System
                         cmd.ExecuteNonQuery();
 
                         long newDonorID = cmd.LastInsertedId;
+                        donorID = (int)newDonorID;
 
                         string insertLogin = @"INSERT INTO donor_login(Email, Donor_ID, Password) 
                                                VALUES(@Email,@Donor_ID, @Password )";
@@ -353,6 +426,9 @@ namespace Book_Exchange_System
                 btnRegDonor.Visible = false;
                 btnDonate.Visible = true;
                 btnUpdateDonor.Visible = true;
+
+                LoadDonors();
+                LoadDonatedBooks();
             }
             catch (Exception ex)
             {
@@ -398,7 +474,6 @@ namespace Book_Exchange_System
                     MessageBox.Show($"Books donated successfully!\nBook IDs: \n{donatedList}");
 
                     booksToDonate.Clear();
-                    LoadDonatedBooks();
                 }
             }
             catch (Exception ex)
@@ -414,17 +489,24 @@ namespace Book_Exchange_System
                 using (MySqlConnection conn = new MySqlConnection(connString))
                 {
                     conn.Open();
-                    string query = "SELECT * FROM donate_books";
-                    cmd = new MySqlCommand(query, conn);
+                    string query = @"SELECT b.Book_ID, b.Title, b.Author_FName, b.Author_LName, 
+                                     b.Edition, b.Book_Condition, b.Year_Published, db.Donation_Date
+                                     FROM donate_books db
+                                     INNER JOIN books b ON db.Book_ID = b.Book_ID
+                                     WHERE db.Donor_ID = @DonorID
+                                     ORDER BY db.Donation_Date DESC";
 
-                    da = new MySqlDataAdapter(cmd);
-                    dt = new DataTable();
-
-                    da.Fill(dt);
-
-                    dgvDonate.DataSource = dt;
-                    dgvDonate.Refresh();
-                    conn.Close();
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@DonorID", donorID);
+                        using (MySqlDataAdapter da = new MySqlDataAdapter(cmd))
+                        {
+                            DataTable dt = new DataTable();
+                            da.Fill(dt);
+                            dgvDonate.DataSource = dt;
+                            dgvDonate.Refresh();
+                        }
+                    }
                 }
             }
             catch (Exception ex)
@@ -440,9 +522,8 @@ namespace Book_Exchange_System
             string bookTitle = txtTitle.Text;
             string authorName = txtAName.Text;
             string authorSurname = txtASurname.Text;
-            int edition, year;
+            int edition,  year;
             int bookCondition = Convert.ToInt32(nudCondition.Value);
-            //DateTime donationDate = DateTime.Today;
 
             errorProvider1.Clear();
             bool valid = true;
@@ -488,32 +569,48 @@ namespace Book_Exchange_System
                 using (MySqlConnection conn = new MySqlConnection(connString))
                 {
                     conn.Open();
-                    string sqlQuery = @"INSERT INTO books(Title, Author_FName, Author_LName, 
+                    
+                    using (var transaction = conn.BeginTransaction())
+                    {
+                        string sqlQuery = @"INSERT INTO books(Title, Author_FName, Author_LName, 
                                         Edition, Book_Condition, Year_Published ) 
                                         VALUES(@Title, @Author_FName, @Author_LName, @Edition,
                                         @Book_Condition, @Year_Published )";
 
-                    cmd = new MySqlCommand(sqlQuery, conn);
-                    cmd.Parameters.AddWithValue("@Title", bookTitle);
-                    cmd.Parameters.AddWithValue("@Author_FName", authorName);
-                    cmd.Parameters.AddWithValue("@Author_LName", authorSurname);
-                    cmd.Parameters.AddWithValue("@Edition", edition);
-                    cmd.Parameters.AddWithValue("@Year_Published", year);
-                    cmd.Parameters.AddWithValue("@Book_Condition", bookCondition);
-                    cmd.ExecuteNonQuery();
+                        MySqlCommand cmd = new MySqlCommand(sqlQuery, conn, transaction);
+                        cmd.Parameters.AddWithValue("@Title", bookTitle);
+                        cmd.Parameters.AddWithValue("@Author_FName", authorName);
+                        cmd.Parameters.AddWithValue("@Author_LName", authorSurname);
+                        cmd.Parameters.AddWithValue("@Edition", edition);
+                        cmd.Parameters.AddWithValue("@Year_Published", year);
+                        cmd.Parameters.AddWithValue("@Book_Condition", bookCondition);
+                        cmd.ExecuteNonQuery();
 
-                    int bookId = Convert.ToInt32(cmd.LastInsertedId);
-                    booksToDonate.Add(bookId);
+                        int bookId = Convert.ToInt32(cmd.LastInsertedId);
 
+                        string insertDonation = @"INSERT INTO donate_books (Donor_ID, Book_ID, Donation_Date)
+                                          VALUES (@DonorID, @BookID, @Date)";
+                        MySqlCommand cmdDonation = new MySqlCommand(insertDonation, conn, transaction);
+                        cmdDonation.Parameters.AddWithValue("@DonorID", donorID);
+                        cmdDonation.Parameters.AddWithValue("@BookID", bookId);
+                        cmdDonation.Parameters.AddWithValue("@Date", DateTime.Today);
+                        cmdDonation.ExecuteNonQuery();
 
-                    MessageBox.Show("Book added successfully!");
+                        transaction.Commit();
 
-                    txtTitle.Clear();
-                    txtAName.Clear();
-                    txtASurname.Clear();
-                    txtEdition.Clear();
-                    txtYear.Clear();
-                    nudCondition.Value = 1;
+                        booksToDonate.Add(bookId);
+
+                        MessageBox.Show($"Book '{bookTitle}' added successfully!", "Book Added", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        txtTitle.Clear();
+                        txtAName.Clear();
+                        txtASurname.Clear();
+                        txtEdition.Clear();
+                        txtYear.Clear();
+                        nudCondition.Value = 1;
+
+                        LoadDonatedBooks();
+                    }
                 }
             }
             catch (Exception ex)

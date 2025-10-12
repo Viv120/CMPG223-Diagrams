@@ -41,7 +41,7 @@ namespace Book_Exchange_System
             this.btnLoginAdmin = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tpDonor = new System.Windows.Forms.TabPage();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnResetDonor = new System.Windows.Forms.Button();
             this.btnRegisterDonor = new System.Windows.Forms.Button();
             this.txtDonorPass = new System.Windows.Forms.TextBox();
             this.txtDonorEmail = new System.Windows.Forms.TextBox();
@@ -50,7 +50,7 @@ namespace Book_Exchange_System
             this.btnLoginDonor = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.tpApplicant = new System.Windows.Forms.TabPage();
-            this.btnNewPassApp = new System.Windows.Forms.Button();
+            this.btnResetApp = new System.Windows.Forms.Button();
             this.btnRegisterApp = new System.Windows.Forms.Button();
             this.txtAppPass = new System.Windows.Forms.TextBox();
             this.txtAppEmail = new System.Windows.Forms.TextBox();
@@ -114,7 +114,7 @@ namespace Book_Exchange_System
             this.btnResetAdmin.Location = new System.Drawing.Point(1307, 854);
             this.btnResetAdmin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnResetAdmin.Name = "btnResetAdmin";
-            this.btnResetAdmin.Size = new System.Drawing.Size(131, 86);
+            this.btnResetAdmin.Size = new System.Drawing.Size(171, 86);
             this.btnResetAdmin.TabIndex = 19;
             this.btnResetAdmin.Text = "Reset Password";
             this.btnResetAdmin.UseVisualStyleBackColor = true;
@@ -173,7 +173,7 @@ namespace Book_Exchange_System
             this.btnLoginAdmin.Location = new System.Drawing.Point(1125, 879);
             this.btnLoginAdmin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLoginAdmin.Name = "btnLoginAdmin";
-            this.btnLoginAdmin.Size = new System.Drawing.Size(131, 39);
+            this.btnLoginAdmin.Size = new System.Drawing.Size(131, 43);
             this.btnLoginAdmin.TabIndex = 9;
             this.btnLoginAdmin.Text = "Login";
             this.btnLoginAdmin.UseVisualStyleBackColor = true;
@@ -192,7 +192,7 @@ namespace Book_Exchange_System
             // 
             // tpDonor
             // 
-            this.tpDonor.Controls.Add(this.button2);
+            this.tpDonor.Controls.Add(this.btnResetDonor);
             this.tpDonor.Controls.Add(this.btnRegisterDonor);
             this.tpDonor.Controls.Add(this.txtDonorPass);
             this.tpDonor.Controls.Add(this.txtDonorEmail);
@@ -209,19 +209,20 @@ namespace Book_Exchange_System
             this.tpDonor.Text = "Donor Login";
             this.tpDonor.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnResetDonor
             // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.btnResetDonor.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.77391F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(1387, 854);
-            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(131, 86);
-            this.button2.TabIndex = 19;
-            this.button2.Text = "Reset Password";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnResetDonor.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.77391F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnResetDonor.Location = new System.Drawing.Point(1387, 854);
+            this.btnResetDonor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnResetDonor.Name = "btnResetDonor";
+            this.btnResetDonor.Size = new System.Drawing.Size(171, 86);
+            this.btnResetDonor.TabIndex = 19;
+            this.btnResetDonor.Text = "Reset Password";
+            this.btnResetDonor.UseVisualStyleBackColor = true;
+            this.btnResetDonor.Click += new System.EventHandler(this.btnResetDonor_Click);
             // 
             // btnRegisterDonor
             // 
@@ -232,7 +233,7 @@ namespace Book_Exchange_System
             this.btnRegisterDonor.Location = new System.Drawing.Point(1193, 901);
             this.btnRegisterDonor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnRegisterDonor.Name = "btnRegisterDonor";
-            this.btnRegisterDonor.Size = new System.Drawing.Size(131, 39);
+            this.btnRegisterDonor.Size = new System.Drawing.Size(131, 43);
             this.btnRegisterDonor.TabIndex = 16;
             this.btnRegisterDonor.Text = "Register";
             this.btnRegisterDonor.UseVisualStyleBackColor = true;
@@ -290,7 +291,7 @@ namespace Book_Exchange_System
             this.btnLoginDonor.Location = new System.Drawing.Point(1193, 854);
             this.btnLoginDonor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLoginDonor.Name = "btnLoginDonor";
-            this.btnLoginDonor.Size = new System.Drawing.Size(131, 39);
+            this.btnLoginDonor.Size = new System.Drawing.Size(131, 43);
             this.btnLoginDonor.TabIndex = 10;
             this.btnLoginDonor.Text = "Login";
             this.btnLoginDonor.UseVisualStyleBackColor = true;
@@ -309,7 +310,7 @@ namespace Book_Exchange_System
             // 
             // tpApplicant
             // 
-            this.tpApplicant.Controls.Add(this.btnNewPassApp);
+            this.tpApplicant.Controls.Add(this.btnResetApp);
             this.tpApplicant.Controls.Add(this.btnRegisterApp);
             this.tpApplicant.Controls.Add(this.txtAppPass);
             this.tpApplicant.Controls.Add(this.txtAppEmail);
@@ -325,19 +326,20 @@ namespace Book_Exchange_System
             this.tpApplicant.Text = "Applicant Login";
             this.tpApplicant.UseVisualStyleBackColor = true;
             // 
-            // btnNewPassApp
+            // btnResetApp
             // 
-            this.btnNewPassApp.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.btnResetApp.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnNewPassApp.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.77391F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNewPassApp.Location = new System.Drawing.Point(1387, 854);
-            this.btnNewPassApp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnNewPassApp.Name = "btnNewPassApp";
-            this.btnNewPassApp.Size = new System.Drawing.Size(131, 86);
-            this.btnNewPassApp.TabIndex = 18;
-            this.btnNewPassApp.Text = "Reset Password";
-            this.btnNewPassApp.UseVisualStyleBackColor = true;
+            this.btnResetApp.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.77391F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnResetApp.Location = new System.Drawing.Point(1387, 854);
+            this.btnResetApp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnResetApp.Name = "btnResetApp";
+            this.btnResetApp.Size = new System.Drawing.Size(171, 86);
+            this.btnResetApp.TabIndex = 18;
+            this.btnResetApp.Text = "Reset Password";
+            this.btnResetApp.UseVisualStyleBackColor = true;
+            this.btnResetApp.Click += new System.EventHandler(this.btnResetApp_Click);
             // 
             // btnRegisterApp
             // 
@@ -348,7 +350,7 @@ namespace Book_Exchange_System
             this.btnRegisterApp.Location = new System.Drawing.Point(1193, 901);
             this.btnRegisterApp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnRegisterApp.Name = "btnRegisterApp";
-            this.btnRegisterApp.Size = new System.Drawing.Size(131, 39);
+            this.btnRegisterApp.Size = new System.Drawing.Size(131, 43);
             this.btnRegisterApp.TabIndex = 17;
             this.btnRegisterApp.Text = "Register";
             this.btnRegisterApp.UseVisualStyleBackColor = true;
@@ -382,7 +384,7 @@ namespace Book_Exchange_System
             this.btnLoginApp.Location = new System.Drawing.Point(1193, 854);
             this.btnLoginApp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLoginApp.Name = "btnLoginApp";
-            this.btnLoginApp.Size = new System.Drawing.Size(131, 39);
+            this.btnLoginApp.Size = new System.Drawing.Size(131, 43);
             this.btnLoginApp.TabIndex = 9;
             this.btnLoginApp.Text = "Login";
             this.btnLoginApp.UseVisualStyleBackColor = true;
@@ -507,9 +509,9 @@ namespace Book_Exchange_System
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button btnNewPassApp;
+        private System.Windows.Forms.Button btnResetApp;
         private System.Windows.Forms.Button btnResetAdmin;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnResetDonor;
         private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

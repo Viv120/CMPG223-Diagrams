@@ -28,18 +28,49 @@ namespace Book_Exchange_System
 
         private bool isRegisterMode = false;
 
-        public RequestBooks(string email)
+        public RequestBooks(string email, bool registerMode)
         {
             InitializeComponent();
             this.applicantEmail = email;
-            InitializeForm(false);
+
+            if(!registerMode)
+            {
+                try
+                {
+                    using (MySqlConnection conn = new MySqlConnection(connString))
+                    {
+                        conn.Open();
+                        string query = "SELECT Applicant_ID, Campus_ID FROM applicant WHERE Email = @Email";
+                        using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                        {
+                            cmd.Parameters.AddWithValue("@Email", email);
+                            using (MySqlDataReader reader = cmd.ExecuteReader())
+                            {
+                                if (reader.Read())
+                                {
+                                    applicantID = Convert.ToInt32(reader["Applicant_ID"]);
+                                    campusID = Convert.ToInt32(reader["Campus_ID"]);
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Applicant not found!");
+                                }
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error retrieving applicant ID: " + ex.Message);
+                }
+            }
+            
+            InitializeForm(registerMode);
+            LoadApplicants();
+            LoadApplicantLogin();
+            LoadRequestedBooks();
         }
 
-        public RequestBooks(bool registerMode)
-        {
-            InitializeComponent();
-            InitializeForm(registerMode);
-        }
 
         private void InitializeForm(bool registerMode)
         {
@@ -47,14 +78,12 @@ namespace Book_Exchange_System
 
             if (isRegisterMode)
             {
-                Add.Visible = true;
                 btnRegApp.Visible = true;
                 btnReceive.Visible = false;
                 btnUpdateApplicants.Visible = false;
             }
             else
             {
-                Add.Visible = false;
                 btnRegApp.Visible = false;
                 btnReceive.Visible = true;
                 btnUpdateApplicants.Visible = true;  
@@ -71,6 +100,99 @@ namespace Book_Exchange_System
             panel.BringToFront();
         }
 
+        private void LoadRequestedBooks()
+        {
+            try
+            {
+                using (MySqlConnection conn = new MySqlConnection(connString))
+                {
+                    conn.Open();
+
+                    string query = @"
+                SELECT ib.Issued_ID, b.Title, b.Author_FName, b.Author_LName, b.Edition, 
+                       b.Book_Condition, b.Year_Published, ib.Date_Issued
+                FROM issue_books ib
+                INNER JOIN books b ON ib.Book_ID = b.Book_ID
+                WHERE ib.Applicant_ID = @ApplicantID
+                ORDER BY ib.Date_Issued DESC";
+
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@ApplicantID", applicantID);
+
+                        da = new MySqlDataAdapter(cmd);
+                        dt = new DataTable();
+                        da.Fill(dt);
+                        dgvBooks.DataSource = dt;
+                        dgvBooks.Refresh();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading requested books: " + ex.Message);
+            }
+        }
+
+        private void UpdateCampusID()
+        {
+            try
+            {
+                using (MySqlConnection conn = new MySqlConnection(connString))
+                {
+                    conn.Open();
+                    string query = "SELECT Campus_ID FROM applicant WHERE Applicant_ID = @ID";
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@ID", applicantID);
+                        object result = cmd.ExecuteScalar();
+                        if (result != null)
+                        {
+                            campusID = Convert.ToInt32(result);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error updating campus: " + ex.Message);
+            }
+        }
+
+
+        private void LoadApplicantLogin()
+        {
+            if (string.IsNullOrWhiteSpace(applicantEmail))
+                return;
+
+            try
+            {
+                using (MySqlConnection conn = new MySqlConnection(connString))
+                {
+                    conn.Open();
+
+                    string query = @"SELECT Password FROM applicant_login WHERE Applicant_ID = @ID";
+
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@ID", applicantID);
+
+
+                        object result = cmd.ExecuteScalar();
+                        if (result != null)
+                        {
+                            txtAppPass.Text = result.ToString();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading applicant login info: " + ex.Message);
+            }
+        }
+
+
         private void LoadApplicants()
         {
             try
@@ -80,23 +202,34 @@ namespace Book_Exchange_System
                     conn.Open();
 
                     string query = @"SELECT * FROM applicant WHERE Applicant_ID = @ID";
-                    cmd = new MySqlCommand(query, conn);
 
-                    cmd.Parameters.AddWithValue("@ID", applicantID);
-
-                    using (reader = cmd.ExecuteReader())
+                    using (MySqlCommand tableCmd = new MySqlCommand(query, conn))
                     {
-                        if (reader.Read())
-                        {
-                            txtAppID.Text = reader["Applicant_ID"].ToString();
-                            txtNewName.Text = reader["First_Name"].ToString();
-                            txtNewSurname.Text = reader["Last_Name"].ToString();
-                            txtNewEmail.Text = reader["Email"].ToString();
+                        tableCmd.Parameters.AddWithValue("@ID", applicantID);
+                        MySqlDataAdapter da = new MySqlDataAdapter(tableCmd);
+                        DataTable dt = new DataTable();
+                        da.Fill(dt);
+                        dgvCurrentApp.DataSource = dt;
+                    }
 
-                            int campus = Convert.ToInt32(reader["Campus_ID"]);
-                            rdoPotch.Checked = campus == 1;
-                            rdoMahikeng.Checked = campus == 2;
-                            rdoVaal.Checked = campus == 3;
+                    string detailQuery = "SELECT * FROM applicant WHERE Applicant_ID = @ID";
+                    using (MySqlCommand detailCmd = new MySqlCommand(detailQuery, conn))
+                    {
+                        detailCmd.Parameters.AddWithValue("@ID", applicantID);
+                        using (MySqlDataReader reader = detailCmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                txtAppID.Text = reader["Applicant_ID"].ToString();
+                                txtNewName.Text = reader["First_Name"].ToString();
+                                txtNewSurname.Text = reader["Last_Name"].ToString();
+                                txtNewEmail.Text = reader["Email"].ToString();
+
+                                int campus = Convert.ToInt32(reader["Campus_ID"]);
+                                rdoPotch.Checked = campus == 1;
+                                rdoMahikeng.Checked = campus == 2;
+                                rdoVaal.Checked = campus == 3;
+                            }
                         }
                     }
                 }
@@ -177,6 +310,8 @@ namespace Book_Exchange_System
                 campusID = 3;
             }
 
+            this.campusID = campusID;
+
             if (!Regex.IsMatch(password, @"^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$"))
             {
                 txtAppPass.BackColor = Color.LightPink;
@@ -216,6 +351,8 @@ namespace Book_Exchange_System
 
                     MessageBox.Show("Applicant updated successfully!");
                     LoadApplicants();
+                    LoadBooks(); 
+                    LoadRequestedBooks();
                 }
             }
             catch (Exception ex)
@@ -226,7 +363,13 @@ namespace Book_Exchange_System
 
         private void RequestBooks_Load(object sender, EventArgs e)
         {
-            ShowPanels(UpdateApplicants);
+            Add.Visible = false;
+            UpdateApplicants.Visible = false;
+            Request.Visible = false;
+
+            LoadApplicantLogin();
+            LoadApplicants();
+            LoadRequestedBooks();
 
             dgvBooks.CellContentClick += dgvBooks_CellContentClick;
         }
@@ -238,7 +381,9 @@ namespace Book_Exchange_System
 
         private void btnReceive_Click(object sender, EventArgs e)
         {
+            UpdateCampusID(); 
             ShowPanels(Request);
+            LoadBooks();
         }
 
         private void btnRequest_Click(object sender, EventArgs e)
@@ -260,7 +405,7 @@ namespace Book_Exchange_System
                             int bookID = Convert.ToInt32(row.Cells["Book_ID"].Value);
                             string title = row.Cells["Title"].Value.ToString();
 
-                            string insertQuery = @"INSERT INTO issue_books (Applicant_ID, Book_ID, Issue_Date)
+                            string insertQuery = @"INSERT INTO issue_books (Applicant_ID, Book_ID, Date_Issued)
                                                VALUES (@ApplicantID, @BookID, @IssueDate)";
 
                             using (MySqlCommand insertCmd = new MySqlCommand(insertQuery, conn))
@@ -278,6 +423,8 @@ namespace Book_Exchange_System
                     if (requestedBooks.Count > 0)
                     {
                         MessageBox.Show("You have successfully requested the following books:\n\n" + string.Join("\n", requestedBooks), "Books Requested", MessageBoxButtons.OK);
+                        LoadRequestedBooks();
+                        LoadBooks();
                     }
                     else
                     {
@@ -291,7 +438,7 @@ namespace Book_Exchange_System
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnSearchBooks_Click(object sender, EventArgs e)
         {
             string title = txtSearchTitle.Text;
             string authorName = txtSearchName.Text;
@@ -306,22 +453,51 @@ namespace Book_Exchange_System
 
                     string query = @"SELECT Book_ID, Title, Author_FName, Author_LName, Edition, 
                                  Year_Published, Book_Condition, Campus_ID FROM books WHERE 
-                                 Campus_ID = @CampusID AND (Title LIKE @Title OR
-                                 Author_FName LIKE @AName OR Author_LName LIKE @ASurname) 
-                                 AND Book_Condition = @Condition";
+                                 Campus_ID = @CampusID";
 
-                    cmd = new MySqlCommand(query, conn);
-                    cmd.Parameters.AddWithValue("@CampusID", campusID);
-                    cmd.Parameters.AddWithValue("@Title", $"%{title}%");
-                    cmd.Parameters.AddWithValue("@AName", $"%{authorName}%");
-                    cmd.Parameters.AddWithValue("@ASurname", $"%{authorSurname}%");
-                    cmd.Parameters.AddWithValue("@Condition", condition);
+                    if (!string.IsNullOrWhiteSpace(title))
+                    {
+                        query += " AND Title LIKE @Title";
+                    }
+                    if (!string.IsNullOrWhiteSpace(authorName))
+                    {
+                        query += " AND Author_FName LIKE @AName";
+                    }
+                    if (!string.IsNullOrWhiteSpace(authorSurname))
+                    {
+                        query += " AND Author_LName LIKE @ASurname";
+                    }
+                    if (condition >= 1 && condition <= 5)
+                    {
+                        query += " AND Book_Condition = @Condition";
+                    }
 
-                    da = new MySqlDataAdapter(cmd);
-                    dt = new DataTable();
-                    da.Fill(dt);
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@CampusID", campusID);
 
-                    dgvBooks.DataSource = dt;
+                        if (!string.IsNullOrWhiteSpace(title))
+                        {
+                            cmd.Parameters.AddWithValue("@Title", $"%{title}%");
+                        }
+                        if (!string.IsNullOrWhiteSpace(authorName))
+                        {
+                            cmd.Parameters.AddWithValue("@AName", $"%{authorName}%");
+                        }
+                        if (!string.IsNullOrWhiteSpace(authorSurname))
+                        {
+                            cmd.Parameters.AddWithValue("@ASurname", $"%{authorSurname}%");
+                        }
+                        if (condition >= 1 && condition <= 5)
+                        {
+                            cmd.Parameters.AddWithValue("@Condition", condition);
+                        }
+
+                        MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                        DataTable dt = new DataTable();
+                        da.Fill(dt);
+                        dgvBooks.DataSource = dt;
+                    }
 
                     foreach (DataGridViewRow row in dgvBooks.Rows)
                     {
@@ -335,19 +511,15 @@ namespace Book_Exchange_System
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnReload_Click(object sender, EventArgs e)
         {
-            foreach(DataGridViewRow row in dgvBooks.Rows)
-            {
-                if(row.Cells["SelectBooks"] is DataGridViewCheckBoxCell checkbox)
-                {
-                    checkbox.Value = false;
-                    row.DefaultCellStyle.BackColor = Color.White;
-                }
-            }
+            txtSearchTitle.Clear();
+            txtSearchName.Clear();
+            txtSearchSurname.Clear();
+            hsbCondition.Value = 0;
 
-            dgvBooks.ClearSelection();
-            MessageBox.Show("Selection cleared");
+            LoadBooks();
+            MessageBox.Show("Filters cleared and table reloaded.", "Reset", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void dgvBooks_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -405,17 +577,15 @@ namespace Book_Exchange_System
             {
                 campusID = 3;
             }
-
-            errorProvider1.Clear();
-            txtAddName.BackColor = SystemColors.Window;
-            txtAddSurname.BackColor = SystemColors.Window;
-            txtAddStudents.BackColor = SystemColors.Window;
-            txtAddEmail.BackColor = SystemColors.Window;
-            txtAddPassword.BackColor = SystemColors.Window;
-            rdoP.BackColor = SystemColors.Control;
-            rdoM.BackColor = SystemColors.Control;
-            rdoV.BackColor = SystemColors.Control;
-
+            else 
+            {
+                valid = false;
+                rdoP.BackColor = SystemColors.Control;
+                rdoM.BackColor = SystemColors.Control;
+                rdoV.BackColor = SystemColors.Control;
+                errorProvider1.SetError(rdoP, "Please choose a campus!");
+            }
+            
             if (string.IsNullOrWhiteSpace(name)) 
             {
                 txtAddName.BackColor = Color.LightPink; 
@@ -438,14 +608,6 @@ namespace Book_Exchange_System
             { 
                 txtAddEmail.BackColor = Color.LightPink; 
                 errorProvider1.SetError(txtAddEmail, "Enter a valid email!"); 
-                valid = false; 
-            }
-            if (campusID == 0) 
-            {
-                rdoP.BackColor = Color.LightPink;
-                rdoM.BackColor = Color.LightPink;
-                rdoV.BackColor = Color.LightPink; 
-                errorProvider1.SetError(rdoP, "Select a campus!"); 
                 valid = false; 
             }
             if (string.IsNullOrWhiteSpace(password) || !Regex.IsMatch(password, @"^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$")) 
@@ -495,18 +657,24 @@ namespace Book_Exchange_System
                         cmd.Parameters.AddWithValue("@CampusID", campusID);
                         cmd.ExecuteNonQuery();
 
-                        long applicantID = cmd.LastInsertedId;
+                        long newApplicantID = cmd.LastInsertedId;
+                        applicantID = (int)newApplicantID;   
+                        applicantEmail = email;                    
+                        campusID = campusID;
 
                         string insertLogin = @"INSERT INTO applicant_login (Applicant_ID, Email, Password) 
                                        VALUES (@Applicant_ID, @Email, @Password)";
                         using (MySqlCommand insertCmd = new MySqlCommand(insertLogin, conn))
                         {
-                            insertCmd.Parameters.AddWithValue("@Applicant_ID", applicantID);
+                            insertCmd.Parameters.AddWithValue("@Applicant_ID", newApplicantID);
                             insertCmd.Parameters.AddWithValue("@Email", email);
                             insertCmd.Parameters.AddWithValue("@Password", password);
                             insertCmd.ExecuteNonQuery();
                         }
                     }
+
+                    LoadApplicants();
+                    LoadApplicantLogin();
                     MessageBox.Show("Registration successful!", "Success", MessageBoxButtons.OK);
                 }
 

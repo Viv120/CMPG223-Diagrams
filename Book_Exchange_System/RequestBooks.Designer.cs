@@ -360,7 +360,7 @@ namespace Book_Exchange_System
             this.btnSearchBooks.TabIndex = 39;
             this.btnSearchBooks.Text = "Search";
             this.btnSearchBooks.UseVisualStyleBackColor = false;
-            this.btnSearchBooks.Click += new System.EventHandler(this.button1_Click);
+            this.btnSearchBooks.Click += new System.EventHandler(this.btnSearchBooks_Click);
             // 
             // btnReload
             // 
@@ -373,7 +373,7 @@ namespace Book_Exchange_System
             this.btnReload.TabIndex = 37;
             this.btnReload.Text = "Reload table";
             this.btnReload.UseVisualStyleBackColor = false;
-            this.btnReload.Click += new System.EventHandler(this.button2_Click);
+            this.btnReload.Click += new System.EventHandler(this.btnReload_Click);
             // 
             // dgvBooks
             // 
@@ -815,9 +815,9 @@ namespace Book_Exchange_System
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1902, 993);
-            this.Controls.Add(this.UpdateApplicants);
-            this.Controls.Add(this.Request);
             this.Controls.Add(this.Add);
+            this.Controls.Add(this.Request);
+            this.Controls.Add(this.UpdateApplicants);
             this.Controls.Add(this.TopGraphic);
             this.Controls.Add(this.ButtonGraphics);
             this.Name = "RequestBooks";

@@ -282,22 +282,16 @@ namespace Book_Exchange_System
                 errorProvider1.SetError(txtASurname, "Please enter a surname!");
                 valid = false;
             }
-            if (string.IsNullOrWhiteSpace(studentNum))
-            {
-                txtStudents.BackColor = Color.LightPink;
-                errorProvider1.SetError(txtStudents, "Please enter a student number!");
-                valid = false;
-            }
-            if (!Regex.IsMatch(txtStudents.Text, @"^\d{8}$"))
+            if (string.IsNullOrWhiteSpace(studentNum) || !Regex.IsMatch(studentNum, @"^\d{8}$"))
             {
                 txtStudents.BackColor = Color.LightPink;
                 errorProvider1.SetError(txtStudents, "Student number must be 8 digits!");
                 valid = false;
             }
-            if (string.IsNullOrWhiteSpace(email) || !email.Contains("@"))
+            if (string.IsNullOrWhiteSpace(email) || !Regex.IsMatch(email, @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"))
             {
                 txtEmail.BackColor = Color.LightPink;
-                errorProvider1.SetError(txtEmail, "Please enter a valid email containing @!");
+                errorProvider1.SetError(txtEmail, "Please enter a valid email!");
                 valid = false;
             }
             if (campusID == 0)
@@ -354,7 +348,7 @@ namespace Book_Exchange_System
 
                         MySqlCommand insertCmd = new MySqlCommand(insertLogin, conn);
                         insertCmd.Parameters.AddWithValue("@Email", email);
-                        insertCmd.Parameters.AddWithValue("@Donor_ID", Applicant_ID);
+                        insertCmd.Parameters.AddWithValue("@Applicant_ID", Applicant_ID);
                         insertCmd.Parameters.AddWithValue("@Password", defaultPassword);
                         insertCmd.ExecuteNonQuery();
 

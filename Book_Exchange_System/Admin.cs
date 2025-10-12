@@ -84,37 +84,37 @@ namespace Book_Exchange_System
 
         private void btnReports_Click(object sender, EventArgs e)
         {
+            this.Hide();
             Report reportForm = new Report();
             reportForm.Show();
-            this.Close();
         }
 
         private void btnMaintainBooks_Click(object sender, EventArgs e)
         {
+            this.Hide();
             Books maintainBooks = new Books();
             maintainBooks.Show();
-            this.Hide();
         }
 
         private void btnDonor_Click(object sender, EventArgs e)
         {
+            this.Hide();
             Donors maintainDonors = new Donors();
             maintainDonors.Show();
-            this.Hide();
         }
 
         private void btnApplicants_Click(object sender, EventArgs e)
         {
+            this.Hide();
             Applicants maintainApplicants = new Applicants();
             maintainApplicants.Show();
-            this.Hide();
         }
 
         private void btnBack_Click(object sender, EventArgs e)
         {
+            this.Hide();
             Logins loginForm = new Logins();
             loginForm.Show();
-            this.Close();
         }
     }
 }

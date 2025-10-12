@@ -117,12 +117,16 @@ namespace Book_Exchange_System
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            errorProvider1.Clear();
+
             bool validate = true;
 
             string phoneNum = txtSP_Num.Text;
             string studName = txtName.Text;
             string studEmail = txtEmail.Text;
+
             
+
             int campusID=0;
             if (rdoP.Checked == true)
             {
@@ -139,10 +143,10 @@ namespace Book_Exchange_System
             else
             {
                 validate = false;
-                rdoP.BackColor = Color.LightPink;
-                rdoM.BackColor = Color.LightPink;
-                rdoV.BackColor = Color.LightPink;
                 errorProvider1.SetError(rdoP, "Please choose a campus!");
+                rdoP.BackColor = SystemColors.Control;
+                rdoM.BackColor = SystemColors.Control;
+                rdoV.BackColor = SystemColors.Control;
             }
 
             int donorType = 0;
@@ -157,52 +161,43 @@ namespace Book_Exchange_System
             else
             {
                 validate = false;
-                rdoInd.BackColor = Color.LightPink;
-                rdoOrg.BackColor = Color.LightPink;
                 errorProvider1.SetError(rdoInd, "Please choose a donor type!");
+                rdoInd.BackColor = SystemColors.Control;
+                rdoOrg.BackColor = SystemColors.Control;
             }
 
-
-            errorProvider1.Clear();
-            txtSP_Num.BackColor = SystemColors.Window;
-            txtName.BackColor = SystemColors.Window;
-            txtEmail.BackColor = SystemColors.Window;
-            rdoP.BackColor = SystemColors.Control;
-            rdoM.BackColor = SystemColors.Control;
-            rdoV.BackColor = SystemColors.Control;
-            rdoInd.BackColor = SystemColors.Control;
-            rdoOrg.BackColor = SystemColors.Control;
-
-            if (string.IsNullOrWhiteSpace(txtEmail.Text))
+            if (string.IsNullOrWhiteSpace(txtEmail.Text) || !Regex.IsMatch(txtEmail.Text, @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$"))
             {
+                validate = false;
                 txtEmail.BackColor = Color.LightPink;
-                errorProvider1.SetError(txtEmail, "Please enter a email!");
-                validate = false;
+                errorProvider1.SetError(txtEmail, "Please enter a valid email!");
             }
-            else if (string.IsNullOrWhiteSpace(txtSP_Num.Text))
+            else
             {
+                txtEmail.BackColor = SystemColors.Window;
+            }
+            if (string.IsNullOrWhiteSpace(txtSP_Num.Text) || !Regex.IsMatch(txtSP_Num.Text, @"^([0-9]{8,10})"))
+            {
+                validate = false;
                 txtSP_Num.BackColor = Color.LightPink;
-                errorProvider1.SetError(txtSP_Num, "Please enter a number!");
-                validate = false;
+                errorProvider1.SetError(txtSP_Num, "Please enter a VALID phone/student number (8-10 digits)!");
             }
-            else if (string.IsNullOrWhiteSpace(txtName.Text))
+            else
             {
+
+                txtSP_Num.BackColor = SystemColors.Window;
+            }
+            if (string.IsNullOrWhiteSpace(txtName.Text))
+            {
+                validate = false;
                 txtName.BackColor = Color.LightPink;
                 errorProvider1.SetError(txtName, "Please enter a name!");
-                validate = false;
             }
-            else if (!Regex.IsMatch(txtEmail.Text, @"^([a-zA-Z0-9]{1,50})@([a-zA-Z0-9]{1,50}).(.{3,6})"))
+            else
             {
-                txtEmail.BackColor = Color.LightPink;
-                errorProvider1.SetError(txtEmail,"Please enter a VALID email!");
-                validate = false;
+                txtName.BackColor = SystemColors.Window;
             }
-            else if (!Regex.IsMatch(txtSP_Num.Text, @"^([0-9]{5,10})"))
-            {
-                txtSP_Num.BackColor = Color.LightPink;
-                errorProvider1.SetError(txtSP_Num, "Please enter a VALID phone number!");
-                validate = false;
-            }
+
             if (!validate)
             {
                 return;
@@ -286,6 +281,11 @@ namespace Book_Exchange_System
         private void Donors_Load(object sender, EventArgs e)
         {
             LoadDonors();
+            AddDonors.Visible = false;
+            UpdateDonor.Visible = false;
+            DeleteDonor.Visible = false;
+
+            Search.Visible = true;
             
         }
 
@@ -319,12 +319,6 @@ namespace Book_Exchange_System
                 campusID = 3;
             }
 
-            if (string.IsNullOrEmpty(search))
-            {
-                LoadDonors();
-                return;
-            }
-
             try
             {
                 using (MySqlConnection conn = new MySqlConnection(connString))
@@ -340,6 +334,7 @@ namespace Book_Exchange_System
 
                     cmd = new MySqlCommand(query, conn);
                     cmd.Parameters.AddWithValue("@search", "%" + search + "%");
+
 
                     if (campusID != 0)
                     {
@@ -368,14 +363,16 @@ namespace Book_Exchange_System
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            bool valid = true;
+            errorProvider1.Clear();
+
             if (cmbDonorID.SelectedItem == null)
             {
                 MessageBox.Show("Please select a Donor ID to update");
                 return;
             }
 
-
-            int selectedID = Convert.ToInt32(cmbDonorID.SelectedValue.ToString());
+            int selectedID = Convert.ToInt32(cmbDonorID.SelectedItem.ToString());
             string Name = txtNewName.Text;
             string studNum = txtNewSP_Number.Text;
             string Email = txtNewEmail.Text;
@@ -392,6 +389,31 @@ namespace Book_Exchange_System
             else if (rdoVaal.Checked)
             {
                 campusID = 3;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtNewName.Text))
+            {
+                txtNewName.BackColor = Color.LightPink;
+                errorProvider1.SetError(txtNewName, "Name cannot be empty!");
+                valid = false;
+            }
+            else
+            {
+                txtNewName.BackColor = SystemColors.Window;
+            }
+            if (!Regex.IsMatch(txtNewSP_Number.Text, @"^([0-9]{8,10})"))
+            {
+                txtNewSP_Number.BackColor = Color.LightPink;
+                errorProvider1.SetError(txtNewSP_Number, "Number must be 8-10 digits!");
+                valid = false;
+            }
+            else
+            {
+                txtNewSP_Number.BackColor = SystemColors.Window;
+            }
+            if(!valid)
+            {
+                return;
             }
 
             try
@@ -412,14 +434,6 @@ namespace Book_Exchange_System
 
                     cmd.ExecuteNonQuery();
 
-
-                     //string sqlQuery2 = @"UPDATE donor_login SET Email = @Email WHERE Donor_ID = @ID";
-
-                     //MySqlCommand cmd2 = new MySqlCommand(sqlQuery2, conn);
-                     //cmd2.Parameters.AddWithValue("@Email", Email);
-                    // cmd2.Parameters.AddWithValue("@Donor_ID", selectedID);
-
-                     //cmd2.ExecuteNonQuery();
 
                     MessageBox.Show("Donor updated successfully!");
                     LoadDonors();
@@ -448,7 +462,7 @@ namespace Book_Exchange_System
                 return;
             }
 
-            int donorID = Convert.ToInt32(cmbDeleteDonor.SelectedValue.ToString());
+            int donorID = Convert.ToInt32(cmbDeleteDonor.SelectedItem.ToString());
 
             DialogResult result = MessageBox.Show("Are you sure you want to delete this donor?", "Confirm Delete", MessageBoxButtons.YesNo);
 
@@ -475,7 +489,7 @@ namespace Book_Exchange_System
                     cmd.Parameters.AddWithValue("@ID", donorID);
                     cmd.ExecuteNonQuery();
 
-                    MessageBox.Show("Applicant deleted successfully!");
+                    MessageBox.Show("Donor deleted successfully!");
                     LoadDonors();
                     RefreshDonorID();
                     cmbDeleteDonor.SelectedIndex = -1;

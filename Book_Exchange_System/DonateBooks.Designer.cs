@@ -334,6 +334,7 @@ namespace Book_Exchange_System
             // 
             // dgvCurrentApp
             // 
+            this.dgvCurrentApp.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvCurrentApp.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCurrentApp.Location = new System.Drawing.Point(629, 176);
             this.dgvCurrentApp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -507,6 +508,7 @@ namespace Book_Exchange_System
             // 
             // dgvDonate
             // 
+            this.dgvDonate.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvDonate.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDonate.Location = new System.Drawing.Point(499, 84);
             this.dgvDonate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -906,9 +908,9 @@ namespace Book_Exchange_System
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1901, 993);
-            this.Controls.Add(this.UpdateDonor);
             this.Controls.Add(this.Donate);
             this.Controls.Add(this.Add);
+            this.Controls.Add(this.UpdateDonor);
             this.Controls.Add(this.TopGraphic);
             this.Controls.Add(this.ButtonGraphics);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);

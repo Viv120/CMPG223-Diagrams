@@ -94,12 +94,12 @@ namespace Book_Exchange_System
             this.ButtonGraphic.BackColor = System.Drawing.Color.Transparent;
             this.ButtonGraphic.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ButtonGraphic.BackgroundImage")));
             this.ButtonGraphic.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ButtonGraphic.Controls.Add(this.btnShowBooks);
             this.ButtonGraphic.Controls.Add(this.btnShowApps);
             this.ButtonGraphic.Controls.Add(this.btnReports);
             this.ButtonGraphic.Controls.Add(this.pictureBox1);
             this.ButtonGraphic.Controls.Add(this.btnBack);
             this.ButtonGraphic.Controls.Add(this.btnShowDonors);
-            this.ButtonGraphic.Controls.Add(this.btnShowBooks);
             this.ButtonGraphic.Dock = System.Windows.Forms.DockStyle.Left;
             this.ButtonGraphic.Location = new System.Drawing.Point(0, 0);
             this.ButtonGraphic.Margin = new System.Windows.Forms.Padding(4);
@@ -342,9 +342,9 @@ namespace Book_Exchange_System
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1902, 993);
+            this.Controls.Add(this.Books);
             this.Controls.Add(this.Applicants);
             this.Controls.Add(this.Donors);
-            this.Controls.Add(this.Books);
             this.Controls.Add(this.ButtonGraphic);
             this.Controls.Add(this.TopGraphic);
             this.Name = "Admin";

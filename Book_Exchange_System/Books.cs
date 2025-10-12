@@ -273,6 +273,11 @@ namespace Book_Exchange_System
         private void Books_Load(object sender, EventArgs e)
         {
             LoadBooks();
+
+            AddBooks.Visible = false;
+            Deletebooks.Visible = false;
+            UpdateBook.Visible = false;
+            Search.Visible = true;
         }
 
         private void cmbBookID_SelectedIndexChanged(object sender, EventArgs e)
@@ -341,6 +346,9 @@ namespace Book_Exchange_System
                 return;
             }
 
+            bool valid = true;
+            errorProvider1.Clear();
+
             //update the old book details
             int selectedID = Convert.ToInt32(cmbBookID.SelectedItem);
             string bookTitle = txtUpdateTitle.Text;
@@ -362,6 +370,44 @@ namespace Book_Exchange_System
             else if (rbUpdateVaal.Checked)
             {
                 campusID = 3;
+            }
+
+            if (string.IsNullOrWhiteSpace(bookTitle))
+            {
+                errorProvider1.SetError(txtUpdateTitle, "Please enter a title!");
+                txtUpdateTitle.BackColor = Color.LightPink;
+                valid = false;
+            }
+
+            if (string.IsNullOrWhiteSpace(authorFName))
+            {
+                errorProvider1.SetError(txtUpdateAName, "Please enter the author's first name!");
+                txtUpdateAName.BackColor = Color.LightPink;
+                valid = false;
+            }
+            if (string.IsNullOrWhiteSpace(authorLName))
+            {
+                errorProvider1.SetError(txtUpdateASurname, "Please enter the author's last name!");
+                txtUpdateASurname.BackColor = Color.LightPink;
+                valid = false;
+            }
+
+            if (string.IsNullOrWhiteSpace(edition))
+            {
+                errorProvider1.SetError(txtUpdateEdition, "Please enter the book edition!");
+                txtUpdateEdition.BackColor = Color.LightPink;
+                valid = false;
+            }
+            if (string.IsNullOrWhiteSpace(yearPublished) || !Regex.IsMatch(yearPublished, @"^\d{4}$"))
+            {
+                errorProvider1.SetError(txtUpdateYear, "Year must be exactly 4 digits!");
+                txtUpdateYear.BackColor = Color.LightPink;
+                valid = false;
+            }
+
+            if(!valid)
+            {
+                return;
             }
 
             try
@@ -388,24 +434,37 @@ namespace Book_Exchange_System
                         cmd.Parameters.AddWithValue("@id", selectedID);
 
                         cmd.ExecuteNonQuery();
-                        
-                        MessageBox.Show("Book updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        LoadBooks();
-                        RefreshBookID();
-
-                        //clear everything
-                        cmbBookID.SelectedIndex = -1;
-                        txtUpdateTitle.Clear();
-                        txtUpdateAName.Clear();
-                        txtUpdateASurname.Clear();
-                        txtUpdateEdition.Clear();
-                        txtUpdateYear.Clear();
-                        nudUpdateCondition.Value = 1;
-                        rbUpdateMahikeng.Checked = false;
-                        rbUpdatePotch.Checked = false;
-                        rbUpdateVaal.Checked = false;
                     }
+
+                    MessageBox.Show("Book updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    cmbBookID.SelectedIndex = -1;
+                    txtUpdateTitle.Clear();
+                    txtUpdateAName.Clear();
+                    txtUpdateASurname.Clear();
+                    txtUpdateEdition.Clear();
+                    txtUpdateYear.Clear();
+                    nudUpdateCondition.Value = 1;
+                    rbUpdateMahikeng.Checked = false;
+                    rbUpdatePotch.Checked = false;
+                    rbUpdateVaal.Checked = false;
+
+                    errorProvider1.Clear();
+                    txtUpdateTitle.BackColor = SystemColors.Window;
+                    txtUpdateAName.BackColor = SystemColors.Window;
+                    txtUpdateASurname.BackColor = SystemColors.Window;
+                    txtUpdateEdition.BackColor = SystemColors.Window;
+                    txtUpdateYear.BackColor = SystemColors.Window;
+                    rbUpdateMahikeng.BackColor = SystemColors.Control;
+                    rbUpdatePotch.BackColor = SystemColors.Control;
+                    rbUpdateVaal.BackColor = SystemColors.Control;
+                    nudUpdateCondition.BackColor = SystemColors.Control;
+
+
+                    LoadBooks();
+                    RefreshBookID();
                 }
+              
             }
             catch (Exception ex)
             {

@@ -66,6 +66,9 @@ namespace Book_Exchange_System
 
                     dgvIssue.DataSource = dt;
 
+                    lblIssuedDateRange.Visible = true;
+                    lblTotalIssued.Visible = true; ;
+
                     lblIssuedDateRange.Text = $"Books issued from {startDate:yyyy-MM-dd} to {endDate:yyyy-MM-dd}";
                     lblTotalIssued.Text = $"Total Books Issued: {dt.Rows.Count}";
                 }
@@ -105,6 +108,9 @@ namespace Book_Exchange_System
 
                     dgvDonate.DataSource = dt;
 
+                    lblDonatedDateRange.Visible = true;
+                    lblTotalDonated.Visible = true;
+
                     lblDonatedDateRange.Text = $"Books donated from {startDate:yyyy-MM-dd} to {endDate:yyyy-MM-dd}";
                     lblTotalDonated.Text = $"Total Books Donated: {dt.Rows.Count}";
                 }
@@ -113,6 +119,13 @@ namespace Book_Exchange_System
                     MessageBox.Show("Database error: " + ex.Message);
                 }
             }
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Admin newAdmin = new Admin();
+            newAdmin.Show();
         }
     }
 }
