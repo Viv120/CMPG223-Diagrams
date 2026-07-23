@@ -49,9 +49,9 @@ NWU-Book-Exchange/
   Standard PC running Windows 10
   
 * # Software:
- ** MySQL Server
- ** Visual Studio with C# support
- ** .NET Framework
+  * MySQL Server
+  * Visual Studio with C# support
+  * .NET Framework
 
 ## Installation
 1. Clone the repository:
